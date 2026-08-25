@@ -1,12 +1,15 @@
 /**
  * Canonical site identity for SEO, GEO, sitemaps, and structured data.
- * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://www.kamlesh.tech).
+ * Production URL: https://kamlesh.tech
  */
 export const siteConfig = {
   name: "Kamlesh Mundel",
   shortName: "Kamlesh Mundel",
   title: "Kamlesh Mundel — Sr. Full Stack Developer",
   titleTemplate: "%s · Kamlesh Mundel",
+  /** Canonical production origin (no trailing slash, no www). */
+  url: "https://kamlesh.tech",
+  domain: "kamlesh.tech",
   description:
     "Kamlesh Mundel is a Sr. Full Stack Developer in Ahmedabad, India. He builds production web products with React, Next.js, Node.js, TypeScript, Python, Frappe/ERPNext, AWS, and AI (LangChain, RAG, ChatGPT) — from ed-tech and real estate to medical training and enterprise systems.",
   locale: "en_IN",
@@ -20,10 +23,9 @@ export const siteConfig = {
   jobTitle: "Sr. Full Stack Developer",
   email: "kamleshmundel18@gmail.com",
   phone: "+917790997718",
-  domain: "kamlesh.tech",
   sameAs: [
     "https://in.linkedin.com/in/kamlesh-mundel-88b7401a1",
-    "https://www.kamlesh.tech",
+    "https://kamlesh.tech",
   ] as const,
   keywords: [
     "Kamlesh Mundel",
@@ -45,6 +47,7 @@ export const siteConfig = {
     "enterprise software engineer",
     "ed-tech developer",
     "real estate platform developer",
+    "kamlesh.tech",
   ] as const,
 } as const;
 
@@ -52,16 +55,11 @@ export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
   if (fromEnv) return fromEnv;
 
-  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim().replace(
-    /\/$/,
-    "",
-  );
-  if (vercel) return `https://${vercel}`;
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3000";
+  }
 
-  const vercelUrl = process.env.VERCEL_URL?.trim().replace(/\/$/, "");
-  if (vercelUrl) return `https://${vercelUrl}`;
-
-  return "http://localhost:3000";
+  return siteConfig.url;
 }
 
 export function absoluteUrl(path = "/"): string {
