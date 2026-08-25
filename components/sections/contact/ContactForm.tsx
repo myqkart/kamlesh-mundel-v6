@@ -1,12 +1,13 @@
 "use client";
 
+import emailjs from "@emailjs/browser";
 import {
   useId,
   useState,
   type ChangeEvent,
   type FormEvent,
 } from "react";
-import { contactInfo } from "@/data/contact";
+import { emailJsConfig } from "@/data/contact";
 
 type FormState = {
   name: string;
@@ -27,6 +28,7 @@ export function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = () => {
     const next: Partial<FormState> = {};
@@ -39,8 +41,10 @@ export function ContactForm() {
     return Object.keys(next).length === 0;
   };
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitError(null);
+
     if (!validate()) {
       setStatus("error");
       return;
@@ -48,20 +52,24 @@ export function ContactForm() {
 
     setStatus("sending");
 
-    const subject = encodeURIComponent(
-      `Portfolio inquiry from ${form.name.trim()}`,
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
-    );
+    try {
+      await emailjs.send(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+        },
+        { publicKey: emailJsConfig.publicKey },
+      );
 
-    // Opens the visitor's mail client — no backend required.
-    window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
-
-    window.setTimeout(() => {
       setStatus("sent");
       setForm(initial);
-    }, 400);
+    } catch {
+      setStatus("error");
+      setSubmitError("Couldn't send just now — try again in a moment.");
+    }
   };
 
   const onFieldChange =
@@ -70,7 +78,19 @@ export function ContactForm() {
       setForm((prev) => ({ ...prev, [key]: event.target.value }));
       if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
       if (status !== "idle") setStatus("idle");
+      if (submitError) setSubmitError(null);
     };
+
+  const statusMessage =
+    status === "sent"
+      ? "Message sent — I'll get back to you soon."
+      : status === "sending"
+        ? "Sending…"
+        : submitError
+          ? submitError
+          : status === "error"
+            ? "Check the fields above and try again."
+            : "I'll reply by email.";
 
   return (
     <form
@@ -94,6 +114,7 @@ export function ContactForm() {
           aria-describedby={errors.name ? `${formId}-name-error` : undefined}
           className={`contact-input ${errors.name ? "is-invalid" : ""}`}
           onChange={onFieldChange("name")}
+          disabled={status === "sending"}
         />
         {errors.name ? (
           <p id={`${formId}-name-error`} className="contact-error" role="alert">
@@ -117,6 +138,7 @@ export function ContactForm() {
           aria-describedby={errors.email ? `${formId}-email-error` : undefined}
           className={`contact-input ${errors.email ? "is-invalid" : ""}`}
           onChange={onFieldChange("email")}
+          disabled={status === "sending"}
         />
         {errors.email ? (
           <p id={`${formId}-email-error`} className="contact-error" role="alert">
@@ -141,6 +163,7 @@ export function ContactForm() {
           }
           className={`contact-input ${errors.message ? "is-invalid" : ""}`}
           onChange={onFieldChange("message")}
+          disabled={status === "sending"}
         />
         {errors.message ? (
           <p
@@ -159,7 +182,7 @@ export function ContactForm() {
           className="contact-submit"
           disabled={status === "sending"}
         >
-          <span>{status === "sending" ? "Opening mail…" : "Send message"}</span>
+          <span>{status === "sending" ? "Sending…" : "Send message"}</span>
           <svg
             aria-hidden="true"
             className="cta-arrow h-3 w-5 overflow-visible"
@@ -177,14 +200,16 @@ export function ContactForm() {
         </button>
 
         <p
-          className="font-sketch text-[1.15rem] text-teal-700/80"
+          className={`font-sketch text-[1.15rem] ${
+            submitError || (status === "error" && !submitError && Object.keys(errors).length)
+              ? "text-[rgb(140_45_45)]"
+              : status === "sent"
+                ? "text-teal-700"
+                : "text-teal-700/80"
+          }`}
           aria-live="polite"
         >
-          {status === "sent"
-            ? "Your mail client should open with the message ready."
-            : status === "error"
-              ? "Check the fields above and try again."
-              : "Opens your email app to send."}
+          {statusMessage}
         </p>
       </div>
     </form>

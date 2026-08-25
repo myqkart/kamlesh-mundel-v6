@@ -157,7 +157,7 @@ export function Contact() {
             </ul>
 
             <p className="mt-10 max-w-[24rem] text-[1.02rem] leading-relaxed text-teal-900/70">
-              Prefer email? Use the form or write directly — either works.
+              Prefer email? Use the form or write me directly — either works.
             </p>
           </aside>
         </div>

@@ -7,3 +7,13 @@ export const contactInfo = {
   linkedInLabel: "LinkedIn",
   location: "Ahmedabad, India",
 } as const;
+
+/** EmailJS public client config (safe for the browser). */
+export const emailJsConfig = {
+  serviceId:
+    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "service_e0x4ojc",
+  templateId:
+    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "template_3bqyont",
+  publicKey:
+    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "TZ6CTSHx_Zge9EkCb",
+} as const;
