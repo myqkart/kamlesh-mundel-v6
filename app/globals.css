@@ -138,7 +138,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ):not(.is-visible)
     .cred-write {
     opacity: 0;
@@ -152,7 +153,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-write {
     animation: sketch-write 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -166,7 +168,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ):not(.is-visible)
     .cred-ink {
     stroke-dasharray: 1;
@@ -181,7 +184,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-ink {
     stroke-dasharray: 1;
@@ -197,7 +201,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ):not(.is-visible)
     .cred-node {
     opacity: 0;
@@ -212,7 +217,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-node {
     animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -888,6 +894,93 @@ body {
   }
 }
 
+/* Impact — cause → effect storytelling */
+.impact-story {
+  transition: opacity 0.4s ease;
+}
+
+.impact-story:not(.is-active) {
+  opacity: 0.72;
+}
+
+.impact-story.is-emphasis,
+.impact-story.is-active {
+  opacity: 1;
+}
+
+.impact-transform-sticky {
+  min-height: 20rem;
+}
+
+.impact-transform {
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.impact-path {
+  stroke: currentColor;
+}
+
+.impact-node {
+  opacity: 0.7;
+}
+
+.impact-node.is-mid {
+  opacity: 0.85;
+}
+
+.impact-node.is-hot {
+  opacity: 1;
+}
+
+.impact-label {
+  font-family: var(--font-sans), "Outfit", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .impact-ready:not(.is-visible) .impact-line,
+  .impact-ready:not(.is-visible) .impact-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .impact-ready.is-visible .impact-line,
+  .impact-ready.is-visible .impact-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .impact-ready:not(.is-visible) .impact-node {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  .impact-ready.is-visible .impact-node {
+    animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .impact-story {
+    transition: none;
+    opacity: 1;
+  }
+
+  .impact-path,
+  .impact-line {
+    stroke-dashoffset: 0;
+  }
+
+  .impact-node {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 
 /* Shared section parallax — driven by --py on each <section> via useSectionParallax.
    No CSS transition: transitions lag behind scroll and feel broken. */
@@ -1023,7 +1116,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-write,
   :is(
@@ -1034,7 +1128,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-ink,
   :is(
@@ -1045,7 +1140,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready).is-visible .work-visual,
@@ -1057,7 +1153,10 @@ body {
   .experience-ready.is-visible .experience-line,
   .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-ink,
   .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-node,
-  .experience-now::before {
+  .experience-now::before,
+  .impact-ready.is-visible .impact-line,
+  .impact-ready.is-visible .impact-path,
+  .impact-ready.is-visible .impact-node {
     animation: none;
   }
 
@@ -1072,7 +1171,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     )
     .cred-ink,
   :is(
@@ -1083,14 +1183,17 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-ink,
   .about-principle .principle-line,
   .about-ready.is-visible .principle-line,
   .approach-path,
   .experience-line,
-  .experience-sketch-ink {
+  .experience-sketch-ink,
+  .impact-path,
+  .impact-line {
     stroke-dashoffset: 0;
   }
 
@@ -1102,7 +1205,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ):not(.is-visible)
     .cred-write,
   :is(
@@ -1113,7 +1217,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-write,
   :is(
@@ -1124,7 +1229,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ):not(.is-visible)
     .cred-node,
   :is(
@@ -1135,7 +1241,8 @@ body {
       .archive-ready,
       .approach-ready,
       .experience-ready,
-      .expertise-ready
+      .expertise-ready,
+      .impact-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready):not(.is-visible) .work-visual,

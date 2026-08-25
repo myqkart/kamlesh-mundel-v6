@@ -5,6 +5,7 @@ import { EngineeringApproach } from "@/components/sections/engineering-approach"
 import { Experience } from "@/components/sections/experience";
 import { FeaturedWork } from "@/components/sections/featured-work";
 import { Hero } from "@/components/sections/hero";
+import { Impact } from "@/components/sections/impact";
 import { TechnicalExpertise } from "@/components/sections/technical-expertise";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <EngineeringApproach />
       <Experience />
       <TechnicalExpertise />
+      <Impact />
       <div id="contact" />
     </main>
   );
