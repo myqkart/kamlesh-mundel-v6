@@ -135,6 +135,14 @@ export function Contact() {
               </li>
               <li>
                 <a
+                  href={contactInfo.phoneHref}
+                  className="sketch-cta font-sketch text-[1.35rem] text-teal-900 md:text-[1.5rem]"
+                >
+                  {contactInfo.phone}
+                </a>
+              </li>
+              <li>
+                <a
                   href={contactInfo.linkedInUrl}
                   target="_blank"
                   rel="noopener noreferrer"

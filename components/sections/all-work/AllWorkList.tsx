@@ -104,7 +104,7 @@ export function AllWorkList({ projects }: AllWorkListProps) {
                 </div>
 
                 <span className="mt-5 inline-flex items-center gap-2 font-sketch text-[1.45rem] text-teal-900 md:text-[1.55rem]">
-                  open page
+                  let&apos;s talk
                   <svg
                     aria-hidden="true"
                     className="archive-arrow size-5 shrink-0 text-teal-700"

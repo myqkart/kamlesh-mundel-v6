@@ -22,9 +22,9 @@ const reenie = Reenie_Beanie({
 });
 
 export const metadata: Metadata = {
-  title: "Kamlesh Mundel — Senior Full Stack Developer",
+  title: "Kamlesh Mundel — Sr. Full Stack Developer",
   description:
-    "Kamlesh Mundel is a Senior Full Stack Developer (SDE-2) who designs, engineers, and ships production-ready digital products across MERN, TypeScript, Next.js, and Python.",
+    "Kamlesh Mundel is a Sr. Full Stack Developer based in Ahmedabad — building production web products with React, Next.js, Node.js, TypeScript, Python, Frappe, and AI integrations.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

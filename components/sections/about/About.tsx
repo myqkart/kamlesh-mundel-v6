@@ -55,14 +55,15 @@ export function About() {
               className="cred-write max-w-[30rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
               style={{ animationDelay: "520ms" }}
             >
-              I work where product ideas meet constraints — UI, API, data model,
-              and deploy as one product.
+              Based in Ahmedabad — I craft high-performance web apps with React,
+              Next.js, Node.js, TypeScript, Python, and Frappe, focused on UX and
+              business impact.
             </p>
             <p
               className="cred-write mt-5 max-w-[24rem] rotate-1 font-sketch text-[1.85rem] leading-snug text-teal-700 md:text-[2.1rem]"
               style={{ animationDelay: "640ms" }}
             >
-              not just building software — caring how it works, feels, and why
+              architecture, mentoring, and products that create real value
             </p>
           </div>
 

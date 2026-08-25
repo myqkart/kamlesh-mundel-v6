@@ -26,60 +26,60 @@ const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
 
 export const impactStories: readonly ImpactStory[] = [
   {
-    id: "documents-to-data",
+    id: "immersive-learning",
     number: "01",
-    dimension: "Efficiency",
-    title: "Documents into usable data",
-    transformation: "Unstructured documents → structured property data",
+    dimension: "Experience",
+    title: "Learning that feels immersive",
+    transformation: "Static study materials → 4K lessons with live prep",
     challenge:
-      "Property information trapped inside brochure PDFs — hard to search, process, or feed into downstream systems.",
+      "Classes 11 & 12 needed more than recorded lectures — students needed visuals, live exam prep, quizzes, and a way to clear doubts with teachers.",
     intervention:
-      "Engineered an AI extraction pipeline that reads brochure PDFs and turns them into structured property records.",
+      "Built Tutorac from scratch with 4K video lessons, 3D visuals, live tests, integrated quizzes, and a student–teacher doubt module.",
     outcome:
-      "Teams can process and use property data digitally instead of retyping and reconstructing it by hand.",
-    projectSlug: "property-extraction",
-    projectTitle: bySlug["property-extraction"]!.title,
-    projectHref: bySlug["property-extraction"]!.href,
+      "Learners get an immersive platform that supports study, practice, and clarification in one place.",
+    projectSlug: "tutorac",
+    projectTitle: bySlug.tutorac!.title,
+    projectHref: bySlug.tutorac!.href,
     emphasis: true,
   },
   {
-    id: "secure-credentials",
+    id: "ai-clinical-training",
     number: "02",
-    dimension: "Product",
-    title: "Security that stays usable",
-    transformation: "Complex security requirements → usable product",
+    dimension: "Enablement",
+    title: "Training therapists with AI",
+    transformation: "Limited practice access → realistic AI patient simulations",
     challenge:
-      "Credential management needs strong encryption and authenticated access without becoming unusable for everyday work.",
+      "Medical therapists need safe, repeatable practice with realistic patients, feedback, and progress tracking — without waiting for scarce clinical opportunities.",
     intervention:
-      "Built a zero-knowledge password vault around encrypted storage, JWT authentication, and a resilient PWA experience.",
+      "Engineered PartsPractice (Oxford Mtrain) with AI simulations, role-play, progress tracking, and ChatGPT-powered feedback plus subscription access.",
     outcome:
-      "Users keep control of sensitive credentials in a product designed for secure access — not plaintext storage.",
-    projectSlug: "credencex",
-    projectTitle: bySlug.credencex!.title,
-    projectHref: bySlug.credencex!.href,
+      "Therapists can rehearse scenarios and receive personalized AI feedback that strengthens skills and patient care.",
+    projectSlug: "partspractice",
+    projectTitle: bySlug.partspractice!.title,
+    projectHref: bySlug.partspractice!.href,
   },
   {
-    id: "enterprise-workflows",
+    id: "property-operations",
     number: "03",
     dimension: "Reliability",
-    title: "Workflows that hold in production",
-    transformation: "Manual business workflows → connected digital systems",
+    title: "Property ops in one system",
+    transformation: "Scattered property workflows → connected digital platform",
     challenge:
-      "Enterprise operations depend on complex rules, integrations, and data models that fail when treated as one-off tickets.",
+      "Real-estate organizations juggle projects, floor plans, amenities, pricing, brokers, and end-user buy/sell/rent journeys across disconnected tools.",
     intervention:
-      "Engineered Frappe-based workflows, APIs, and business logic shaped by real operational constraints.",
+      "Developed Eezily end to end on Frappe and React — REST APIs, authentication, CI/CD, deployments, and system architecture across frontend and backend.",
     outcome:
-      "Business processes run as connected digital systems — more reliable data flow, clearer ownership, less operational friction.",
-    projectSlug: "frappe-enterprise",
-    projectTitle: bySlug["frappe-enterprise"]!.title,
-    projectHref: bySlug["frappe-enterprise"]!.href,
+      "Teams manage residential and commercial portfolios while customers browse, buy, sell, or rent through one responsive experience.",
+    projectSlug: "eezily",
+    projectTitle: bySlug.eezily!.title,
+    projectHref: bySlug.eezily!.href,
   },
 ] as const;
 
 export const impactSignals = [
   { label: "4.5+", detail: "years shipping production software" },
-  { label: "10+", detail: "projects delivered across product & enterprise" },
-  { label: "3", detail: "impact dimensions evidenced here" },
+  { label: "8+", detail: "projects across product, AI & enterprise" },
+  { label: "3", detail: "impact stories evidenced here" },
 ] as const;
 
 export const impactArc = ["Problem", "Engineering", "Outcome"] as const;

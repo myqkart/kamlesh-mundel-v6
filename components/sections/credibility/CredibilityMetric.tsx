@@ -1,11 +1,11 @@
 const signals = [
   {
-    label: "SDE-2",
-    detail: "senior engineering",
-    className: "font-display text-[1.45rem] md:text-[1.65rem]",
+    label: "Sr. Full Stack",
+    detail: "current role",
+    className: "font-display text-[1.2rem] md:text-[1.4rem]",
   },
   {
-    label: "10+",
+    label: "8+",
     detail: "projects shipped",
     className: "font-display text-[1.75rem] md:text-[2rem]",
   },
@@ -15,7 +15,7 @@ const signals = [
     className: "font-sketch text-[1.45rem] md:text-[1.6rem]",
   },
   {
-    label: "MERN + Python",
+    label: "JS + Python",
     detail: "primary ecosystems",
     className: "font-display text-[1.1rem] tracking-[-0.01em] md:text-[1.2rem]",
   },
@@ -38,6 +38,9 @@ export function CredibilityMetric() {
         </p>
         <p className="mt-3 max-w-[16rem] text-[1.08rem] leading-snug text-teal-900/75">
           Turning messy problems into products people actually use.
+        </p>
+        <p className="mt-4 max-w-[18rem] font-sketch text-[1.25rem] leading-snug text-teal-700/80">
+          Angular · Node.js · MySQL — HackerRank certified
         </p>
         <svg
           aria-hidden="true"

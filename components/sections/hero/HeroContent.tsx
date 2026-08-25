@@ -47,7 +47,7 @@ export function HeroContent() {
         className="hero-reveal font-sketch -rotate-2 text-[1.85rem] leading-none text-teal-700 md:text-[2.1rem]"
         style={{ animationDelay: "80ms" }}
       >
-        senior full stack · sde-2
+        sr. full stack developer
       </p>
 
       <p
@@ -85,8 +85,8 @@ export function HeroContent() {
         className="hero-reveal mt-4 max-w-[30rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
         style={{ animationDelay: "520ms" }}
       >
-        Full stack across JS &amp; Python — interfaces, APIs, data, and the
-        infra that keeps them honest.
+        Full stack across JavaScript, TypeScript &amp; Python — interfaces,
+        APIs, data, AWS, and AI integrations that ship.
       </p>
 
       <div

@@ -3,12 +3,14 @@ const technologies = [
   "JavaScript",
   "React",
   "Next.js",
+  "Angular",
   "Node.js",
-  "MongoDB",
   "Python",
-  "FastAPI",
-  "Django",
   "Frappe",
+  "MySQL",
+  "MongoDB",
+  "AWS",
+  "LangChain",
 ] as const;
 
 export function CredibilityTech() {

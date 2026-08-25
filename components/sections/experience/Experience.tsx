@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useEffectEvent, useRef, useState } from "react";
-import { experienceRoles } from "@/data/experience";
+import { education, experienceRoles } from "@/data/experience";
 import { useSectionParallax } from "@/hooks/useSectionParallax";
 import { ExperienceAltitude } from "./ExperienceAltitude";
 import { ExperienceChapter } from "./ExperienceChapter";
@@ -165,13 +165,21 @@ export function Experience() {
           ))}
         </div>
 
-        <p
-          className="parallax-slow cred-write relative z-10 max-w-[34rem] -rotate-1 font-sketch text-[1.7rem] leading-snug text-teal-700 md:text-[1.9rem]"
+        <div
+          className="parallax-slow cred-write relative z-10 max-w-[36rem]"
           style={{ animationDelay: `${420 + experienceRoles.length * 140}ms` }}
         >
-          Every role added another layer to how I think about products, systems,
-          teams, and engineering.
-        </p>
+          <p className="-rotate-1 font-sketch text-[1.7rem] leading-snug text-teal-700 md:text-[1.9rem]">
+            Every role added another layer to how I think about products,
+            systems, teams, and engineering.
+          </p>
+          <p className="mt-6 font-sketch text-[1.35rem] leading-snug text-teal-700/80 md:text-[1.5rem]">
+            {education.degree} · {education.school}
+            <span className="mt-1 block text-teal-500">
+              {education.start} – {education.end} · {education.location}
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   );

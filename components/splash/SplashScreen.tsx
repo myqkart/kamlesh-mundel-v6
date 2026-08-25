@@ -206,7 +206,7 @@ export function SplashScreen() {
         </svg>
 
         <p className="splash-tag font-sketch">
-          senior full stack · sde-2 · built to move
+          sr. full stack · ahmedabad · built to move
         </p>
 
         {/* Progress ink stroke */}

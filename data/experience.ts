@@ -19,79 +19,76 @@ export type ExperienceRole = {
 
 export const experienceRoles: readonly ExperienceRole[] = [
   {
-    id: "momentum91",
+    id: "saasjoy",
     number: "01",
-    company: "Momentum91",
+    company: "Saasjoy Solutions",
     companyLegal: "Saasjoy Solutions Private Limited",
-    title: "SDE-2",
+    title: "Sr. Full Stack Developer",
     start: "Nov 2025",
     end: "Present",
     location: "Ahmedabad, India",
     current: true,
     scope:
-      "Full-stack ownership of enterprise solutions — architecture, delivery, and the systems that keep them reliable in production.",
+      "Leading scalable enterprise solutions with Frappe/ERPNext and modern web technologies — architecture, DevOps, and reliable products that create measurable business value.",
     responsibilities: [
-      "Shape system architecture across Frappe/ERPNext and modern web stacks",
-      "Own backend, API, and frontend delivery for production enterprise products",
-      "Drive CI/CD, deployment automation, and code quality across the team",
-      "Mentor engineers and contribute to technical decision-making",
+      "Lead development of enterprise solutions on Frappe/ERPNext and modern web stacks",
+      "Shape system architecture, DevOps, CI/CD, and deployment automation",
+      "Uphold code quality and mentor engineers across delivery",
+      "Build reliable products focused on measurable business impact",
     ],
     focus: [
       "Frappe/ERPNext",
       "Architecture",
-      "APIs",
       "DevOps",
       "CI/CD",
       "Mentoring",
     ],
     impact:
-      "Building scalable enterprise solutions with attention to architecture, automation, and long-term maintainability.",
+      "Passionate about system architecture, technical mentoring, and products that hold up in production.",
     domain: "Enterprise · Product Engineering",
   },
   {
     id: "techuz-fullstack",
     number: "02",
     company: "Techuz Infoweb",
+    companyLegal: "Techuz Infoweb PVT. LTD.",
     companyUrl: "https://www.techuz.com/",
     title: "Full-Stack Developer",
-    start: "Jul 2022",
+    start: "Jan 2022",
     end: "Nov 2025",
     location: "Ahmedabad, India",
     scope:
-      "Built product-facing web applications end to end — interfaces, APIs, and data — for startup and enterprise clients.",
+      "Crafted intuitive, high-performance web apps with React.js, Next.js, Node.js, TypeScript, and MySQL — focused on seamless UX and business impact.",
     responsibilities: [
-      "Developed high-performance web applications with React, Next.js, and Node.js",
-      "Shipped features across TypeScript frontends and MySQL-backed services",
-      "Translated product requirements into reliable, usable interfaces",
+      "Built production web applications with React, Next.js, Node.js, and TypeScript",
+      "Shipped full-stack features backed by MySQL and modern APIs",
+      "Led projects including database design, bidding logic with Stripe, PR reviews, and AWS deployment",
+      "Delivered products across ed-tech, marketplaces, real estate, and AI-assisted tools",
     ],
-    focus: ["React", "Next.js", "Node.js", "TypeScript", "MySQL"],
+    focus: ["React", "Next.js", "Node.js", "TypeScript", "MySQL", "AWS"],
     impact:
-      "Delivered production web products across education, marketplaces, and AI-assisted tools.",
+      "Delivered production products across education, auctions, AEC, and AI — from UX to deployment.",
     note: "Emerging Employee of the Month — 23 November 2022.",
     domain: "Product · Full Stack",
-  },
-  {
-    id: "techuz-trainee",
-    number: "03",
-    company: "Techuz Infoweb",
-    companyUrl: "https://www.techuz.com/",
-    title: "Software Developer Trainee",
-    start: "Jan 2022",
-    end: "Jul 2022",
-    location: "Ahmedabad, India",
-    scope:
-      "The starting point — learning how professional software is designed, reviewed, and shipped.",
-    responsibilities: [
-      "Developed foundational skills across the company’s web engineering stack",
-      "Grew into product work that led to a full-stack developer role",
-    ],
-    focus: ["JavaScript", "React", "Web fundamentals"],
-    domain: "Foundation",
   },
 ] as const;
 
 export const experienceMeta = {
   location: "Ahmedabad, India",
   since: "Since 2022",
-  evolution: "Trainee → Full Stack → SDE-2",
+  evolution: "Full Stack → Sr. Full Stack",
 } as const;
+
+export const education = {
+  degree: "Bachelor of Technology (Electronics & Communication)",
+  school: "Jodhpur Institute of Technology",
+  start: "Aug 2018",
+  end: "May 2022",
+  location: "Rajasthan, India",
+} as const;
+
+export const certificates = [
+  { name: "Angular", issuer: "HackerRank" },
+  { name: "Node.js", issuer: "HackerRank" },
+  { name: "MySQL", issuer: "HackerRank" },
+] as const;

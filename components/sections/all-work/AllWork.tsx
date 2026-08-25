@@ -159,7 +159,7 @@ export function AllWork() {
           className="parallax-slow cred-write max-w-[28rem] -rotate-1 font-sketch text-[1.55rem] leading-snug text-teal-700 md:text-[1.7rem]"
           style={{ animationDelay: "560ms" }}
         >
-          click a stamp to open the full page
+          tap a stamp if you want to talk about a project
         </p>
       </div>
     </section>

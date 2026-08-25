@@ -7,7 +7,7 @@ type ExperienceAltitudeProps = {
   onSelect: (id: string) => void;
 };
 
-/** Hand-drawn climb meter — trainee → full stack → SDE-2. */
+/** Hand-drawn climb meter — full stack → sr. full stack. */
 export function ExperienceAltitude({
   activeId,
   onSelect,
@@ -50,11 +50,11 @@ export function ExperienceAltitude({
             const isHot = role.id === activeId;
             // Height metaphor: later career = higher on climb
             const heightLabel =
-              chronologicalIndex === 0
-                ? "base camp"
-                : chronologicalIndex === 1
-                  ? "ridge"
-                  : "summit";
+              chronologicalIndex === climb.length - 1
+                ? "summit"
+                : chronologicalIndex === 0
+                  ? "base camp"
+                  : "ridge";
 
             return (
               <li key={role.id}>

@@ -191,9 +191,8 @@ function ChapterDoodle({ roleId, active }: { roleId: string; active: boolean }) 
       className={`experience-chapter-doodle size-full ${active ? "is-active" : ""}`}
       aria-hidden="true"
     >
-      {roleId === "momentum91" ? <DoodleEnterprise /> : null}
+      {roleId === "saasjoy" ? <DoodleEnterprise /> : null}
       {roleId === "techuz-fullstack" ? <DoodleProduct /> : null}
-      {roleId === "techuz-trainee" ? <DoodleFoundation /> : null}
     </div>
   );
 }
@@ -278,40 +277,6 @@ function DoodleProduct() {
         </text>
         <text x="120" y="312" className="experience-sketch-note" fill="currentColor">
           interface → product
-        </text>
-      </g>
-    </svg>
-  );
-}
-
-function DoodleFoundation() {
-  return (
-    <svg className="size-full text-teal-900" fill="none" viewBox="0 0 400 320">
-      <g stroke="currentColor" strokeLinecap="round">
-        <path d="M40 270 H360" className="text-teal-900/25" strokeWidth="1" />
-        <path className="experience-sketch-ink" d="M60 210 H115 V270 H60 Z" strokeWidth="1.6" style={{ animationDelay: "80ms" }} />
-        <path className="experience-sketch-ink" d="M135 165 H195 V270 H135 Z" strokeWidth="1.65" style={{ animationDelay: "160ms" }} />
-        <path className="experience-sketch-ink" d="M215 115 H280 V270 H215 Z" strokeWidth="1.7" style={{ animationDelay: "240ms" }} />
-        <path className="experience-sketch-ink" d="M300 70 H370 V270 H300 Z" strokeWidth="1.8" style={{ animationDelay: "320ms" }} />
-        <path
-          className="experience-sketch-ink"
-          d="M85 190 C140 150 190 120 245 90 C285 68 320 55 350 42"
-          strokeWidth="1.6"
-          strokeOpacity="0.65"
-          style={{ animationDelay: "420ms" }}
-        />
-        <circle className="experience-sketch-node" cx="88" cy="210" r="5" style={{ animationDelay: "560ms" }} />
-        <circle className="experience-sketch-node" cx="165" cy="165" r="5" style={{ animationDelay: "620ms" }} />
-        <circle className="experience-sketch-node" cx="248" cy="115" r="5.5" style={{ animationDelay: "680ms" }} />
-        <circle className="experience-sketch-node is-hot" cx="335" cy="70" r="7" style={{ animationDelay: "740ms" }} />
-        <text x="50" y="50" className="experience-sketch-label" fill="currentColor">
-          START
-        </text>
-        <text x="300" y="48" className="experience-sketch-label" fill="currentColor">
-          GROW
-        </text>
-        <text x="110" y="305" className="experience-sketch-note" fill="currentColor">
-          learn · build · rise
         </text>
       </g>
     </svg>
