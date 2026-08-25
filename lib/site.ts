@@ -1,6 +1,6 @@
 /**
  * Canonical site identity for SEO, GEO, sitemaps, and structured data.
- * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://kamleshmundel.com).
+ * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://www.kamlesh.tech).
  */
 export const siteConfig = {
   name: "Kamlesh Mundel",
@@ -20,8 +20,10 @@ export const siteConfig = {
   jobTitle: "Sr. Full Stack Developer",
   email: "kamleshmundel18@gmail.com",
   phone: "+917790997718",
+  domain: "kamlesh.tech",
   sameAs: [
     "https://in.linkedin.com/in/kamlesh-mundel-88b7401a1",
+    "https://www.kamlesh.tech",
   ] as const,
   keywords: [
     "Kamlesh Mundel",
