@@ -36,7 +36,7 @@ export function Hero() {
           />
         </svg>
       </div>
-      <div className="relative z-10 flex min-h-[100svh] flex-1 flex-col justify-between px-[7vw] pb-7 pt-[max(3.5rem,8vh)] md:pb-9">
+      <div className="relative z-10 flex min-h-[100svh] flex-1 flex-col justify-between gap-6 px-[max(1.85rem,6.5vw)] pb-[max(1.25rem,env(safe-area-inset-bottom),1.75rem)] pt-[max(2.75rem,env(safe-area-inset-top),6vh)] md:gap-0 md:px-[7vw] md:pb-9 md:pt-[max(3.5rem,8vh)]">
         <div className="parallax-slow">
           <HeroContent />
         </div>

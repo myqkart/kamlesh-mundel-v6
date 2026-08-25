@@ -7,12 +7,12 @@ type AllWorkListProps = {
 };
 
 const TILTS = [
-  "-rotate-1",
-  "rotate-1",
-  "rotate-2",
-  "-rotate-2",
-  "rotate-1",
-  "-rotate-1",
+  "-rotate-1 max-md:rotate-0",
+  "rotate-1 max-md:rotate-0",
+  "rotate-2 max-md:rotate-0",
+  "-rotate-2 max-md:rotate-0",
+  "rotate-1 max-md:rotate-0",
+  "-rotate-1 max-md:rotate-0",
 ] as const;
 
 export function AllWorkList({ projects }: AllWorkListProps) {
@@ -27,7 +27,7 @@ export function AllWorkList({ projects }: AllWorkListProps) {
   return (
     <ul
       key={projects.map((project) => project.id).join("-")}
-      className="archive-wall grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-7 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12"
+      className="archive-wall grid grid-cols-1 gap-8 overflow-x-clip sm:grid-cols-2 sm:gap-x-7 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12"
     >
       {projects.map((project, index) => {
         const tilt = TILTS[index % TILTS.length]!;

@@ -16,6 +16,9 @@ export function HeroDecorations() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduce.matches) return;
 
+    const narrow = window.matchMedia("(max-width: 767px)");
+    if (narrow.matches) return;
+
     const onMove = (event: PointerEvent) => {
       const bounds = root.getBoundingClientRect();
       const x = (event.clientX - bounds.left) / bounds.width - 0.5;
@@ -38,7 +41,7 @@ export function HeroDecorations() {
     >
       <div className="hero-sketch-scroll absolute inset-0">
         <svg
-          className="hero-sketch absolute top-[14%] right-[-6%] h-[88%] w-[150%] max-w-none text-teal-900 opacity-[0.32] sm:w-[115%] md:top-[6%] md:right-[1%] md:h-[90%] md:w-[54%] md:opacity-95"
+          className="hero-sketch absolute top-[18%] right-[-18%] h-[78%] w-[145%] max-w-none text-teal-900 opacity-[0.11] sm:right-[-10%] sm:w-[120%] sm:opacity-[0.18] md:top-[6%] md:right-[1%] md:h-[90%] md:w-[54%] md:opacity-95"
           fill="none"
           preserveAspectRatio="xMidYMid meet"
           viewBox="0 0 640 720"

@@ -22,7 +22,7 @@ export function CredibilityTech() {
       <p className="shrink-0 font-sketch text-[1.6rem] text-teal-700 md:text-[1.8rem]">
         core stack annotations
       </p>
-      <p className="max-w-[52rem] font-sketch text-[1.7rem] leading-snug text-teal-900 md:text-[1.95rem]">
+      <p className="cred-tech-line max-w-[52rem] font-sketch text-[1.45rem] leading-snug text-teal-900 md:text-[1.95rem]">
         {technologies.join(" · ")}
       </p>
     </div>

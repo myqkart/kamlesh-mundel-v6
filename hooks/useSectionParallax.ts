@@ -5,6 +5,7 @@ import { useEffect, type RefObject } from "react";
 /**
  * Shared section parallax — sets --py (-1..1) and --p (0..1) on the section element.
  * Matches the hero scroll style: rAF-throttled, no CSS transition lag.
+ * Disabled on narrow viewports so mobile layouts stay stable.
  */
 export function useSectionParallax(
   ref: RefObject<HTMLElement | null>,
@@ -17,12 +18,23 @@ export function useSectionParallax(
     if (!node) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduce.matches) return;
+    const narrow = window.matchMedia("(max-width: 767px)");
 
     let ticking = false;
     let frame = 0;
 
+    const clear = () => {
+      node.style.removeProperty("--py");
+      node.style.removeProperty("--p");
+    };
+
     const update = () => {
+      if (reduce.matches || narrow.matches) {
+        clear();
+        ticking = false;
+        return;
+      }
+
       const rect = node.getBoundingClientRect();
       const vh = window.innerHeight || 1;
 
@@ -45,14 +57,27 @@ export function useSectionParallax(
       frame = requestAnimationFrame(update);
     };
 
+    const onModeChange = () => {
+      if (reduce.matches || narrow.matches) {
+        clear();
+        return;
+      }
+      update();
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
-    update();
+    reduce.addEventListener("change", onModeChange);
+    narrow.addEventListener("change", onModeChange);
+    onModeChange();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      reduce.removeEventListener("change", onModeChange);
+      narrow.removeEventListener("change", onModeChange);
       cancelAnimationFrame(frame);
+      clear();
     };
   }, [ref, enabled]);
 }

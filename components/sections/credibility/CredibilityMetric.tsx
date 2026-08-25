@@ -29,7 +29,7 @@ export function CredibilityMetric() {
           professional experience
         </p>
         <p className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-teal-900">
-          <span className="font-display text-[clamp(5rem,14vw,11rem)] leading-[0.78] tracking-[-0.05em]">
+          <span className="cred-years font-display text-[clamp(5rem,14vw,11rem)] leading-[0.78] tracking-[-0.05em]">
             4.5+
           </span>
           <span className="font-sketch text-[clamp(1.5rem,2.8vw,2.25rem)] leading-none text-teal-700">
