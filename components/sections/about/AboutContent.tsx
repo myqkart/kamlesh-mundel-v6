@@ -1,8 +1,8 @@
 export function AboutContent() {
   return (
-    <div className="max-w-[46rem]">
+    <div className="max-w-[42rem]">
       <p
-        className="cred-write font-sketch -rotate-1 text-[1.3rem] leading-none text-teal-700 md:text-[1.45rem]"
+        className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
         style={{ animationDelay: "80ms" }}
       >
         03 · about
@@ -10,18 +10,18 @@ export function AboutContent() {
 
       <h2
         id="about-heading"
-        className="cred-write mt-5 font-display wonk text-[clamp(2.5rem,5.2vw,4.5rem)] leading-[0.94] tracking-[-0.03em] text-teal-900"
+        className="cred-write mt-3 -rotate-1 font-display text-[clamp(2.6rem,5.4vw,4.6rem)] leading-[0.92] text-teal-900"
         style={{ animationDelay: "180ms" }}
       >
         An engineer who cares about the details.
       </h2>
 
       <p
-        className="cred-write mt-6 max-w-[36rem] text-[1.05rem] leading-relaxed text-teal-900/80 md:mt-7 md:text-[1.12rem]"
+        className="cred-write mt-4 max-w-[34rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
         style={{ animationDelay: "340ms" }}
       >
-        I enjoy turning complex ideas into software that feels simple to use,
-        reliable to run, and intentional in every detail.
+        Complex ideas → software that feels simple, runs reliably, and means
+        something.
       </p>
     </div>
   );

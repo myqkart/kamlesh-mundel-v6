@@ -45,7 +45,7 @@ export function ExpertiseEcosystem({
   return (
     <div className="expertise-ecosystem">
       <div className="cred-write" style={{ animationDelay: "420ms" }}>
-        <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-teal-500">
+        <p className="font-sketch text-[1.45rem] text-teal-700/80">
           Core stack
         </p>
         <ul className="mt-5 flex flex-wrap items-end gap-x-5 gap-y-4 md:gap-x-7">
@@ -60,7 +60,7 @@ export function ExpertiseEcosystem({
                 onFocus={() => onSelectTech(tech.id)}
                 onClick={() => onSelectTech(tech.id)}
               >
-                <span className="expertise-tech-name font-display wonk tracking-[-0.03em] text-teal-900">
+                <span className="expertise-tech-name font-display tracking-[-0.03em] text-teal-900">
                   {tech.name}
                 </span>
                 <span className="expertise-tech-meta">
@@ -73,10 +73,10 @@ export function ExpertiseEcosystem({
       </div>
 
       <div
-        className="cred-write mt-12 md:mt-14"
+        className="cred-write mt-8 md:mt-10"
         style={{ animationDelay: "620ms" }}
       >
-        <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-teal-500">
+        <p className="font-sketch text-[1.45rem] text-teal-700/80">
           Working stack
         </p>
         <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-3 md:gap-x-5">
@@ -107,7 +107,7 @@ export function ExpertiseEcosystem({
         className="cred-write mt-10 md:mt-12"
         style={{ animationDelay: "780ms" }}
       >
-        <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-teal-500">
+        <p className="font-sketch text-[1.45rem] text-teal-700/80">
           Supporting tools
         </p>
         <ul className="mt-4 flex flex-wrap gap-x-3.5 gap-y-2.5">
@@ -137,7 +137,7 @@ export function ExpertiseEcosystem({
         aria-live="polite"
       >
         {activeDescriptor ? (
-          <p className="max-w-[34rem] font-sketch text-[1.3rem] leading-snug text-teal-700 md:text-[1.45rem]">
+          <p className="max-w-[34rem] font-sketch text-[1.7rem] leading-snug text-teal-700 md:text-[1.9rem]">
             {activeDescriptor}
           </p>
         ) : (

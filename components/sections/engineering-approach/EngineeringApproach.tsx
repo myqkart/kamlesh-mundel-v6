@@ -165,7 +165,7 @@ export function EngineeringApproach() {
       ref={sectionRef}
       id="approach"
       aria-labelledby="approach-heading"
-      className={`paper-hero relative isolate ${ready ? "approach-ready" : ""} ${visible ? "is-visible" : ""} ${scrubbing ? "approach-scrubbing" : ""}`}
+      className={`relative isolate ${ready ? "approach-ready" : ""} ${visible ? "is-visible" : ""} ${scrubbing ? "approach-scrubbing" : ""}`}
       style={{ ["--approach-i" as string]: displayIndex }}
     >
       <div
@@ -173,9 +173,7 @@ export function EngineeringApproach() {
         className="approach-track relative"
         style={trackHeight ? { height: trackHeight } : undefined}
       >
-        <div className="approach-pin relative z-10 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden">
-          <div className="paper-grain absolute inset-0 opacity-[0.12]" />
-
+        <div className="approach-pin paper-match relative z-10 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 overflow-hidden text-teal-900"
@@ -212,34 +210,33 @@ export function EngineeringApproach() {
             </svg>
           </div>
 
-          <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-10 px-[7vw] py-[clamp(3.5rem,8vh,6rem)] md:gap-12 lg:gap-10 lg:py-[clamp(2.5rem,5vh,4.5rem)]">
-            <header className="max-w-[42rem]">
+          <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-8 px-[7vw] py-[clamp(2.25rem,5vh,3.5rem)] md:gap-10 lg:gap-8 lg:py-[clamp(2rem,4vh,3rem)]">
+            <header className="max-w-[40rem]">
               <p
-                className="cred-write font-sketch -rotate-1 text-[1.3rem] leading-none text-teal-700 md:text-[1.45rem]"
+                className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
                 style={{ animationDelay: "60ms" }}
               >
                 06 · engineering approach
               </p>
               <h2
                 id="approach-heading"
-                className="cred-write mt-4 font-display wonk text-[clamp(2.1rem,4.2vw,3.5rem)] leading-[0.95] tracking-[-0.03em] text-teal-900 lg:mt-5 lg:text-[clamp(2.2rem,3.8vw,3.35rem)]"
+                className="cred-write mt-3 -rotate-1 font-display text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[0.92] text-teal-900"
                 style={{ animationDelay: "160ms" }}
               >
                 How I think about engineering.
               </h2>
               <p
-                className="cred-write mt-4 max-w-[34rem] text-[1.02rem] leading-relaxed text-teal-900/80 md:text-[1.08rem] lg:mt-5"
+                className="cred-write mt-3 max-w-[30rem] rotate-1 font-sketch text-[1.65rem] leading-snug text-teal-700 md:text-[1.85rem]"
                 style={{ animationDelay: "280ms" }}
               >
-                From the first question to the final deployment, I focus on
-                understanding the problem before deciding how to solve it.
+                understand the problem first — then make the right things work
+                well
               </p>
               <p
-                className="cred-write mt-4 max-w-[32rem] font-sketch text-[1.25rem] leading-snug text-teal-700 md:text-[1.4rem]"
-                style={{ animationDelay: "360ms" }}
+                className="cred-write mt-4 hidden font-sketch text-[1.4rem] text-teal-500 lg:block"
+                style={{ animationDelay: "340ms" }}
               >
-                Good engineering is not just about making things work. It&apos;s
-                about making the right things work well.
+                ↓ scroll to walk the path
               </p>
             </header>
 
@@ -304,19 +301,17 @@ export function EngineeringApproach() {
         </div>
       </div>
 
-      <aside className="relative z-10 mx-auto w-full max-w-[90rem] border-t border-teal-900/15 px-[7vw] py-[clamp(3.5rem,8vh,5.5rem)]">
+      <aside className="sheet-block">
         <div
-          className="cred-write max-w-[40rem]"
+          className="cred-write max-w-[36rem]"
           style={{ animationDelay: "200ms" }}
         >
-          <p className="font-sketch text-[1.2rem] text-teal-700 md:text-[1.35rem]">
+          <p className="font-sketch -rotate-1 text-[1.6rem] text-teal-700 md:text-[1.8rem]">
             decisions are contextual
           </p>
-          <p className="mt-4 text-[1.02rem] leading-relaxed text-teal-900/80 md:text-[1.08rem]">
-            Tools and architecture follow the problem — requirements, team
-            context, product stage, complexity, performance needs,
-            maintainability, and what already exists. Nothing is universally
-            superior; the right choice fits the situation.
+          <p className="mt-3 text-[1.1rem] leading-snug text-teal-900/75 md:text-[1.15rem]">
+            Tools follow the problem — stage, team, complexity, what already
+            exists. Nothing is universally superior.
           </p>
         </div>
       </aside>
@@ -345,7 +340,7 @@ function MobilePrincipleCard({
         <span className="font-sketch text-[1.25rem] leading-none text-teal-700">
           {principle.number}
         </span>
-        <span className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-teal-500">
+        <span className="font-sketch text-[1.45rem] text-teal-700/80">
           {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </span>
       </div>
@@ -362,7 +357,7 @@ function MobilePrincipleCard({
         {principle.keywords.map((keyword) => (
           <li
             key={keyword}
-            className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-teal-500"
+            className="font-sketch text-[1.4rem] text-teal-700/80"
           >
             {keyword}
           </li>

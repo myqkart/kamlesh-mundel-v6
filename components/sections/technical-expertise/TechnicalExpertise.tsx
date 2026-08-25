@@ -52,65 +52,70 @@ export function TechnicalExpertise() {
       ref={ref}
       id="expertise"
       aria-labelledby="expertise-heading"
-      className={`paper-hero relative isolate overflow-x-clip ${ready ? "expertise-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`relative isolate overflow-x-clip ${ready ? "expertise-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
-      <div className="paper-grain parallax-back opacity-[0.12]" />
+      <div className="relative z-10 sheet-block flex flex-col gap-8 md:gap-10">
+        {/* Split header: title left, philosophy scribble right — not a content column */}
+        <header className="parallax-slow grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="max-w-[40rem] lg:col-span-7">
+            <p
+              className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
+              style={{ animationDelay: "60ms" }}
+            >
+              08 · technical expertise
+            </p>
+            <h2
+              id="expertise-heading"
+              className="cred-write mt-3 -rotate-1 font-display text-[clamp(2.4rem,5vw,4.2rem)] leading-[0.9] text-teal-900"
+              style={{ animationDelay: "160ms" }}
+            >
+              The tools behind the work.
+            </h2>
+            <p
+              className="cred-write mt-4 max-w-[30rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
+              style={{ animationDelay: "280ms" }}
+            >
+              Interfaces, systems, data, services — one stack, chosen for the
+              problem.
+            </p>
+          </div>
 
-      <div
-        aria-hidden="true"
-        className="parallax-mid pointer-events-none absolute inset-0 z-0 overflow-hidden text-teal-900"
-      >
-        <svg
-          className="absolute top-[12%] right-[-8%] hidden h-[70%] w-[55%] text-teal-900/15 lg:block"
-          fill="none"
-          viewBox="0 0 600 700"
-        >
-          <circle cx="320" cy="300" r="220" stroke="currentColor" strokeDasharray="5 10" strokeWidth="0.8" />
-          <path
-            className="cred-ink"
-            d="M80 120c90-20 160 40 230 20s140 50 200 30"
-            pathLength={1}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="1.2"
-            style={{ animationDelay: "400ms" }}
-          />
-          <path d="M480 80 H540 M540 80 V140" stroke="currentColor" strokeWidth="1.1" />
-          <path d="M90 560 H150 M90 560 V500" stroke="currentColor" strokeWidth="1.1" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-12 px-[7vw] py-[clamp(4.5rem,12vh,8.5rem)] md:gap-14 lg:gap-16">
-        <header className="parallax-slow max-w-[44rem]">
-          <p
-            className="cred-write font-sketch -rotate-1 text-[1.3rem] leading-none text-teal-700 md:text-[1.45rem]"
-            style={{ animationDelay: "60ms" }}
+          <aside
+            className="cred-write relative max-w-[22rem] lg:col-span-5 lg:justify-self-end"
+            style={{ animationDelay: "340ms" }}
           >
-            08 · technical expertise
-          </p>
-          <h2
-            id="expertise-heading"
-            className="cred-write mt-5 font-display wonk text-[clamp(2.35rem,4.8vw,4rem)] leading-[0.95] tracking-[-0.03em] text-teal-900"
-            style={{ animationDelay: "160ms" }}
-          >
-            The tools behind the work.
-          </h2>
-          <p
-            className="cred-write mt-6 max-w-[36rem] text-[1.05rem] leading-relaxed text-teal-900/80 md:text-[1.1rem]"
-            style={{ animationDelay: "280ms" }}
-          >
-            Technologies I use to design interfaces, build systems, connect
-            services, work with data, and ship production software.
-          </p>
-          <p
-            className="cred-write mt-5 max-w-[32rem] font-sketch text-[1.3rem] leading-snug text-teal-700 md:text-[1.45rem]"
-            style={{ animationDelay: "360ms" }}
-          >
-            A broad stack, grounded in real engineering experience.
-          </p>
+            <svg
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-3 text-teal-900/20"
+              fill="none"
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+            >
+              <path
+                d="M8 18 C 30 6, 70 8, 92 16 C 96 40, 94 70, 88 88 C 60 96, 28 94, 10 84 C 4 58, 4 36, 8 18 Z"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+            <p className="relative rotate-2 font-sketch text-[1.55rem] leading-none text-teal-700 md:text-[1.7rem]">
+              margin note
+            </p>
+            <p className="relative mt-3 -rotate-1 font-display text-[1.55rem] leading-snug text-teal-900 md:text-[1.75rem]">
+              Technology is a means, not the product.
+            </p>
+            <p className="relative mt-3 text-[1.05rem] leading-snug text-teal-900/70">
+              Chosen for constraints — not collected for a list.
+            </p>
+          </aside>
         </header>
 
+        {/* Horizontal connection ribbon — unique to expertise */}
         <div className="parallax-mid cred-write" style={{ animationDelay: "400ms" }}>
+          <ExpertiseFlow />
+        </div>
+
+        <div className="parallax-fast cred-write" style={{ animationDelay: "480ms" }}>
           <ExpertiseCategories
             categories={expertiseCategories}
             active={displayedCategory}
@@ -122,37 +127,16 @@ export function TechnicalExpertise() {
           />
         </div>
 
-        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="parallax-fast lg:col-span-7">
-            <ExpertiseEcosystem
-              technologies={expertiseTechnologies}
-              categories={expertiseCategories}
-              activeCategory={displayedCategory}
-              activeTech={displayedTech}
-              onHoverTech={setHoverTech}
-              onSelectTech={setActiveTech}
-            />
-          </div>
-
-          <aside className="parallax-slow lg:col-span-5 lg:pt-2">
-            <ExpertiseFlow />
-
-            <div
-              className="cred-write mt-12 border-t border-teal-900/15 pt-8"
-              style={{ animationDelay: "980ms" }}
-            >
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-teal-500">
-                Philosophy
-              </p>
-              <p className="mt-4 max-w-[28rem] font-display text-[1.35rem] leading-snug tracking-[-0.02em] text-teal-900 md:text-[1.5rem]">
-                Technology is a means, not the product.
-              </p>
-              <p className="mt-4 max-w-[28rem] text-[1.02rem] leading-relaxed text-teal-900/75 md:text-[1.06rem]">
-                Tools are chosen for the problem, the constraints, and the system
-                around them — not collected for the sake of a list.
-              </p>
-            </div>
-          </aside>
+        {/* Full-bleed constellation — no right sidebar */}
+        <div className="parallax-slow">
+          <ExpertiseEcosystem
+            technologies={expertiseTechnologies}
+            categories={expertiseCategories}
+            activeCategory={displayedCategory}
+            activeTech={displayedTech}
+            onHoverTech={setHoverTech}
+            onSelectTech={setActiveTech}
+          />
         </div>
       </div>
     </section>

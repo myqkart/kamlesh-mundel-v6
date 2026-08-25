@@ -25,20 +25,19 @@ export function CredibilityMetric() {
   return (
     <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-8 lg:gap-12">
       <div className="cred-write relative min-w-0" style={{ animationDelay: "280ms" }}>
-        <p className="font-sketch text-[1.2rem] text-teal-700 md:text-[1.35rem]">
+        <p className="font-sketch text-[1.6rem] text-teal-700 md:text-[1.8rem]">
           professional experience
         </p>
         <p className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-teal-900">
-          <span className="font-display wonk text-[clamp(5rem,14vw,11rem)] leading-[0.78] tracking-[-0.05em]">
+          <span className="font-display text-[clamp(5rem,14vw,11rem)] leading-[0.78] tracking-[-0.05em]">
             4.5+
           </span>
           <span className="font-sketch text-[clamp(1.5rem,2.8vw,2.25rem)] leading-none text-teal-700">
             years
           </span>
         </p>
-        <p className="mt-4 max-w-[18rem] text-[0.98rem] leading-relaxed text-teal-900/75">
-          Years of turning ideas, requirements, and complex problems into
-          products people can actually use.
+        <p className="mt-3 max-w-[16rem] text-[1.08rem] leading-snug text-teal-900/75">
+          Turning messy problems into products people actually use.
         </p>
         <svg
           aria-hidden="true"
@@ -70,7 +69,7 @@ export function CredibilityMetric() {
               <span className={`block leading-none text-teal-900 ${signal.className}`}>
                 {signal.label}
               </span>
-              <span className="mt-1 block font-sketch text-[1.1rem] leading-none text-teal-700">
+              <span className="mt-1 block font-sketch text-[1.4rem] leading-none text-teal-700">
                 {signal.detail}
               </span>
             </div>

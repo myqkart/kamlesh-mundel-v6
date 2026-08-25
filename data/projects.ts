@@ -68,7 +68,7 @@ export const projects: Project[] = [
     technologies: ["Frappe", "Python", "APIs", "Databases"],
     href: "/work/frappe-enterprise",
     featured: true,
-    layout: "compact",
+    layout: "primary",
     visual: "erp",
   },
 ];

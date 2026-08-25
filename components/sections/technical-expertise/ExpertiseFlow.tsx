@@ -5,7 +5,7 @@ import { expertiseFlow } from "@/data/technical-expertise";
 export function ExpertiseFlow() {
   return (
     <div className="cred-write" style={{ animationDelay: "520ms" }}>
-      <p className="font-sketch text-[1.2rem] text-teal-700 md:text-[1.35rem]">
+      <p className="font-sketch text-[1.6rem] text-teal-700 md:text-[1.8rem]">
         how the stack connects
       </p>
 

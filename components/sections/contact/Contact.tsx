@@ -37,10 +37,8 @@ export function Contact() {
       ref={ref}
       id="contact"
       aria-labelledby="contact-heading"
-      className={`paper-hero relative isolate overflow-x-clip ${ready ? "contact-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`relative isolate overflow-x-clip ${ready ? "contact-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
-      <div className="paper-grain parallax-back opacity-[0.12]" />
-
       <div
         aria-hidden="true"
         className="parallax-mid pointer-events-none absolute inset-0 z-0 overflow-hidden text-teal-900"
@@ -90,23 +88,23 @@ export function Contact() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-12 px-[7vw] py-[clamp(4.5rem,12vh,8.5rem)] md:gap-14 lg:gap-16">
+      <div className="relative z-10 sheet-block flex flex-col gap-8 md:gap-10">
         <header className="parallax-slow max-w-[42rem]">
           <p
-            className="cred-write font-sketch -rotate-1 text-[1.3rem] leading-none text-teal-700 md:text-[1.45rem]"
+            className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
             style={{ animationDelay: "60ms" }}
           >
             10 · contact
           </p>
           <h2
             id="contact-heading"
-            className="cred-write mt-5 font-display wonk text-[clamp(2.35rem,4.8vw,4rem)] leading-[0.95] tracking-[-0.03em] text-teal-900"
+            className="cred-write mt-3 -rotate-1 font-display text-[clamp(2.35rem,4.8vw,4rem)] leading-[0.92] text-teal-900"
             style={{ animationDelay: "160ms" }}
           >
             Let&apos;s build something useful.
           </h2>
           <p
-            className="cred-write mt-6 max-w-[34rem] text-[1.05rem] leading-relaxed text-teal-900/80 md:text-[1.1rem]"
+            className="cred-write mt-4 max-w-[30rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
             style={{ animationDelay: "280ms" }}
           >
             For work, collaboration, or a conversation about product
@@ -123,8 +121,8 @@ export function Contact() {
             className="parallax-slow cred-write lg:col-span-5 lg:pt-2"
             style={{ animationDelay: "520ms" }}
           >
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-teal-500">
-              Direct
+            <p className="font-sketch -rotate-1 text-[1.55rem] text-teal-700 md:text-[1.7rem]">
+              direct
             </p>
             <ul className="mt-5 flex flex-col gap-5">
               <li>

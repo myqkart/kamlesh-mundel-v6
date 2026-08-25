@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Caveat, Fraunces, Outfit } from "next/font/google";
+import { Caveat, Kalam, Reenie_Beanie } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const kalam = Kalam({
   subsets: ["latin"],
-  variable: "--font-outfit",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  axes: ["SOFT", "WONK"],
+  weight: ["300", "400", "700"],
+  variable: "--font-kalam",
 });
 
 const caveat = Caveat({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-caveat",
+});
+
+const reenie = Reenie_Beanie({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-reenie",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${fraunces.variable} ${caveat.variable} h-full antialiased`}
+      className={`${kalam.variable} ${caveat.variable} ${reenie.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-off-white text-teal-900">
         {children}

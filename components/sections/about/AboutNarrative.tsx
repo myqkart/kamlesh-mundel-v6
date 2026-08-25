@@ -10,7 +10,7 @@ export function AboutNarrative() {
   return (
     <div className="relative lg:pt-2">
       <p
-        className="cred-write font-sketch text-[1.2rem] text-teal-700 md:text-[1.35rem]"
+        className="cred-write font-sketch text-[1.6rem] text-teal-700 md:text-[1.8rem]"
         style={{ animationDelay: "560ms" }}
       >
         how I move from idea to product

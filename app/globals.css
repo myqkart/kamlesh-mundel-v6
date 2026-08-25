@@ -5,13 +5,19 @@
   --color-teal-700: #247b7b;
   --color-teal-500: #44a1a0;
   --color-teal-300: #78cdd7;
-  --color-off-white: #fffffa;
+  --color-off-white: #faf7ef;
   --ink: #0d5c63;
-  --paper: #fffffa;
+  --paper: #faf7ef;
   --hero-mx: 0;
   --hero-my: 0;
   --py: 0;
   --p: 0;
+  --paper-grid:
+    radial-gradient(110% 70% at 92% 12%, rgb(120 205 215 / 0.18), transparent 46%),
+    radial-gradient(80% 60% at 6% 90%, rgb(13 92 99 / 0.04), transparent 48%),
+    linear-gradient(rgb(13 92 99 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 92 99 / 0.07) 1px, transparent 1px);
+  --paper-grid-size: auto, auto, 26px 26px, 26px 26px;
 }
 
 @theme inline {
@@ -20,9 +26,9 @@
   --color-teal-500: var(--color-teal-500);
   --color-teal-300: var(--color-teal-300);
   --color-off-white: var(--color-off-white);
-  --font-sans: var(--font-outfit), "Outfit", sans-serif;
-  --font-display: var(--font-fraunces), "Fraunces", serif;
-  --font-sketch: var(--font-caveat), "Caveat", cursive;
+  --font-sans: var(--font-kalam), "Kalam", cursive;
+  --font-display: var(--font-caveat), "Caveat", cursive;
+  --font-sketch: var(--font-reenie), "Reenie Beanie", cursive;
 }
 
 html {
@@ -35,28 +41,71 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-.wonk {
-  font-variation-settings: "WONK" 1, "SOFT" 72;
-}
-
-.paper-hero {
+/* One continuous drawing sheet for the whole page */
+.sketch-sheet {
+  position: relative;
+  isolation: isolate;
   background-color: var(--paper);
-  background-image:
-    radial-gradient(120% 80% at 100% 18%, rgb(120 205 215 / 0.22), transparent 42%),
-    radial-gradient(90% 70% at 8% 88%, rgb(13 92 99 / 0.05), transparent 46%),
-    linear-gradient(rgb(13 92 99 / 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(13 92 99 / 0.045) 1px, transparent 1px),
-    linear-gradient(rgb(13 92 99 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(13 92 99 / 0.03) 1px, transparent 1px);
-  background-size:
-    auto,
-    auto,
-    28px 28px,
-    28px 28px,
-    140px 140px,
-    140px 140px;
+  background-image: var(--paper-grid);
+  background-size: var(--paper-grid-size);
+  background-attachment: local;
+}
+
+.sketch-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+/* Classic notebook gutter — red margin line */
+.sketch-margin {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: max(1.1rem, 3.2vw);
+  z-index: 4;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgb(196 78 72 / 0.08),
+    rgb(196 78 72 / 0.38) 8%,
+    rgb(196 78 72 / 0.32) 92%,
+    rgb(196 78 72 / 0.08)
+  );
+  border-radius: 1px;
+}
+
+@media (min-width: 768px) {
+  .sketch-margin {
+    left: max(2rem, 4.5vw);
+  }
+}
+
+/* Shared section rhythm — denser, notebook-like */
+.sheet-block {
+  position: relative;
+  z-index: 10;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 90rem;
+  padding-inline: 7vw;
+  padding-block: clamp(2.25rem, 5.5vh, 3.75rem);
+}
+
+/* Sticky pins must match the sheet so they don't read as separate cards */
+.paper-match {
+  background-color: var(--paper);
+  background-image: var(--paper-grid);
+  background-size: var(--paper-grid-size);
 }
 
 .paper-grain {
@@ -64,7 +113,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  opacity: 0.28;
+  opacity: 0.2;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
@@ -280,62 +329,80 @@ body {
   transform: translateX(3px);
 }
 
-.archive-filter {
+/* All work — scrapbook stamp wall */
+.archive-tab {
   position: relative;
   appearance: none;
-  background: transparent;
-  border: 0;
-  padding: 0.15rem 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem 0.7rem;
+  border: 1.5px solid rgb(13 92 99 / 0.28);
+  border-bottom: 0;
+  border-radius: 0.85rem 1.1rem 0 0;
+  background: rgb(255 255 250 / 0.35);
   color: var(--color-teal-700);
   cursor: pointer;
-  font-family: var(--font-sketch), "Caveat", cursive;
-  font-size: 1.35rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
   line-height: 1;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.archive-filter::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.2rem;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+.archive-tab-label {
+  font-size: 1.65rem;
 }
 
-.archive-filter[aria-pressed="true"] {
+.archive-tab-count {
+  font-size: 1.25rem;
+  opacity: 0.65;
+}
+
+.archive-tab:hover,
+.archive-tab:focus-visible {
   color: var(--color-teal-900);
+  border-color: rgb(13 92 99 / 0.5);
+  transform: translateY(-2px);
 }
 
-.archive-filter[aria-pressed="true"]::after,
-.archive-filter:hover::after,
-.archive-filter:focus-visible::after {
-  transform: scaleX(1);
+.archive-tab.is-active {
+  color: var(--color-teal-900);
+  background: rgb(120 205 215 / 0.22);
+  border-color: rgb(13 92 99 / 0.55);
+  transform: translateY(-3px);
 }
 
-.archive-filter:focus-visible {
+.archive-tab:focus-visible {
   outline: 2px dashed var(--ink);
-  outline-offset: 6px;
+  outline-offset: 4px;
 }
 
-.archive-row {
+.archive-stamp {
+  position: relative;
   display: block;
+  height: 100%;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.archive-row:hover .archive-title,
-.archive-row:focus-visible .archive-title {
-  transform: translateX(6px);
+.archive-stamp:hover,
+.archive-stamp:focus-visible {
+  transform: translateY(-6px) rotate(0deg);
+  z-index: 2;
 }
 
-.archive-row:focus-visible {
+.archive-stamp:focus-visible {
   outline: 2px dashed var(--ink);
-  outline-offset: 10px;
+  outline-offset: 8px;
+}
+
+.archive-pin {
+  border-radius: 1px;
+  box-shadow: 0 1px 0 rgb(13 92 99 / 0.12);
 }
 
 .archive-title {
@@ -343,22 +410,31 @@ body {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.archive-row .archive-arrow {
+.archive-stamp:hover .archive-title,
+.archive-stamp:focus-visible .archive-title {
+  transform: translateX(3px);
+}
+
+.archive-stamp .archive-arrow {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.archive-row:hover .archive-arrow,
-.archive-row:focus-visible .archive-arrow {
+.archive-stamp:hover .archive-arrow,
+.archive-stamp:focus-visible .archive-arrow {
   transform: translateX(5px);
+}
+
+.archive-stamp-doodle {
+  min-height: 4rem;
 }
 
 .archive-preview {
   pointer-events: none;
   position: fixed;
   z-index: 40;
-  width: min(18rem, 42vw);
+  width: min(17rem, 40vw);
   opacity: 0;
-  transform: translate3d(-40%, -40%, 0) scale(0.96);
+  transform: translate3d(-35%, -55%, 0) scale(0.94) rotate(-2deg);
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
@@ -366,7 +442,11 @@ body {
 
 .archive-preview.is-active {
   opacity: 1;
-  transform: translate3d(-40%, -40%, 0) scale(1);
+  transform: translate3d(-35%, -55%, 0) scale(1) rotate(2deg);
+}
+
+.archive-polaroid {
+  background: var(--paper);
 }
 
 /* Engineering approach — interactive principle system */
@@ -505,10 +585,10 @@ body {
 }
 
 .approach-node-label {
-  font-family: var(--font-sans), "Outfit", sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  opacity: 0.55;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
 }
 
 .approach-node.is-active .approach-node-label {
@@ -534,7 +614,7 @@ body {
 
 .approach-card {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgb(13 92 99 / 0.1);
+  border-bottom: 0;
   opacity: 0.55;
   transition: opacity 0.4s ease;
 }
@@ -547,23 +627,11 @@ body {
   border-bottom: 0;
 }
 
-/* Pinned scroll-scrub: screen stays, scroll advances principles */
+/* Pinned scroll-scrub: match continuous sheet, no new “card” surface */
 .approach-scrubbing .approach-pin {
   background-color: var(--paper);
-  background-image:
-    radial-gradient(120% 80% at 100% 18%, rgb(120 205 215 / 0.22), transparent 42%),
-    radial-gradient(90% 70% at 8% 88%, rgb(13 92 99 / 0.05), transparent 46%),
-    linear-gradient(rgb(13 92 99 / 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(13 92 99 / 0.045) 1px, transparent 1px),
-    linear-gradient(rgb(13 92 99 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(13 92 99 / 0.03) 1px, transparent 1px);
-  background-size:
-    auto,
-    auto,
-    28px 28px,
-    28px 28px,
-    140px 140px,
-    140px 140px;
+  background-image: var(--paper-grid);
+  background-size: var(--paper-grid-size);
 }
 
 .approach-scrubbing .approach-tab {
@@ -584,7 +652,89 @@ body {
   border: 0;
 }
 
-/* Experience — career narrative timeline */
+/* Experience — career journey map */
+.experience-chapter {
+  position: relative;
+  transition: opacity 0.45s ease;
+}
+
+.experience-chapter:not(.is-active) {
+  opacity: 0.78;
+}
+
+.experience-chapter.is-active,
+.experience-chapter.is-current {
+  opacity: 1;
+}
+
+.experience-doodle-plate {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+  opacity: 0.72;
+}
+
+.experience-doodle-plate.is-active {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.experience-chapter-doodle {
+  height: 100%;
+  width: 100%;
+}
+
+.experience-chapter:not(.is-active) .experience-sketch-ink {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .experience-chapter.is-active .experience-sketch-ink {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .experience-chapter:not(.is-active) .experience-sketch-node {
+    opacity: 0.25;
+  }
+
+  .experience-chapter.is-active .experience-sketch-node {
+    animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+.experience-altitude-step {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-altitude-step:hover,
+.experience-altitude-step:focus-visible {
+  transform: translateX(4px);
+}
+
+.experience-altitude-step:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+.experience-altitude-dot {
+  transition:
+    background-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-altitude-step.is-active .experience-altitude-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 4px rgb(120 205 215 / 0.28);
+}
+
 .experience-role {
   position: relative;
   transition: opacity 0.45s ease;
@@ -653,6 +803,7 @@ body {
   opacity: 0.55;
 }
 
+.experience-chapter.is-current .experience-point::before,
 .experience-role.is-current .experience-point::before {
   background: var(--color-teal-300);
   opacity: 0.9;
@@ -690,6 +841,11 @@ body {
   width: 100%;
 }
 
+.experience-sketch-panel {
+  position: sticky;
+  top: 10vh;
+}
+
 .experience-sketchbook {
   position: relative;
   height: 100%;
@@ -698,14 +854,14 @@ body {
 }
 
 .experience-sketchbook-page {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .experience-sketchbook-layer {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: translate3d(12px, 8px, 0) scale(0.985);
+  transform: translate3d(10px, 6px, 0) scale(0.985);
   transition:
     opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
@@ -735,15 +891,15 @@ body {
 }
 
 .experience-sketch-label {
-  font-family: var(--font-sans), "Outfit", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  opacity: 0.55;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
 }
 
 .experience-sketch-note {
-  font-family: var(--font-sketch), "Caveat", cursive;
-  font-size: 22px;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 28px;
   opacity: 0.72;
 }
 
@@ -758,32 +914,32 @@ body {
     stroke-dashoffset: 1;
     animation: ink-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-
-  .experience-sketchbook-layer:not(.is-active) .experience-sketch-ink {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-  }
-
-  .experience-sketchbook-layer.is-active .experience-sketch-ink {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    animation: ink-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .experience-sketchbook-layer:not(.is-active) .experience-sketch-node {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-
-  .experience-sketchbook-layer.is-active .experience-sketch-node {
-    animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .experience-sketchbook-layer {
+  .experience-doodle-plate,
+  .experience-chapter,
+  .experience-altitude-step {
     transition: none;
     transform: none;
+  }
+
+  .experience-chapter:not(.is-active),
+  .experience-chapter.is-active {
+    opacity: 1;
+  }
+
+  .experience-chapter .experience-sketch-ink,
+  .experience-chapter.is-active .experience-sketch-ink {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .experience-chapter .experience-sketch-node,
+  .experience-chapter.is-active .experience-sketch-node {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }
 
@@ -794,8 +950,8 @@ body {
   background: transparent;
   padding: 0.15rem 0;
   cursor: pointer;
-  font-family: var(--font-sketch), "Caveat", cursive;
-  font-size: 1.3rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.7rem;
   line-height: 1;
   color: var(--color-teal-700);
   opacity: 0.55;
@@ -853,8 +1009,8 @@ body {
 
 .expertise-tech.is-supporting .expertise-tech-name {
   display: block;
-  font-family: var(--font-sketch), "Caveat", cursive;
-  font-size: 1.2rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.55rem;
   line-height: 1.1;
   color: var(--color-teal-700);
 }
@@ -862,10 +1018,10 @@ body {
 .expertise-tech-meta {
   display: block;
   margin-top: 0.35rem;
-  font-family: var(--font-sans), "Outfit", sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--color-teal-500);
   opacity: 0.85;
 }
@@ -900,18 +1056,17 @@ body {
   }
 }
 
-/* Impact — cause → effect storytelling */
-.impact-story {
-  transition: opacity 0.4s ease;
+/* Impact — full-width transformation boards */
+.impact-board {
+  position: relative;
 }
 
-.impact-story:not(.is-active) {
-  opacity: 0.72;
+.impact-pane {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.impact-story.is-emphasis,
-.impact-story.is-active {
-  opacity: 1;
+.impact-board:hover .impact-pane {
+  transform: translateY(-2px);
 }
 
 .impact-transform-sticky {
@@ -940,10 +1095,10 @@ body {
 }
 
 .impact-label {
-  font-family: var(--font-sans), "Outfit", sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.16em;
-  opacity: 0.55;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  opacity: 0.65;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -971,8 +1126,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .impact-story {
-    transition: none;
+  .impact-board {
     opacity: 1;
   }
 
@@ -983,6 +1137,11 @@ body {
 
   .impact-node {
     opacity: 1;
+    transform: none;
+  }
+
+  .impact-pane {
+    transition: none;
     transform: none;
   }
 }
@@ -1002,10 +1161,10 @@ body {
 }
 
 .contact-label {
-  font-family: var(--font-sans), "Outfit", sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--color-teal-500);
 }
 
@@ -1013,14 +1172,14 @@ body {
   width: 100%;
   appearance: none;
   border: 0;
-  border-bottom: 1px solid rgb(13 92 99 / 0.28);
+  border-bottom: 1.5px dashed rgb(13 92 99 / 0.35);
   border-radius: 0;
   background: transparent;
-  padding: 0.55rem 0 0.7rem;
+  padding: 0.45rem 0 0.55rem;
   color: var(--color-teal-900);
-  font-family: var(--font-sans), "Outfit", sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-family: var(--font-sans), "Kalam", cursive;
+  font-size: 1.15rem;
+  line-height: 1.45;
   transition: border-color 0.3s ease;
   resize: vertical;
 }
@@ -1045,8 +1204,8 @@ body {
 
 .contact-error {
   margin: 0;
-  font-family: var(--font-sketch), "Caveat", cursive;
-  font-size: 1.1rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.45rem;
   color: rgb(140 45 45);
 }
 
@@ -1060,8 +1219,8 @@ body {
   gap: 0.45rem;
   cursor: pointer;
   color: var(--color-teal-900);
-  font-family: var(--font-sketch), "Caveat", cursive;
-  font-size: 1.55rem;
+  font-family: var(--font-display), "Caveat", cursive;
+  font-size: 1.85rem;
   line-height: 1;
 }
 
@@ -1264,8 +1423,6 @@ body {
   .approach-ready.is-visible .approach-path.is-active,
   .approach-detail,
   .experience-ready.is-visible .experience-line,
-  .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-ink,
-  .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-node,
   .experience-now::before,
   .impact-ready.is-visible .impact-line,
   .impact-ready.is-visible .impact-path,
@@ -1373,13 +1530,14 @@ body {
     clip-path: none;
   }
 
-  .archive-row:hover .archive-title,
-  .archive-row:focus-visible .archive-title,
-  .archive-row:hover .archive-arrow,
-  .archive-row:focus-visible .archive-arrow,
+  .archive-stamp:hover .archive-title,
+  .archive-stamp:focus-visible .archive-title,
+  .archive-stamp:hover .archive-arrow,
+  .archive-stamp:focus-visible .archive-arrow,
+  .archive-stamp,
   .archive-title,
   .archive-arrow,
-  .archive-filter::after,
+  .archive-tab,
   .archive-preview,
   .parallax-slow,
   .parallax-mid,
@@ -1397,16 +1555,16 @@ body {
   .experience-spine-node,
   .experience-spine-node.is-active,
   .experience-spine-node.is-current,
-  .experience-role,
-  .experience-sketchbook-layer {
+  .experience-chapter,
+  .experience-doodle-plate,
+  .experience-altitude-step {
     transition: none;
     transform: none;
   }
 
-  .experience-role.is-past:not(.is-active),
-  .experience-sketchbook-layer.is-active,
-  .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-node,
-  .experience-ready:not(.is-visible) .experience-sketchbook-layer.is-active .experience-sketch-node {
+  .experience-chapter:not(.is-active),
+  .experience-chapter.is-active,
+  .experience-chapter .experience-sketch-node {
     opacity: 1;
     transform: none;
   }

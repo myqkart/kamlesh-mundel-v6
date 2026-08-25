@@ -1,17 +1,14 @@
 "use client";
 
 import { useEffect, useEffectEvent, useRef, useState } from "react";
-import {
-  experienceMeta,
-  experienceRoles,
-} from "@/data/experience";
+import { experienceRoles } from "@/data/experience";
 import { useSectionParallax } from "@/hooks/useSectionParallax";
-import { ExperienceRoleCard } from "./ExperienceRoleCard";
-import { ExperienceSketchbook } from "./ExperienceSketchbook";
+import { ExperienceAltitude } from "./ExperienceAltitude";
+import { ExperienceChapter } from "./ExperienceChapter";
 
 export function Experience() {
   const ref = useRef<HTMLElement>(null);
-  const rolesRef = useRef<HTMLDivElement>(null);
+  const journeyRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
   const [visible, setVisible] = useState(false);
   const [activeId, setActiveId] = useState(experienceRoles[0]!.id);
@@ -19,19 +16,19 @@ export function Experience() {
   useSectionParallax(ref);
 
   const setActiveFromScroll = useEffectEvent(() => {
-    const root = rolesRef.current;
+    const root = journeyRef.current;
     if (!root) return;
 
     const cards = root.querySelectorAll<HTMLElement>("[data-experience-role]");
     if (!cards.length) return;
 
-    const focusY = window.innerHeight * 0.38;
+    const focusY = window.innerHeight * 0.4;
     let bestId = activeId;
     let bestDist = Number.POSITIVE_INFINITY;
 
     cards.forEach((card) => {
       const rect = card.getBoundingClientRect();
-      const mid = rect.top + rect.height * 0.25;
+      const mid = rect.top + rect.height * 0.22;
       const dist = Math.abs(mid - focusY);
       if (dist < bestDist) {
         bestDist = dist;
@@ -86,97 +83,90 @@ export function Experience() {
     };
   }, []);
 
+  const jumpTo = (id: string) => {
+    setActiveId(id);
+    const node = journeyRef.current?.querySelector<HTMLElement>(
+      `[data-experience-role="${id}"]`,
+    );
+    node?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
     <section
       ref={ref}
       id="experience"
       aria-labelledby="experience-heading"
-      className={`paper-hero relative isolate overflow-x-clip ${ready ? "experience-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`relative isolate overflow-x-clip ${ready ? "experience-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
-      <div className="paper-grain parallax-back opacity-[0.12]" />
+      {/* Soft trail doodle across the sheet */}
+      <div
+        aria-hidden="true"
+        className="parallax-back pointer-events-none absolute inset-0 z-0 overflow-hidden text-teal-900"
+      >
+        <svg
+          className="absolute top-[18%] left-[8%] hidden h-[70%] w-[84%] text-teal-900/[0.07] lg:block"
+          fill="none"
+          preserveAspectRatio="none"
+          viewBox="0 0 1000 800"
+        >
+          <path
+            d="M80 60 C200 120 180 220 320 280 C480 360 420 480 580 540 C720 590 780 680 920 740"
+            stroke="currentColor"
+            strokeDasharray="6 14"
+            strokeLinecap="round"
+            strokeWidth="2"
+          />
+        </svg>
+      </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-14 px-[7vw] py-[clamp(4.5rem,12vh,8.5rem)] md:gap-16 lg:gap-20">
+      <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
         <header className="parallax-slow grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
-          <div className="max-w-[42rem] lg:col-span-7">
+          <div className="max-w-[40rem] lg:col-span-7">
             <p
-              className="cred-write font-sketch -rotate-1 text-[1.3rem] leading-none text-teal-700 md:text-[1.45rem]"
+              className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
               style={{ animationDelay: "60ms" }}
             >
               07 · experience
             </p>
             <h2
               id="experience-heading"
-              className="cred-write mt-5 font-display wonk text-[clamp(2.35rem,4.8vw,4rem)] leading-[0.95] tracking-[-0.03em] text-teal-900"
+              className="cred-write mt-3 -rotate-1 font-display text-[clamp(2.5rem,5.2vw,4.4rem)] leading-[0.9] text-teal-900"
               style={{ animationDelay: "160ms" }}
             >
               Experience, in context.
             </h2>
             <p
-              className="cred-write mt-6 max-w-[34rem] text-[1.05rem] leading-relaxed text-teal-900/80 md:text-[1.1rem]"
+              className="cred-write mt-4 max-w-[28rem] rotate-1 font-sketch text-[1.65rem] leading-snug text-teal-700 md:text-[1.85rem]"
               style={{ animationDelay: "280ms" }}
             >
-              A progression through roles, responsibilities, and increasingly
-              complex engineering challenges.
+              a journey map — each chapter drew a new layer of how I build
             </p>
           </div>
 
-          <div
-            className="cred-write lg:col-span-5 lg:justify-self-end lg:text-right"
-            style={{ animationDelay: "340ms" }}
-          >
-            <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-teal-500">
-              {experienceMeta.location}
-            </p>
-            <p className="mt-3 font-sketch text-[1.35rem] leading-snug text-teal-700 md:text-[1.5rem]">
-              {experienceMeta.evolution}
-            </p>
-            <p className="mt-2 text-[0.98rem] text-teal-900/65">
-              {experienceMeta.since}
-            </p>
+          <div className="lg:col-span-5 lg:justify-self-end">
+            <ExperienceAltitude activeId={activeId} onSelect={jumpTo} />
           </div>
         </header>
 
-        {/* Tall track: sticky sketchbook background + scrolling roles */}
-        <div ref={rolesRef} className="relative">
-          <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
-            <div className="experience-sketchbook-sticky sticky top-0 h-svh">
-              <ExperienceSketchbook activeId={activeId} />
-            </div>
-          </div>
-
-          <div className="relative z-10 grid items-start gap-10 lg:grid-cols-12">
-            <div className="relative lg:col-span-6 xl:col-span-6">
-              <div
-                aria-hidden="true"
-                className="experience-spine absolute top-3 bottom-3 left-0 hidden w-px bg-teal-900/20 md:block"
-              />
-
-              <ol className="flex flex-col gap-16 md:gap-20 md:pl-10 lg:gap-24">
-                {experienceRoles.map((role, index) => (
-                  <li key={role.id} className="relative">
-                    <span
-                      aria-hidden="true"
-                      className={`experience-spine-node absolute top-2 -left-10 hidden md:block ${
-                        role.id === activeId ? "is-active" : ""
-                      } ${role.current ? "is-current" : ""}`}
-                    />
-                    <ExperienceRoleCard
-                      role={role}
-                      active={role.id === activeId}
-                      index={index}
-                    />
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            {/* Keeps text clear of the sketch field */}
-            <div className="hidden lg:col-span-6 lg:block" aria-hidden="true" />
-          </div>
+        {/* Journey chapters — alternate story / doodle like a winding path */}
+        <div
+          ref={journeyRef}
+          className="parallax-mid relative flex flex-col gap-16 md:gap-20 lg:gap-24"
+        >
+          {experienceRoles.map((role, index) => (
+            <ExperienceChapter
+              key={role.id}
+              role={role}
+              index={index}
+              total={experienceRoles.length}
+              active={role.id === activeId}
+              onActivate={setActiveId}
+            />
+          ))}
         </div>
 
         <p
-          className="parallax-slow cred-write relative z-10 max-w-[36rem] font-sketch text-[1.3rem] leading-snug text-teal-700 md:text-[1.45rem]"
+          className="parallax-slow cred-write relative z-10 max-w-[34rem] -rotate-1 font-sketch text-[1.7rem] leading-snug text-teal-700 md:text-[1.9rem]"
           style={{ animationDelay: `${420 + experienceRoles.length * 140}ms` }}
         >
           Every role added another layer to how I think about products, systems,

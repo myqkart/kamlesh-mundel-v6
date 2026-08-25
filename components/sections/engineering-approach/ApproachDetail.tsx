@@ -26,17 +26,17 @@ export function ApproachDetail({
         </p>
         <p
           aria-hidden="true"
-          className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-teal-500"
+          className="font-sketch text-[1.5rem] text-teal-700/80"
         >
           {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </p>
       </div>
 
-      <h3 className="mt-4 font-display wonk text-[clamp(1.55rem,2.6vw,2.15rem)] leading-[1.05] tracking-[-0.03em] text-teal-900">
+      <h3 className="mt-4 font-display text-[clamp(1.55rem,2.6vw,2.15rem)] leading-[1.05] tracking-[-0.03em] text-teal-900">
         {principle.title}
       </h3>
 
-      <p className="mt-5 max-w-[28rem] font-sketch text-[1.35rem] leading-snug text-teal-700 md:text-[1.5rem]">
+      <p className="mt-5 max-w-[28rem] font-sketch text-[1.75rem] leading-snug text-teal-700 md:text-[1.95rem]">
         {principle.philosophy}
       </p>
 
@@ -48,7 +48,7 @@ export function ApproachDetail({
         {principle.keywords.map((keyword) => (
           <li
             key={keyword}
-            className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-teal-500"
+            className="font-sketch text-[1.5rem] text-teal-700/80"
           >
             {keyword}
           </li>

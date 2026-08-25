@@ -27,9 +27,14 @@ function CtaArrow() {
 type FeaturedProjectItemProps = {
   project: FeaturedProject;
   total: number;
+  index: number;
 };
 
-export function FeaturedProjectItem({ project, total }: FeaturedProjectItemProps) {
+export function FeaturedProjectItem({
+  project,
+  total,
+  index,
+}: FeaturedProjectItemProps) {
   const ref = useRef<HTMLElement>(null);
   const [ready, setReady] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -54,62 +59,11 @@ export function FeaturedProjectItem({ project, total }: FeaturedProjectItemProps
     return () => observer.disconnect();
   }, []);
 
+  // Alternate sides: even = visual left / copy right, odd = copy left / visual right
+  const flip = index % 2 === 1;
+
   const meta = `${project.type} · ${project.role}`;
   const stack = project.stack.join(" · ");
-
-  if (project.layout === "primary") {
-    return (
-      <article
-        ref={ref}
-        className={`relative ${ready ? "project-ready" : ""} ${visible ? "is-visible" : ""}`}
-        aria-labelledby={`project-${project.slug}-title`}
-      >
-        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-7">
-            <ProjectVisual visual={project.visual} title={project.name} delay="100ms" />
-          </div>
-          <div className="lg:col-span-5 lg:pb-2">
-            <ProjectCopy
-              project={project}
-              total={total}
-              meta={meta}
-              stack={stack}
-              titleDelay="220ms"
-              bodyDelay="360ms"
-              ctaDelay="500ms"
-            />
-          </div>
-        </div>
-      </article>
-    );
-  }
-
-  if (project.layout === "reverse") {
-    return (
-      <article
-        ref={ref}
-        className={`relative ${ready ? "project-ready" : ""} ${visible ? "is-visible" : ""}`}
-        aria-labelledby={`project-${project.slug}-title`}
-      >
-        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
-          <div className="order-2 lg:order-1 lg:col-span-5">
-            <ProjectCopy
-              project={project}
-              total={total}
-              meta={meta}
-              stack={stack}
-              titleDelay="180ms"
-              bodyDelay="320ms"
-              ctaDelay="460ms"
-            />
-          </div>
-          <div className="order-1 lg:order-2 lg:col-span-7">
-            <ProjectVisual visual={project.visual} title={project.name} delay="80ms" />
-          </div>
-        </div>
-      </article>
-    );
-  }
 
   return (
     <article
@@ -117,21 +71,30 @@ export function FeaturedProjectItem({ project, total }: FeaturedProjectItemProps
       className={`relative ${ready ? "project-ready" : ""} ${visible ? "is-visible" : ""}`}
       aria-labelledby={`project-${project.slug}-title`}
     >
-      <div className="grid gap-8 pt-2 lg:grid-cols-12 lg:gap-8">
-        <div className="lg:col-span-4">
+      <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
+        <div
+          className={`lg:col-span-7 ${flip ? "order-1 lg:order-2" : "order-1"}`}
+        >
+          <ProjectVisual
+            visual={project.visual}
+            title={project.name}
+            delay={flip ? "80ms" : "100ms"}
+          />
+        </div>
+
+        <div
+          className={`lg:col-span-5 ${flip ? "order-2 lg:order-1 lg:pr-2" : "order-2 lg:pb-1"}`}
+        >
           <ProjectCopy
             project={project}
             total={total}
             meta={meta}
             stack={stack}
-            titleDelay="160ms"
-            bodyDelay="280ms"
-            ctaDelay="400ms"
-            compact
+            tilt={flip ? "rotate-1" : "-rotate-1"}
+            titleDelay={flip ? "180ms" : "220ms"}
+            bodyDelay={flip ? "320ms" : "360ms"}
+            ctaDelay={flip ? "460ms" : "500ms"}
           />
-        </div>
-        <div className="lg:col-span-8">
-          <ProjectVisual visual={project.visual} title={project.name} delay="100ms" />
         </div>
       </div>
     </article>
@@ -143,24 +106,24 @@ function ProjectCopy({
   total,
   meta,
   stack,
+  tilt,
   titleDelay,
   bodyDelay,
   ctaDelay,
-  compact = false,
 }: {
   project: FeaturedProject;
   total: number;
   meta: string;
   stack: string;
+  tilt: string;
   titleDelay: string;
   bodyDelay: string;
   ctaDelay: string;
-  compact?: boolean;
 }) {
   return (
-    <div className={compact ? "max-w-[28rem]" : "max-w-[32rem]"}>
+    <div className={`max-w-[32rem] ${tilt}`}>
       <p
-        className="cred-write font-sketch text-[1.15rem] text-teal-700 md:text-[1.3rem]"
+        className="cred-write font-sketch text-[1.45rem] text-teal-700 md:text-[1.6rem]"
         style={{ animationDelay: "80ms" }}
       >
         {project.number} / {String(total).padStart(2, "0")}
@@ -168,46 +131,45 @@ function ProjectCopy({
 
       <h3
         id={`project-${project.slug}-title`}
-        className={`cred-write mt-3 font-display wonk tracking-[-0.03em] text-teal-900 ${
-          compact
-            ? "text-[clamp(1.85rem,3vw,2.6rem)] leading-[0.98]"
-            : "text-[clamp(2.1rem,4vw,3.4rem)] leading-[0.95]"
-        }`}
+        className="cred-write mt-3 font-display text-[clamp(2.1rem,4vw,3.4rem)] leading-[0.95] text-teal-900"
         style={{ animationDelay: titleDelay }}
       >
         {project.name}
       </h3>
 
       <p
-        className="cred-write mt-2 font-sketch text-[1.1rem] text-teal-700 md:text-[1.2rem]"
+        className="cred-write mt-2 font-sketch text-[1.25rem] text-teal-700 md:text-[1.4rem]"
         style={{ animationDelay: titleDelay }}
       >
         {meta}
       </p>
 
       <p
-        className="cred-write mt-5 text-[1.02rem] leading-relaxed text-teal-900/80 md:text-[1.08rem]"
+        className="cred-write mt-5 text-[1.05rem] leading-snug text-teal-900/80 md:text-[1.1rem]"
         style={{ animationDelay: bodyDelay }}
       >
         {project.description}
       </p>
 
       <p
-        className="cred-write mt-4 font-sketch text-[1.2rem] leading-snug text-teal-700 md:text-[1.35rem]"
+        className="cred-write mt-4 font-sketch text-[1.45rem] leading-snug text-teal-700 md:text-[1.6rem]"
         style={{ animationDelay: bodyDelay }}
       >
         {project.emphasis}
       </p>
 
       <p
-        className="cred-write mt-5 text-[0.92rem] tracking-[0.04em] text-teal-700/90 uppercase"
+        className="cred-write mt-5 font-sketch text-[1.2rem] text-teal-700/90 md:text-[1.3rem]"
         style={{ animationDelay: ctaDelay }}
       >
         {stack}
       </p>
 
       <div className="cred-write mt-7" style={{ animationDelay: ctaDelay }}>
-        <a href={project.href} className="sketch-cta font-sketch text-[1.45rem] leading-none md:text-[1.6rem]">
+        <a
+          href={project.href}
+          className="sketch-cta font-display text-[1.65rem] leading-none md:text-[1.85rem]"
+        >
           <span className="relative pb-1">Explore project</span>
           <CtaArrow />
         </a>

@@ -5,13 +5,13 @@ export function AboutDecorations() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden text-teal-900"
     >
       <p
-        className="cred-write absolute top-[12%] right-[6%] hidden font-display wonk text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.04em] text-teal-900/[0.05] md:block"
+        className="cred-write absolute top-[12%] right-[6%] hidden font-display text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.04em] text-teal-900/[0.05] md:block"
         style={{ animationDelay: "400ms" }}
       >
         THINK
       </p>
       <p
-        className="cred-write absolute right-[8%] bottom-[18%] hidden font-display wonk text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.04em] text-teal-900/[0.05] lg:block"
+        className="cred-write absolute right-[8%] bottom-[18%] hidden font-display text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.04em] text-teal-900/[0.05] lg:block"
         style={{ animationDelay: "900ms" }}
       >
         SHIP

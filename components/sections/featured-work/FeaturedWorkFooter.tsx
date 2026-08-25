@@ -71,14 +71,14 @@ export function FeaturedWorkFooter() {
       </svg>
 
       <p
-        className="cred-write font-sketch text-[1.2rem] text-teal-700 md:text-[1.35rem]"
+        className="cred-write font-sketch text-[1.6rem] text-teal-700 md:text-[1.8rem]"
         style={{ animationDelay: "120ms" }}
       >
         More products, experiments, systems, and engineering explorations.
       </p>
       <a
         href="#all-work"
-        className="sketch-cta cred-write mt-5 font-sketch text-[1.55rem] leading-none md:text-[1.75rem]"
+        className="sketch-cta cred-write mt-5 font-display text-[1.85rem] leading-none md:text-[2.05rem]"
         style={{ animationDelay: "240ms" }}
       >
         <span className="relative pb-1">Explore all work</span>

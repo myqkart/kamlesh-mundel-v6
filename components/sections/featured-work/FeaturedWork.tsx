@@ -38,55 +38,53 @@ export function FeaturedWork() {
       ref={ref}
       id="work"
       aria-labelledby="featured-work-heading"
-      className={`paper-hero relative isolate overflow-hidden ${ready ? "work-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`relative isolate overflow-hidden ${ready ? "work-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
-      <div className="paper-grain parallax-back opacity-[0.14]" />
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-16 px-[7vw] py-[clamp(4.5rem,12vh,8.5rem)] md:gap-20 lg:gap-24">
-        <header className="parallax-slow max-w-[44rem]">
+      <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
+        <header className="parallax-slow max-w-[40rem]">
           <p
-            className="cred-write font-sketch -rotate-1 text-[1.3rem] leading-none text-teal-700 md:text-[1.45rem]"
+            className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
             style={{ animationDelay: "80ms" }}
           >
             04 · featured work
           </p>
           <h2
             id="featured-work-heading"
-            className="cred-write mt-5 font-display wonk text-[clamp(2.4rem,5vw,4.25rem)] leading-[0.95] tracking-[-0.03em] text-teal-900"
+            className="cred-write mt-3 -rotate-1 font-display text-[clamp(2.5rem,5.2vw,4.4rem)] leading-[0.92] text-teal-900"
             style={{ animationDelay: "180ms" }}
           >
             Selected work. Built to solve real problems.
           </h2>
           <p
-            className="cred-write mt-6 max-w-[36rem] text-[1.05rem] leading-relaxed text-teal-900/80 md:text-[1.12rem]"
+            className="cred-write mt-4 max-w-[32rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
             style={{ animationDelay: "320ms" }}
           >
-            A selection of products and systems where product thinking,
-            engineering, and attention to detail come together.
+            Products &amp; systems where thinking, craft, and shipping meet.
           </p>
         </header>
 
-        <div className="parallax-mid flex flex-col gap-20 md:gap-24 lg:gap-28">
+        <div className="parallax-mid flex flex-col gap-12 md:gap-14 lg:gap-16">
           {featuredProjects.map((project, index) => (
             <div key={project.slug} className="relative">
               {index > 0 ? (
                 <svg
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-12 left-0 hidden h-6 w-24 text-teal-900/30 md:block lg:-top-14"
+                  className="pointer-events-none absolute -top-7 left-0 hidden h-5 w-28 text-teal-900/35 md:block"
                   fill="none"
-                  viewBox="0 0 96 24"
+                  viewBox="0 0 112 20"
                 >
                   <path
-                    d="M4 4v16M4 12h88"
+                    d="M3 10c18-4 36 3 54-1 20-4 36 5 52 1"
                     stroke="currentColor"
                     strokeLinecap="round"
-                    strokeWidth="1.2"
+                    strokeWidth="1.4"
                   />
                 </svg>
               ) : null}
               <FeaturedProjectItem
                 project={project}
                 total={featuredProjects.length}
+                index={index}
               />
             </div>
           ))}

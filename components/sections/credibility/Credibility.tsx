@@ -40,14 +40,12 @@ export function Credibility() {
       ref={ref}
       id="credibility"
       aria-labelledby="credibility-heading"
-      className={`paper-hero relative isolate overflow-hidden ${ready ? "cred-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`relative isolate overflow-hidden ${ready ? "cred-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
       <div className="parallax-mid">
         <CredibilityDecorations />
       </div>
-      <div className="paper-grain parallax-back opacity-[0.16]" />
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-14 px-[7vw] py-[clamp(4.5rem,12vh,8.5rem)] md:gap-16 lg:gap-20">
+      <div className="relative z-10 sheet-block flex flex-col gap-9 md:gap-11">
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0">
           <div className="parallax-slow lg:col-span-4">
             <CredibilityContent />

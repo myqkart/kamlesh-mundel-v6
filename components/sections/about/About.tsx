@@ -39,34 +39,30 @@ export function About() {
       ref={ref}
       id="about"
       aria-labelledby="about-heading"
-      className={`paper-hero relative isolate overflow-hidden ${ready ? "about-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`relative isolate overflow-hidden ${ready ? "about-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
       <div className="parallax-mid">
         <AboutDecorations />
       </div>
-      <div className="paper-grain parallax-back opacity-[0.14]" />
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-16 px-[7vw] py-[clamp(4.5rem,12vh,8.5rem)] md:gap-20 lg:gap-24">
+      <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
         <div className="parallax-slow">
           <AboutContent />
         </div>
 
-        <div className="grid items-start gap-14 lg:grid-cols-12 lg:gap-10">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
           <div className="parallax-fast lg:col-span-5">
             <p
-              className="cred-write max-w-[34rem] text-[1.08rem] leading-relaxed text-teal-900/80 md:text-[1.15rem]"
+              className="cred-write max-w-[30rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
               style={{ animationDelay: "520ms" }}
             >
-              I like working where product ideas meet engineering constraints. A
-              clean interface, a well-designed API, a thoughtful database model,
-              and a reliable deployment are all parts of the same product to me.
+              I work where product ideas meet constraints — UI, API, data model,
+              and deploy as one product.
             </p>
             <p
-              className="cred-write mt-8 max-w-[28rem] font-sketch text-[1.45rem] leading-snug text-teal-700 md:text-[1.65rem]"
+              className="cred-write mt-5 max-w-[24rem] rotate-1 font-sketch text-[1.85rem] leading-snug text-teal-700 md:text-[2.1rem]"
               style={{ animationDelay: "640ms" }}
             >
-              I don&apos;t just build software. I care about how it works, how it
-              feels, and why it exists.
+              not just building software — caring how it works, feels, and why
             </p>
           </div>
 

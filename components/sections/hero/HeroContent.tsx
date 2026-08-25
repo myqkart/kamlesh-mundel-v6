@@ -42,23 +42,23 @@ function CtaUnderline({ delay }: { delay: string }) {
 
 export function HeroContent() {
   return (
-    <div className="max-w-[38rem]">
+    <div className="max-w-[36rem]">
       <p
-        className="hero-reveal font-sketch -rotate-1 text-[1.35rem] leading-none text-teal-700 md:text-[1.55rem]"
+        className="hero-reveal font-sketch -rotate-2 text-[1.85rem] leading-none text-teal-700 md:text-[2.1rem]"
         style={{ animationDelay: "80ms" }}
       >
-        senior full stack engineer · sde-2
+        senior full stack · sde-2
       </p>
 
       <p
-        className="hero-reveal relative mt-5 w-fit font-display wonk text-[clamp(3.4rem,10vw,8.25rem)] leading-[0.82] tracking-[-0.045em] text-teal-900"
+        className="hero-reveal relative mt-4 w-fit -rotate-1 font-display text-[clamp(4rem,12vw,9rem)] font-semibold leading-[0.82] text-teal-900"
         style={{ animationDelay: "180ms" }}
       >
         Kamlesh
-        <span className="block">Mundel</span>
+        <span className="block rotate-[0.6deg]">Mundel</span>
         <svg
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-[0.12em] left-[-2%] h-[0.22em] w-[104%] overflow-visible text-teal-700"
+          className="pointer-events-none absolute -bottom-[0.08em] left-[-2%] h-[0.2em] w-[104%] overflow-visible text-teal-700"
           fill="none"
           preserveAspectRatio="none"
           viewBox="0 0 400 18"
@@ -69,32 +69,34 @@ export function HeroContent() {
             pathLength={1}
             stroke="currentColor"
             strokeLinecap="round"
-            strokeWidth="2.2"
+            strokeWidth="2.4"
           />
         </svg>
       </p>
 
       <h1
-        className="hero-reveal mt-8 max-w-[22ch] font-sketch text-[clamp(1.85rem,3.4vw,3.15rem)] leading-[1.05] text-teal-900 md:mt-10"
+        className="hero-reveal mt-6 max-w-[18ch] rotate-[0.4deg] font-display text-[clamp(2rem,3.8vw,3.35rem)] leading-[1.05] text-teal-900 md:mt-7"
         style={{ animationDelay: "380ms" }}
       >
         I build digital products that are designed to move.
       </h1>
 
       <p
-        className="hero-reveal mt-6 max-w-[34rem] text-[1.05rem] leading-relaxed text-teal-900/80 md:text-[1.12rem]"
-        style={{ animationDelay: "560ms" }}
+        className="hero-reveal mt-4 max-w-[30rem] text-[1.12rem] leading-snug text-teal-900/75 md:text-[1.2rem]"
+        style={{ animationDelay: "520ms" }}
       >
-        I&apos;m Kamlesh Mundel, a Senior Full Stack Developer specializing in
-        modern JavaScript and Python ecosystems. I build high-quality products
-        across frontend, backend, data, and infrastructure.
+        Full stack across JS &amp; Python — interfaces, APIs, data, and the
+        infra that keeps them honest.
       </p>
 
       <div
-        className="hero-reveal mt-10 flex flex-wrap items-end gap-x-10 gap-y-6"
-        style={{ animationDelay: "720ms" }}
+        className="hero-reveal mt-8 flex flex-wrap items-end gap-x-9 gap-y-5"
+        style={{ animationDelay: "680ms" }}
       >
-        <a href="#work" className="sketch-cta font-sketch text-[1.55rem] leading-none md:text-[1.75rem]">
+        <a
+          href="#work"
+          className="sketch-cta font-display text-[1.75rem] leading-none md:text-[1.95rem]"
+        >
           <span className="relative pb-1">
             Explore my work
             <CtaUnderline delay="850ms" />
@@ -103,7 +105,7 @@ export function HeroContent() {
         </a>
         <a
           href="#contact"
-          className="sketch-cta font-sketch text-[1.55rem] leading-none text-teal-700 md:text-[1.75rem]"
+          className="sketch-cta font-display text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
         >
           <span className="relative pb-1">
             Let&apos;s connect
