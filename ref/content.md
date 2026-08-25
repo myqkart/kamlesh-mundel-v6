@@ -1,26 +1,27 @@
-# EXPERIENCE SECTION
+# TECHNICAL EXPERTISE SECTION
 
 ## Objective
 
-Design and implement the **Experience** section after Engineering Approach.
+Design and implement the **Technical Expertise** section after Experience.
 
 This section should answer:
 
-> **"Where has Kamlesh applied this engineering mindset professionally?"**
+> **"What can Kamlesh actually engineer with?"**
 
-The previous sections establish:
+The previous sections have established:
 
 * Who I am
 * Why my experience is credible
 * How I think
 * What I have built
 * How I approach engineering
+* Where I have applied that approach professionally
 
-Experience should now provide the professional context behind that work.
+Technical Expertise should now provide a clear picture of my technical capabilities.
 
-This is not a resume dump.
+This must **not** become a technology logo wall or a giant list of tools.
 
-It should feel like a **career narrative** that demonstrates progression, increasing responsibility, and the evolution of my engineering capabilities.
+The goal is to communicate **depth, breadth, and engineering context**.
 
 ---
 
@@ -28,13 +29,13 @@ It should feel like a **career narrative** that demonstrates progression, increa
 
 The underlying message should be:
 
-> **Experience shaped by increasingly complex problems and increasing ownership.**
+> **A broad stack, grounded in real engineering experience.**
 
 Supporting idea:
 
-> Every role added another layer to how I think about products, systems, teams, and engineering.
+> I work across the product stack, choosing technologies based on the problem, constraints, and system around them.
 
-The section should communicate growth without exaggerating seniority or responsibilities.
+The section should communicate that I understand technologies as engineering tools rather than collecting technologies for the sake of a list.
 
 ---
 
@@ -44,367 +45,417 @@ Use a strong editorial heading.
 
 Preferred direction:
 
-**Experience, in context.**
-
-Alternative direction:
-
-**Where the work became deeper.**
+**The tools behind the work.**
 
 Supporting copy:
 
-> A progression through roles, responsibilities, and increasingly complex engineering challenges.
+> Technologies I use to design interfaces, build systems, connect services, work with data, and ship production software.
 
-Keep this concise.
-
----
-
-# Experience Data
-
-Use the actual career information available in the resume/content files.
-
-Do not invent:
-
-* Companies
-* Job titles
-* Dates
-* Responsibilities
-* Achievements
-* Technologies
-* Promotions
-* Team sizes
-* Business metrics
-
-Every career detail must come from the existing source material.
+Keep the supporting copy concise.
 
 ---
 
-# Career Narrative
+# Technical Philosophy
 
-Do not present experience as a conventional resume list.
+Introduce one important idea:
 
-The section should communicate progression.
+> **Technology is a means, not the product.**
 
-Look for meaningful evolution such as:
+The section should subtly communicate that:
 
-* Increasing technical ownership
-* Broader system responsibility
-* More complex products
-* Greater backend involvement
-* Architecture decisions
-* Product ownership
-* Mentoring or collaboration where actually supported
-* Increased responsibility for production systems
+* Tools are selected intentionally.
+* Familiarity comes from real implementation.
+* The stack changes depending on the problem.
+* Strong fundamentals matter more than chasing every new framework.
 
-The narrative should make growth visible without explicitly saying:
-
-> "I became better over time."
-
-Let the progression speak through the content.
+Avoid making this sound like an anti-technology statement.
 
 ---
 
-# Experience Structure
+# Expertise Categories
 
-Each professional role should communicate:
+Organize technologies into meaningful engineering domains.
 
-### Company
+Use categories based on the actual resume/project content.
 
-Actual company name.
+The primary categories should include:
 
-### Role
+### Frontend
 
-Actual title.
+Relevant technologies:
 
-### Duration
+* React
+* Next.js
+* TypeScript
+* JavaScript
+* Tailwind CSS
+* Vite
 
-Actual employment period.
+### Backend
 
-### Location
+Relevant technologies:
 
-Only if available and relevant.
+* Node.js
+* Python
+* FastAPI
+* Django
+* Frappe
 
-### Scope
+### Data
 
-One concise sentence describing the nature of the role.
+Relevant technologies:
 
-### Responsibilities
+* MongoDB
+* PostgreSQL / Supabase where actually applicable
+* Redis where actually applicable
 
-Only the most meaningful responsibilities.
+### APIs & Integrations
 
-### Engineering Focus
+Relevant areas:
 
-Relevant technologies, systems, or domains.
+* REST APIs
+* Third-party integrations
+* Authentication
+* External services
+* API architecture
 
-### Impact
+### Infrastructure & Deployment
 
-Specific factual outcomes where available.
+Relevant technologies should only include tools actually used, such as:
 
-Do not overwhelm each role with every responsibility from the resume.
+* AWS
+* Docker
+* Nginx
+* GitHub Actions
+* Vercel
+* AWS Amplify
 
-Prioritize the information that demonstrates engineering growth.
+### AI / Intelligent Systems
 
----
+Where supported by the actual project experience:
 
-# Role Hierarchy
+* Claude / Anthropic API
+* LangChain
+* AI-powered extraction
+* RAG
+* Embeddings
+* Vector databases
 
-The current/most recent role should receive the strongest visual treatment.
+Do not include technologies merely because they are popular.
 
-Older roles should progressively become more compact.
-
-This creates a visual representation of career progression.
-
-The section should make the current level of responsibility immediately apparent.
-
-Do not make every role visually identical.
-
----
-
-# Current Role
-
-Give the current SDE-2 role particular emphasis.
-
-Highlight relevant areas such as:
-
-* Full-stack ownership
-* Production systems
-* Architecture
-* Backend/API engineering
-* Frontend systems
-* Integrations
-* Performance
-* Deployment
-* Technical decision-making
-
-Only include areas supported by the actual resume.
-
-The current role should communicate maturity without using exaggerated language.
+Use only technologies supported by the actual project/resume data.
 
 ---
 
-# Career Progression
+# Depth vs Familiarity
 
-Introduce a subtle visual progression system.
+Do not imply that every listed technology has equal expertise.
 
-The experience section should visually communicate movement through time.
+The design should communicate levels naturally.
 
-Use elements such as:
+Possible conceptual distinction:
 
-* Vertical timeline
-* Connecting path
-* Years
-* Nodes
-* Milestones
-* Technical annotations
-* Role transitions
+### Core
 
-The visual should feel editorial and sophisticated.
+Technologies used extensively in professional work.
 
-Do not create a generic resume timeline with circles and lines.
+### Working
 
-The timeline should feel integrated into the portfolio's design language.
+Technologies used regularly across projects.
 
----
+### Familiar
 
-# Experience Timeline
+Technologies encountered or used for specific implementations.
 
-If a timeline is used, make it visually asymmetric.
+Only use these distinctions if the actual content supports them.
 
-Allow:
+Do not invent proficiency levels.
 
-* Dates to act as anchors
-* Roles to occupy different visual positions
-* Supporting information to appear selectively
-* Current role to have stronger emphasis
-* Technical metadata to sit around the primary content
-
-The visitor should be able to understand chronology immediately.
+Avoid percentage indicators.
 
 ---
 
-# Role Storytelling
+# Primary Stack
 
-Each role should answer:
+Create a strong visual emphasis around the technologies most central to my identity:
 
-**What was I responsible for?**
+**TypeScript · React · Next.js · Node.js · Python**
 
-**What kind of problems was I solving?**
+These should have stronger visual importance than secondary tools.
 
-**What changed in my engineering capabilities?**
-
-Keep each answer concise.
-
-Avoid reproducing the entire resume.
+MERN and Python should remain central to the positioning.
 
 ---
 
-# Impact
+# Technology Relationships
 
-Where factual information exists, highlight meaningful outcomes.
+Do not present technologies as isolated names.
 
-Examples of valid impact categories:
+Where useful, visually communicate relationships such as:
 
-* Improved performance
-* Reduced manual work
-* Built new product capabilities
-* Automated workflows
-* Integrated external systems
-* Improved reliability
-* Delivered production systems
-* Built reusable architecture
+**React → Next.js → APIs → Database → Infrastructure**
 
-Only use actual evidence.
+or:
 
-Never invent percentages or numerical improvements.
+**Frontend → Backend → Data → Deployment**
 
-If the resume contains verified metrics, use them selectively.
+This reinforces the idea that I understand complete systems.
+
+Use subtle SVG connections or visual grouping.
+
+Do not create a literal architecture diagram.
 
 ---
 
-# Technical Evolution
+# Visual Concept
 
-Show how my technical scope evolved naturally across roles.
+Avoid the conventional:
 
-Potential evolution:
+```text
+React
+Next.js
+Node.js
+Python
+MongoDB
+Docker
+AWS
+...
+```
 
-**Frontend → Full Stack → Backend → Systems → Product Engineering**
+logo grid.
 
-Only represent this if supported by the actual career history.
+Instead create a sophisticated **technical ecosystem**.
 
-Do not force a predetermined narrative.
+Technology names should interact with:
 
-The technologies should appear as evidence of evolution rather than a technology checklist.
-
----
-
-# Visual Language
-
-Continue the visual language from Engineering Approach.
-
-Reuse:
-
-* Editorial typography
-* Thin lines
-* SVG paths
-* Technical annotations
-* Small metadata
-* Grid
-* Whitespace
+* Typography
+* Categories
+* Technical metadata
+* SVG relationships
 * Subtle motion
+* Visual hierarchy
 
-The Experience section should feel more chronological and grounded than the previous conceptual section.
+The section should feel like exploring an engineering toolkit.
 
 ---
 
-# Experience Metadata
+# Technology Presentation
 
-Use small metadata elements for information such as:
+Technology items can be represented using:
 
-* YEAR
-* ROLE
-* COMPANY
-* DOMAIN
-* STACK
+* Text
+* Small icons
+* Minimal logos
+* Technical labels
+* Monograms
+* Compact metadata
 
-Keep metadata visually secondary.
+If using logos:
 
-Avoid large badges.
+* Keep them visually consistent.
+* Avoid dozens of oversized logos.
+* Do not allow logos to dominate the section.
 
-Avoid excessive pills.
+Text should remain readable even if icons are disabled.
+
+---
+
+# Interactive Exploration
+
+Allow visitors to explore the technical ecosystem.
+
+Possible interaction:
+
+Selecting or hovering over a category can highlight the associated technologies.
+
+For example:
+
+Selecting:
+
+**Backend**
+
+can visually emphasize:
+
+**Python · FastAPI · Django · Frappe · Node.js**
+
+while reducing the visual prominence of unrelated technologies.
+
+Similarly:
+
+**Frontend**
+
+can emphasize:
+
+**React · Next.js · TypeScript · Tailwind**
+
+The interaction should be optional.
+
+The default state must already communicate the full stack.
+
+---
+
+# Technology Details
+
+Where useful, a technology can reveal a small contextual descriptor.
+
+Examples:
+
+**Next.js**
+
+> Production web applications and full-stack experiences.
+
+**FastAPI**
+
+> High-performance Python APIs and backend services.
+
+**Frappe**
+
+> Business applications, workflows, and enterprise systems.
+
+These descriptions should only be included where they accurately represent my experience.
+
+Do not create descriptions for every technology if it makes the section too dense.
+
+---
+
+# Engineering Context
+
+A major goal of this section is to demonstrate **what I use technologies for**.
+
+Examples:
+
+### React / Next.js
+
+Interfaces, product experiences, dashboards, full-stack web applications.
+
+### Node.js
+
+APIs, services, integrations, backend systems.
+
+### Python
+
+Backend systems, APIs, automation, AI integrations.
+
+### Frappe
+
+Business applications, workflows, enterprise systems.
+
+### MongoDB / PostgreSQL
+
+Application data, structured systems, product backends.
+
+### AWS / Docker
+
+Deployment, infrastructure, environments, production systems.
+
+Only use contexts supported by actual experience.
+
+---
+
+# Visual Hierarchy
+
+Establish three levels:
+
+### Primary
+
+Core technologies that define my engineering identity.
+
+### Secondary
+
+Technologies used regularly across projects.
+
+### Supporting
+
+Specialized tools used for specific systems or workflows.
+
+Do not make every technology equally prominent.
+
+This hierarchy is important.
+
+---
+
+# Section Composition
+
+Create a visually sophisticated composition using:
+
+* Large typography
+* Technical categories
+* Structured metadata
+* Technology relationships
+* SVG system
+* Generous whitespace
+* Small annotations
+
+Avoid turning the entire section into cards.
+
+The section should feel like a **technical landscape**.
 
 ---
 
 # Motion Design
 
-Motion should communicate progression through time.
+Motion should feel precise and systematic.
 
-On section entry:
+When entering the viewport:
 
-1. Section heading reveals.
-2. Timeline/system appears.
-3. Current role becomes visible.
-4. Previous roles reveal progressively.
-5. Connecting path animates through the career timeline.
-6. Supporting technical metadata appears.
+1. Section heading appears.
+2. Technical ecosystem becomes visible.
+3. Primary technologies activate.
+4. Secondary technologies reveal.
+5. Relationships between technologies subtly animate.
+
+On interaction:
+
+* Selected category activates.
+* Relevant technologies become prominent.
+* Related technologies respond.
+* Supporting metadata appears.
 
 Use:
 
-* SVG line drawing
 * opacity
 * transform
-* clip-path
+* SVG path drawing
 * subtle stagger
+* small position changes
 
-Avoid excessive movement.
+Avoid excessive motion.
 
 ---
 
 # Scroll Interaction
 
-Scrolling can progressively reveal the career journey.
+Use subtle scroll-based movement.
 
-As the visitor moves:
+Possible behavior:
 
-* Current position becomes active.
-* Timeline indicator advances.
-* Role information reveals.
-* Older positions transition into view.
-* Technical annotations activate.
+* Technology groups move at slightly different speeds.
+* SVG connections progressively appear.
+* Category labels shift subtly.
+* Technical annotations reveal as the visitor moves through the section.
 
-If using an active timeline, keep it intuitive.
+Do not create a pinned technical dashboard.
 
-Do not lock the page into a complicated scroll experience.
+Do not make the user scroll through every technology one by one.
 
-The visitor must always be able to scroll normally.
+The entire stack should remain discoverable.
 
 ---
 
 # Hover Interaction
 
-Desktop hover may provide subtle enhancement.
+Desktop hover can provide additional detail.
 
-Examples:
+On hover:
 
-* Highlight role
-* Activate timeline node
-* Reveal technical metadata
-* Emphasize company
-* Show small directional indicator
+* Technology becomes visually prominent.
+* Associated category activates.
+* Small descriptor appears.
+* Related technologies subtly respond.
 
-Hover must not hide essential information.
+Keep hover effects restrained.
 
----
-
-# Current Role Emphasis
-
-The current position should have a distinctive treatment.
-
-Possible visual cues:
-
-* Active node
-* Small status indicator
-* Stronger typography
-* More whitespace
-* Subtle animated signal
-
-Avoid using gimmicky labels such as:
-
-**CURRENTLY CRUSHING IT**
-
-Use professional language.
-
----
-
-# Resume Access
-
-Provide an unobtrusive option to view/download the full resume if a valid resume asset is available.
-
-Possible CTA:
-
-**View full resume →**
-
-This should not dominate the section.
-
-The portfolio itself should remain the primary experience.
+Essential information must not depend on hover.
 
 ---
 
@@ -412,93 +463,92 @@ The portfolio itself should remain the primary experience.
 
 ## Desktop
 
-Use a sophisticated chronological composition with strong asymmetry.
+Use the full technical ecosystem.
 
-Dates, roles, and supporting information should have clear visual relationships.
+Allow technology groups to occupy different visual areas.
+
+Use asymmetry and whitespace.
 
 ## Tablet
 
-Simplify the composition while preserving the timeline and hierarchy.
+Simplify relationships while preserving category hierarchy.
 
 ## Mobile
 
-Use a clean vertical career progression.
+Prioritize readability and exploration.
 
-Prioritize:
+Use vertically organized categories.
 
-1. Date
-2. Company
-3. Role
-4. Scope
-5. Key responsibilities
-6. Impact
-7. Technologies
+Technology names should remain large enough to tap comfortably.
 
-Avoid forcing a complex horizontal timeline onto small screens.
+Avoid tiny logo grids.
+
+If interactive relationships become difficult on mobile, simplify them into expandable categories or static groups.
 
 ---
 
 # Typography
 
-Use large typography for:
+Technology names should primarily use typography rather than oversized logos.
 
-* Section heading
-* Current role
-* Important career milestone
+Use:
 
-Use smaller typography for:
+* Strong type for core technologies
+* Smaller labels for secondary tools
+* Micro typography for categories and metadata
 
-* Dates
-* Company
-* Metadata
-* Supporting details
-
-The most recent experience should naturally attract the most attention.
+The typography should feel editorial and technical simultaneously.
 
 ---
 
-# Content Density
+# Technical Metadata
 
-Do not reproduce the resume verbatim.
+Use small annotations such as:
 
-Each role should be distilled to the information most useful to a portfolio visitor.
+**FRONTEND**
 
-Aim for:
+**BACKEND**
 
-* One concise role summary
-* A few meaningful responsibilities
-* Selected impact
-* Relevant technologies
+**DATA**
 
-Remove repetitive bullet points.
+**INFRASTRUCTURE**
+
+**AI**
+
+**APIs**
+
+These should establish the technical context.
+
+Avoid excessive badges.
 
 ---
 
 # SEO
 
-Use semantic content for:
+Naturally expose relevant technical keywords through semantic HTML.
 
-* Company names
-* Job titles
-* Dates
-* Technologies
-* Engineering responsibilities
+Important terms may include:
 
-Naturally reinforce professional terms such as:
-
-* Senior Full Stack Developer
-* Software Engineer
-* SDE-2
-* Full-stack development
+* Full Stack Developer
+* MERN
+* TypeScript
+* JavaScript
 * React
 * Next.js
-* TypeScript
+* Node.js
 * Python
 * FastAPI
 * Django
 * Frappe
+* MongoDB
+* AWS
+* Docker
+* AI
+* APIs
 
 Do not keyword stuff.
+
+Technology names should be genuine content, not hidden SEO text.
 
 ---
 
@@ -507,37 +557,40 @@ Do not keyword stuff.
 Ensure:
 
 * Semantic section structure
-* Proper heading hierarchy
-* Accessible links
-* Keyboard navigation
+* Correct heading hierarchy
+* Keyboard-accessible interactive categories
 * Visible focus states
-* Readable contrast
-* Timeline information understandable without visual positioning
+* Accessible selected states
+* Meaningful labels
 * Reduced-motion support
+* Text remains understandable without icons
 
-The chronological information must remain understandable if animation is disabled.
+Do not rely on color alone to communicate category or proficiency.
 
 ---
 
 # Performance
 
-Keep the timeline lightweight.
+Keep the technical ecosystem lightweight.
 
 Prefer:
 
-* CSS
 * SVG
+* CSS
 * transforms
 * opacity
-* Intersection Observer
-* Existing animation infrastructure
+* existing animation utilities
 
 Avoid:
 
+* large logo libraries
+* unnecessary icon packages
 * Three.js
 * WebGL
-* heavy animation loops
-* unnecessary dependencies
+* canvas-heavy effects
+* expensive continuous animations
+
+Only load assets that are actually needed.
 
 ---
 
@@ -545,26 +598,24 @@ Avoid:
 
 Do NOT create:
 
-* Resume PDF pasted into the page
-* Generic vertical timeline template
-* Identical experience cards
-* Giant company logos
-* Skill bars
-* Years-as-progress-bars
-* Fake promotions
-* Fake achievements
-* Fake metrics
-* Excessive company descriptions
-* Corporate buzzword-heavy copy
-* Huge text blocks
-* Generic LinkedIn-style layout
-* Excessive cards
+* Technology logo wall
+* Skill percentage bars
+* Progress meters
+* "Expert / 90%" ratings
+* Star ratings
+* Giant technology cards
+* Endless scrolling technology ticker
+* Every technology ever used
+* Fake proficiency claims
+* Generic developer skill section
 * Dashboard UI
+* Excessive pills
 * Excessive glassmorphism
-* Decorative elements without meaning
-* Overly complex scroll interactions
+* Random technology logos
+* Buzzword-heavy descriptions
+* Unrelated technologies
 
-The section should feel like a thoughtfully designed career story.
+Do not include technologies simply because they are trending.
 
 ---
 
@@ -572,24 +623,24 @@ The section should feel like a thoughtfully designed career story.
 
 Before considering the section complete, verify:
 
-1. Does the career progression feel immediately understandable?
-2. Is the current role clearly emphasized?
-3. Does the section demonstrate increasing responsibility?
-4. Does it avoid simply reproducing the resume?
-5. Are all career facts accurate?
-6. Does the visual treatment feel premium?
-7. Does the timeline feel custom-designed?
-8. Does it connect naturally with Engineering Approach?
-9. Does it prepare the visitor for Technical Expertise?
-10. Is the mobile experience strong?
-11. Does the section remain useful without animation?
-12. Does it strengthen my positioning as a senior full-stack engineer?
+1. Does it communicate technical breadth?
+2. Does it also communicate technical depth?
+3. Are core technologies clearly distinguished?
+4. Does the section show how technologies relate to real engineering work?
+5. Does it avoid becoming a logo wall?
+6. Does it feel like a technical ecosystem rather than a skill list?
+7. Does it maintain the established visual language?
+8. Is the interaction useful?
+9. Is every technology factually supported?
+10. Does it work beautifully on mobile?
+11. Does it remain understandable without animation?
+12. Does it strengthen my positioning as a full-stack engineer?
 
 ---
 
 # Implementation Rule
 
-Build **only the EXPERIENCE section** in this phase.
+Build **only the TECHNICAL EXPERTISE section** in this phase.
 
 Do not redesign or implement:
 
@@ -599,15 +650,15 @@ Do not redesign or implement:
 * Featured Work
 * All Work
 * Engineering Approach
-* Technical Expertise
+* Experience
 * Impact
 * Writing / Exploring
 * Contact
 * Footer
 
-Inspect the existing project and all previous sections before implementation.
+Inspect the existing project and previous sections before implementation.
 
-Use the actual resume/content data available in the project.
+Use the actual resume/project/content data available in the repository.
 
 Reuse existing:
 
@@ -616,11 +667,12 @@ Reuse existing:
 * Spacing
 * Animation utilities
 * SVG patterns
-* Timeline/interaction utilities if already available
+* Icon system
+* Interaction utilities
 * Responsive utilities
 
-Do not create duplicate systems.
+Do not create a duplicate technology data source if one already exists.
 
 Do not modify unrelated sections.
 
-The finished section should feel like a **visual career narrative**, showing how professional experience has progressively shaped the engineer behind the work.
+The finished section should feel like an **interactive map of the engineering tools behind the work**, not a conventional developer skills section.

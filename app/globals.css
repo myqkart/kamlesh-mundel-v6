@@ -137,7 +137,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ):not(.is-visible)
     .cred-write {
     opacity: 0;
@@ -150,7 +151,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-write {
     animation: sketch-write 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -163,7 +165,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ):not(.is-visible)
     .cred-ink {
     stroke-dasharray: 1;
@@ -177,7 +180,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-ink {
     stroke-dasharray: 1;
@@ -192,7 +196,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ):not(.is-visible)
     .cred-node {
     opacity: 0;
@@ -206,7 +211,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-node {
     animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -769,6 +775,119 @@ body {
   }
 }
 
+/* Technical expertise — interactive ecosystem */
+.expertise-cat {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.15rem 0;
+  cursor: pointer;
+  font-family: var(--font-sketch), "Caveat", cursive;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--color-teal-700);
+  opacity: 0.55;
+  transition:
+    opacity 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.expertise-cat-num {
+  margin-right: 0.35rem;
+  font-size: 0.95em;
+  opacity: 0.7;
+}
+
+.expertise-cat:hover,
+.expertise-cat:focus-visible,
+.expertise-cat.is-active {
+  opacity: 1;
+  color: var(--color-teal-900);
+}
+
+.expertise-cat.is-active {
+  transform: translateY(-1px);
+}
+
+.expertise-cat:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+.expertise-tech {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.expertise-tech.is-primary .expertise-tech-name {
+  display: block;
+  font-size: clamp(1.85rem, 3.8vw, 3rem);
+  line-height: 0.95;
+}
+
+.expertise-tech.is-secondary .expertise-tech-name {
+  display: block;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.05;
+}
+
+.expertise-tech.is-supporting .expertise-tech-name {
+  display: block;
+  font-family: var(--font-sketch), "Caveat", cursive;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: var(--color-teal-700);
+}
+
+.expertise-tech-meta {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-sans), "Outfit", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-teal-500);
+  opacity: 0.85;
+}
+
+.expertise-tech.is-dim {
+  opacity: 0.28;
+}
+
+.expertise-tech.is-hot {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.expertise-tech:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 8px;
+}
+
+.expertise-tech.is-primary.is-hot .expertise-tech-name {
+  color: var(--color-teal-900);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expertise-cat,
+  .expertise-tech {
+    transition: none;
+    transform: none;
+  }
+
+  .expertise-tech.is-dim {
+    opacity: 0.45;
+  }
+}
+
 
 /* Shared section parallax — driven by --py on each <section> via useSectionParallax.
    No CSS transition: transitions lag behind scroll and feel broken. */
@@ -903,7 +1022,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-write,
   :is(
@@ -913,7 +1033,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-ink,
   :is(
@@ -923,7 +1044,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready).is-visible .work-visual,
@@ -949,7 +1071,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     )
     .cred-ink,
   :is(
@@ -959,7 +1082,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-ink,
   .about-principle .principle-line,
@@ -977,7 +1101,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ):not(.is-visible)
     .cred-write,
   :is(
@@ -987,7 +1112,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-write,
   :is(
@@ -997,7 +1123,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ):not(.is-visible)
     .cred-node,
   :is(
@@ -1007,7 +1134,8 @@ body {
       .project-ready,
       .archive-ready,
       .approach-ready,
-      .experience-ready
+      .experience-ready,
+      .expertise-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready):not(.is-visible) .work-visual,

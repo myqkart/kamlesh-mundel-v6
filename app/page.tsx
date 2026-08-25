@@ -5,6 +5,7 @@ import { EngineeringApproach } from "@/components/sections/engineering-approach"
 import { Experience } from "@/components/sections/experience";
 import { FeaturedWork } from "@/components/sections/featured-work";
 import { Hero } from "@/components/sections/hero";
+import { TechnicalExpertise } from "@/components/sections/technical-expertise";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <AllWork />
       <EngineeringApproach />
       <Experience />
+      <TechnicalExpertise />
       <div id="contact" />
     </main>
   );
