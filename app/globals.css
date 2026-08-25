@@ -139,7 +139,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ):not(.is-visible)
     .cred-write {
     opacity: 0;
@@ -154,7 +155,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-write {
     animation: sketch-write 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -169,7 +171,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ):not(.is-visible)
     .cred-ink {
     stroke-dasharray: 1;
@@ -185,7 +188,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-ink {
     stroke-dasharray: 1;
@@ -202,7 +206,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ):not(.is-visible)
     .cred-node {
     opacity: 0;
@@ -218,7 +223,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-node {
     animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -981,6 +987,110 @@ body {
   }
 }
 
+/* Contact — editorial form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 36rem;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.contact-label {
+  font-family: var(--font-sans), "Outfit", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-teal-500);
+}
+
+.contact-input {
+  width: 100%;
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid rgb(13 92 99 / 0.28);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.55rem 0 0.7rem;
+  color: var(--color-teal-900);
+  font-family: var(--font-sans), "Outfit", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+.contact-input:hover {
+  border-bottom-color: rgb(13 92 99 / 0.5);
+}
+
+.contact-input:focus {
+  outline: none;
+  border-bottom-color: var(--color-teal-700);
+}
+
+.contact-input:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+.contact-input.is-invalid {
+  border-bottom-color: rgb(153 40 40 / 0.7);
+}
+
+.contact-error {
+  margin: 0;
+  font-family: var(--font-sketch), "Caveat", cursive;
+  font-size: 1.1rem;
+  color: rgb(140 45 45);
+}
+
+.contact-submit {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  color: var(--color-teal-900);
+  font-family: var(--font-sketch), "Caveat", cursive;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.contact-submit:hover .cta-arrow,
+.contact-submit:focus-visible .cta-arrow {
+  transform: translateX(5px);
+}
+
+.contact-submit:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 8px;
+}
+
+.contact-submit:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.contact-submit .cta-arrow {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-input,
+  .contact-submit .cta-arrow {
+    transition: none;
+  }
+}
+
 
 /* Shared section parallax — driven by --py on each <section> via useSectionParallax.
    No CSS transition: transitions lag behind scroll and feel broken. */
@@ -1117,7 +1227,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-write,
   :is(
@@ -1129,7 +1240,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-ink,
   :is(
@@ -1141,7 +1253,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready).is-visible .work-visual,
@@ -1172,7 +1285,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     )
     .cred-ink,
   :is(
@@ -1184,7 +1298,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-ink,
   .about-principle .principle-line,
@@ -1206,7 +1321,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ):not(.is-visible)
     .cred-write,
   :is(
@@ -1218,7 +1334,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-write,
   :is(
@@ -1230,7 +1347,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ):not(.is-visible)
     .cred-node,
   :is(
@@ -1242,7 +1360,8 @@ body {
       .approach-ready,
       .experience-ready,
       .expertise-ready,
-      .impact-ready
+      .impact-ready,
+      .contact-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready):not(.is-visible) .work-visual,

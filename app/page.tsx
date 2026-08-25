@@ -1,5 +1,6 @@
 import { About } from "@/components/sections/about";
 import { AllWork } from "@/components/sections/all-work";
+import { Contact } from "@/components/sections/contact";
 import { Credibility } from "@/components/sections/credibility";
 import { EngineeringApproach } from "@/components/sections/engineering-approach";
 import { Experience } from "@/components/sections/experience";
@@ -20,7 +21,7 @@ export default function Home() {
       <Experience />
       <TechnicalExpertise />
       <Impact />
-      <div id="contact" />
+      <Contact />
     </main>
   );
 }
