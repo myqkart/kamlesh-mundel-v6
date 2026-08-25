@@ -1,26 +1,601 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-teal-900: #0d5c63;
+  --color-teal-700: #247b7b;
+  --color-teal-500: #44a1a0;
+  --color-teal-300: #78cdd7;
+  --color-off-white: #fffffa;
+  --ink: #0d5c63;
+  --paper: #fffffa;
+  --hero-mx: 0;
+  --hero-my: 0;
+  --py: 0;
+  --p: 0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-teal-900: var(--color-teal-900);
+  --color-teal-700: var(--color-teal-700);
+  --color-teal-500: var(--color-teal-500);
+  --color-teal-300: var(--color-teal-300);
+  --color-off-white: var(--color-off-white);
+  --font-sans: var(--font-outfit), "Outfit", sans-serif;
+  --font-display: var(--font-fraunces), "Fraunces", serif;
+  --font-sketch: var(--font-caveat), "Caveat", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  background: var(--paper);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.wonk {
+  font-variation-settings: "WONK" 1, "SOFT" 72;
+}
+
+.paper-hero {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(120% 80% at 100% 18%, rgb(120 205 215 / 0.22), transparent 42%),
+    radial-gradient(90% 70% at 8% 88%, rgb(13 92 99 / 0.05), transparent 46%),
+    linear-gradient(rgb(13 92 99 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 92 99 / 0.045) 1px, transparent 1px),
+    linear-gradient(rgb(13 92 99 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 92 99 / 0.03) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    28px 28px,
+    28px 28px,
+    140px 140px,
+    140px 140px;
+}
+
+.paper-grain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.hero-sketch-scroll {
+  transform: translate3d(0, calc(var(--py, 0) * -40px), 0);
+}
+
+.hero-sketch {
+  transform: translate3d(calc(var(--hero-mx) * 14px), calc(var(--hero-my) * 10px), 0);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-reveal {
+  animation: hero-reveal 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ink-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.35s both;
+}
+
+.ink-draw-slow {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw 3.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both;
+}
+
+.node-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pulse 2.8s ease-in-out 1.6s infinite;
+}
+
+.sketch-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sketch-cta:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 8px;
+}
+
+.sketch-cta .cta-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sketch-cta .cta-arrow {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sketch-cta:hover .cta-arrow,
+.sketch-cta:focus-visible .cta-arrow {
+  transform: translateX(5px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ):not(.is-visible)
+    .cred-write {
+    opacity: 0;
+  }
+
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-write {
+    animation: sketch-write 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ):not(.is-visible)
+    .cred-ink {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-ink {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 2s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ):not(.is-visible)
+    .cred-node {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-node {
+    animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  :is(.work-ready, .project-ready):not(.is-visible) .work-visual {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+
+  :is(.work-ready, .project-ready).is-visible .work-visual {
+    animation: work-visual-reveal 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+.cred-signal {
+  position: relative;
+  display: block;
+  text-align: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cred-signal:hover {
+  transform: translateX(4px);
+}
+
+.cred-signal::before {
+  content: "";
+  position: absolute;
+  left: -0.85rem;
+  top: 0.35em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border: 1px solid var(--color-teal-700);
+  border-radius: 999px;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.cred-signal:hover::before {
+  opacity: 1;
+  background: var(--color-teal-300);
+}
+
+.about-principle {
+  position: relative;
+  display: block;
+  padding-bottom: 0.35rem;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-principle:hover {
+  transform: translateX(3px);
+}
+
+.archive-filter {
+  position: relative;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.15rem 0;
+  color: var(--color-teal-700);
+  cursor: pointer;
+  font-family: var(--font-sketch), "Caveat", cursive;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.archive-filter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-filter[aria-pressed="true"] {
+  color: var(--color-teal-900);
+}
+
+.archive-filter[aria-pressed="true"]::after,
+.archive-filter:hover::after,
+.archive-filter:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.archive-filter:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+.archive-row {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-row:hover .archive-title,
+.archive-row:focus-visible .archive-title {
+  transform: translateX(6px);
+}
+
+.archive-row:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 10px;
+}
+
+.archive-title {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-row .archive-arrow {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-row:hover .archive-arrow,
+.archive-row:focus-visible .archive-arrow {
+  transform: translateX(5px);
+}
+
+.archive-preview {
+  pointer-events: none;
+  position: fixed;
+  z-index: 40;
+  width: min(18rem, 42vw);
+  opacity: 0;
+  transform: translate3d(-40%, -40%, 0) scale(0.96);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.archive-preview.is-active {
+  opacity: 1;
+  transform: translate3d(-40%, -40%, 0) scale(1);
+}
+
+
+/* Shared section parallax — driven by --py on each <section> via useSectionParallax.
+   No CSS transition: transitions lag behind scroll and feel broken. */
+.parallax-slow,
+.parallax-mid,
+.parallax-fast,
+.parallax-back {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .parallax-slow {
+    transform: translate3d(0, calc(var(--py, 0) * 48px), 0);
+  }
+
+  .parallax-mid {
+    transform: translate3d(0, calc(var(--py, 0) * -28px), 0);
+  }
+
+  .parallax-fast {
+    transform: translate3d(0, calc(var(--py, 0) * 22px), 0);
+  }
+
+  .parallax-back {
+    transform: translate3d(0, calc(var(--py, 0) * 16px), 0);
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-ready:not(.is-visible) .principle-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .about-ready.is-visible .principle-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .archive-ready.is-visible .archive-item {
+    animation: sketch-write 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.55em);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes sketch-write {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes sketch-node {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes work-visual-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes ink-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.85);
+    opacity: 0.12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-reveal,
+  .ink-draw,
+  .ink-draw-slow,
+  .node-pulse,
+  .sketch-cta .cta-line,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-write,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-ink,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-node,
+  :is(.work-ready, .project-ready).is-visible .work-visual,
+  .archive-ready.is-visible .archive-item {
+    animation: none;
+  }
+
+  .ink-draw,
+  .ink-draw-slow,
+  .sketch-cta .cta-line,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    )
+    .cred-ink,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-ink,
+  .about-principle .principle-line,
+  .about-ready.is-visible .principle-line {
+    stroke-dashoffset: 0;
+  }
+
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ):not(.is-visible)
+    .cred-write,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-write,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ):not(.is-visible)
+    .cred-node,
+  :is(
+      .cred-ready,
+      .about-ready,
+      .work-ready,
+      .project-ready,
+      .archive-ready
+    ).is-visible
+    .cred-node,
+  :is(.work-ready, .project-ready):not(.is-visible) .work-visual,
+  :is(.work-ready, .project-ready).is-visible .work-visual,
+  .archive-ready.is-visible .archive-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+  }
+
+  .archive-row:hover .archive-title,
+  .archive-row:focus-visible .archive-title,
+  .archive-row:hover .archive-arrow,
+  .archive-row:focus-visible .archive-arrow,
+  .archive-title,
+  .archive-arrow,
+  .archive-filter::after,
+  .archive-preview,
+  .parallax-slow,
+  .parallax-mid,
+  .parallax-fast,
+  .parallax-back {
+    transition: none;
+    transform: none;
+  }
+
+  .archive-preview {
+    display: none;
+  }
+
+
+  .about-principle,
+  .about-principle:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .cred-signal,
+  .cred-signal:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .hero-sketch,
+  .hero-sketch-scroll {
+    transition: none;
+    transform: none;
+  }
 }
