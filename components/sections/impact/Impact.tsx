@@ -69,14 +69,14 @@ export function Impact() {
 
       <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
         {/* Compact banner header — signals as ink stamps across the top */}
-        <header className="parallax-slow">
+        <header>
           <p
             className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
             style={{ animationDelay: "60ms" }}
           >
             09 · impact
           </p>
-          <div className="mt-3 grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="mt-3 grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-7">
               <h2
                 id="impact-heading"
@@ -123,7 +123,7 @@ export function Impact() {
         </div>
 
         <p
-          className="parallax-slow cred-write max-w-[34rem] -rotate-1 font-sketch text-[1.7rem] leading-snug text-teal-700 md:text-[1.9rem]"
+          className="cred-write max-w-[34rem] -rotate-1 font-sketch text-[1.7rem] leading-snug text-teal-700 md:text-[1.9rem]"
           style={{ animationDelay: `${480 + impactStories.length * 120}ms` }}
         >
           Good software reduces friction, enables people, and keeps delivering

@@ -45,7 +45,7 @@ export function About() {
         <AboutDecorations />
       </div>
       <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
-        <div className="parallax-slow">
+        <div>
           <AboutContent />
         </div>
 
@@ -72,7 +72,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="parallax-slow">
+        <div>
           <AboutPhilosophy />
         </div>
       </div>

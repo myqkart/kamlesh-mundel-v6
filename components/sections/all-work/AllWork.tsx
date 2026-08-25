@@ -97,8 +97,8 @@ export function AllWork() {
         </svg>
       </div>
 
-      <div className="relative z-10 sheet-block flex flex-col gap-8 md:gap-10">
-        <header className="parallax-slow grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
+      <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
+        <header className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
           <div className="max-w-[40rem] lg:col-span-7">
             <p
               className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
@@ -156,7 +156,7 @@ export function AllWork() {
         </div>
 
         <p
-          className="parallax-slow cred-write max-w-[28rem] -rotate-1 font-sketch text-[1.55rem] leading-snug text-teal-700 md:text-[1.7rem]"
+          className="cred-write max-w-[28rem] -rotate-1 font-sketch text-[1.55rem] leading-snug text-teal-700 md:text-[1.7rem]"
           style={{ animationDelay: "560ms" }}
         >
           tap a stamp if you want to talk about a project

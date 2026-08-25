@@ -41,7 +41,7 @@ export function FeaturedWork() {
       className={`relative isolate overflow-hidden ${ready ? "work-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
       <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
-        <header className="parallax-slow max-w-[40rem]">
+        <header className="max-w-[40rem]">
           <p
             className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
             style={{ animationDelay: "80ms" }}
@@ -90,7 +90,7 @@ export function FeaturedWork() {
           ))}
         </div>
 
-        <div className="parallax-fast">
+        <div>
           <FeaturedWorkFooter />
         </div>
       </div>

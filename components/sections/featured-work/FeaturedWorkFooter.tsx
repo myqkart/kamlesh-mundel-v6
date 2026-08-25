@@ -50,11 +50,11 @@ export function FeaturedWorkFooter() {
   return (
     <div
       ref={ref}
-      className={`pt-2 ${ready ? "project-ready" : ""} ${visible ? "is-visible" : ""}`}
+      className={`pt-1 ${ready ? "project-ready" : ""} ${visible ? "is-visible" : ""}`}
     >
       <svg
         aria-hidden="true"
-        className="mb-8 h-3 w-full max-w-[20rem] overflow-visible text-teal-900/35"
+        className="mb-5 h-3 w-full max-w-[20rem] overflow-visible text-teal-900/35"
         fill="none"
         preserveAspectRatio="none"
         viewBox="0 0 320 12"

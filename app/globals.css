@@ -12,6 +12,9 @@
   --hero-my: 0;
   --py: 0;
   --p: 0;
+  /* Even rhythm between every section */
+  --section-pad-y: clamp(2.5rem, 5vh, 3.5rem);
+  --section-divider-y: 0.75rem;
   --paper-grid:
     radial-gradient(110% 70% at 92% 12%, rgb(120 205 215 / 0.18), transparent 46%),
     radial-gradient(80% 60% at 6% 90%, rgb(13 92 99 / 0.04), transparent 48%),
@@ -98,7 +101,24 @@ body {
   width: 100%;
   max-width: 90rem;
   padding-inline: 7vw;
-  padding-block: clamp(2.25rem, 5.5vh, 3.75rem);
+  padding-block: var(--section-pad-y, clamp(2.75rem, 5.5vh, 3.75rem));
+}
+
+/* Continuation block inside the same section — no double top pad */
+.sheet-block--continue {
+  padding-top: 0.35rem;
+}
+
+/* Consistent ink squiggle between sections */
+.sheet-divider {
+  pointer-events: none;
+  margin-inline: auto;
+  display: flex;
+  width: 100%;
+  max-width: 90rem;
+  justify-content: center;
+  padding-inline: 7vw;
+  padding-block: var(--section-divider-y, 0.85rem);
 }
 
 /* Sticky pins must match the sheet so they don't read as separate cards */
@@ -1278,19 +1298,19 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .parallax-slow {
-    transform: translate3d(0, calc(var(--py, 0) * 48px), 0);
+    transform: translate3d(0, calc(var(--py, 0) * 28px), 0);
   }
 
   .parallax-mid {
-    transform: translate3d(0, calc(var(--py, 0) * -28px), 0);
+    transform: translate3d(0, calc(var(--py, 0) * -18px), 0);
   }
 
   .parallax-fast {
-    transform: translate3d(0, calc(var(--py, 0) * 22px), 0);
+    transform: translate3d(0, calc(var(--py, 0) * 14px), 0);
   }
 
   .parallax-back {
-    transform: translate3d(0, calc(var(--py, 0) * 16px), 0);
+    transform: translate3d(0, calc(var(--py, 0) * 10px), 0);
   }
 }
 
@@ -1966,7 +1986,11 @@ html.splash-locked .cta-line {
   /* Clear the notebook margin line without changing desktop rhythm */
   .sheet-block {
     padding-inline: max(2.1rem, 7.5vw) max(1.15rem, 4.5vw);
-    padding-block: clamp(1.65rem, 4.2vh, 2.65rem);
+    --section-pad-y: clamp(2.25rem, 4.5vh, 3rem);
+  }
+
+  .sheet-divider {
+    padding-inline: max(2.1rem, 7.5vw) max(1.15rem, 4.5vw);
   }
 
   .sketch-margin,

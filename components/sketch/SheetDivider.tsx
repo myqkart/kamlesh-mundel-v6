@@ -5,10 +5,7 @@ type SheetDividerProps = {
 /** Loose ink squiggle — marks a page turn without a hard section rule. */
 export function SheetDivider({ className = "" }: SheetDividerProps) {
   return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none mx-auto flex w-full max-w-[90rem] justify-center px-[7vw] py-1 ${className}`}
-    >
+    <div aria-hidden="true" className={`sheet-divider ${className}`.trim()}>
       <svg
         className="h-5 w-[min(100%,18rem)] text-teal-900/35"
         fill="none"

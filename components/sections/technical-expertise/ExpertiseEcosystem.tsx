@@ -132,7 +132,7 @@ export function ExpertiseEcosystem({
       </div>
 
       <div
-        className="expertise-detail cred-write mt-10 min-h-[4.5rem] md:mt-12"
+        className="expertise-detail cred-write mt-10 md:mt-12"
         style={{ animationDelay: "920ms" }}
         aria-live="polite"
       >

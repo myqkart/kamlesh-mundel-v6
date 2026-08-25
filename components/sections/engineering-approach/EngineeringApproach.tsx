@@ -173,7 +173,7 @@ export function EngineeringApproach() {
         className="approach-track relative"
         style={trackHeight ? { height: trackHeight } : undefined}
       >
-        <div className="approach-pin paper-match relative z-10 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden">
+        <div className="approach-pin paper-match relative z-10 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-start lg:overflow-hidden">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 overflow-hidden text-teal-900"
@@ -210,7 +210,7 @@ export function EngineeringApproach() {
             </svg>
           </div>
 
-          <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col gap-8 px-[7vw] py-[clamp(2.25rem,5vh,3.5rem)] md:gap-10 lg:gap-8 lg:py-[clamp(2rem,4vh,3rem)]">
+          <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12 lg:gap-10">
             <header className="max-w-[40rem]">
               <p
                 className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
@@ -301,7 +301,7 @@ export function EngineeringApproach() {
         </div>
       </div>
 
-      <aside className="sheet-block">
+      <aside className="sheet-block sheet-block--continue">
         <div
           className="cred-write max-w-[36rem]"
           style={{ animationDelay: "200ms" }}

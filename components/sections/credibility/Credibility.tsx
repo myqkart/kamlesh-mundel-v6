@@ -45,7 +45,7 @@ export function Credibility() {
       <div className="parallax-mid">
         <CredibilityDecorations />
       </div>
-      <div className="relative z-10 sheet-block flex flex-col gap-9 md:gap-11">
+      <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0">
           <div className="parallax-slow lg:col-span-4">
             <CredibilityContent />
@@ -58,7 +58,7 @@ export function Credibility() {
         <div className="parallax-mid">
           <CredibilityPipeline />
         </div>
-        <div className="parallax-slow">
+        <div>
           <CredibilityTech />
         </div>
       </div>

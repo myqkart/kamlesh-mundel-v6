@@ -88,8 +88,8 @@ export function Contact() {
         </svg>
       </div>
 
-      <div className="relative z-10 sheet-block flex flex-col gap-8 md:gap-10">
-        <header className="parallax-slow max-w-[42rem]">
+      <div className="relative z-10 sheet-block flex flex-col gap-10 md:gap-12">
+        <header className="max-w-[42rem]">
           <p
             className="cred-write font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
             style={{ animationDelay: "60ms" }}
