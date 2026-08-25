@@ -1202,6 +1202,22 @@ body {
   border-bottom-color: rgb(153 40 40 / 0.7);
 }
 
+/* Kill browser autofill blue/yellow highlight */
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus,
+.contact-input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-teal-900);
+  caret-color: var(--color-teal-900);
+  border-bottom: 1.5px dashed rgb(13 92 99 / 0.35);
+  box-shadow: 0 0 0 1000px var(--color-off-white) inset;
+  transition: background-color 99999s ease-out, border-color 0.3s ease;
+}
+
+.contact-input:-webkit-autofill:focus {
+  border-bottom-color: var(--color-teal-700);
+}
+
 .contact-error {
   margin: 0;
   font-family: var(--font-sketch), "Reenie Beanie", cursive;
