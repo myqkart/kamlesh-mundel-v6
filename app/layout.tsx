@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Caveat, Kalam, Reenie_Beanie } from "next/font/google";
+import { SplashScreen } from "@/components/splash/SplashScreen";
 import "./globals.css";
 
 const kalam = Kalam({
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${kalam.variable} ${caveat.variable} ${reenie.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-off-white text-teal-900">
+        <SplashScreen />
         {children}
       </body>
     </html>

@@ -1605,3 +1605,333 @@ body {
     transform: none;
   }
 }
+
+/* ── Splash / sketchbook open ─────────────────────────────── */
+html.splash-locked,
+html.splash-locked body {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Hold page entrances until the sketchbook opens */
+html.splash-locked .hero-reveal {
+  animation: none !important;
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(0.55em);
+}
+
+html.splash-locked .ink-draw,
+html.splash-locked .ink-draw-slow,
+html.splash-locked .cta-line,
+html.splash-locked .node-pulse {
+  animation: none !important;
+}
+
+html.splash-locked .ink-draw,
+html.splash-locked .ink-draw-slow,
+html.splash-locked .cta-line {
+  stroke-dashoffset: 1;
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  pointer-events: auto;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease;
+}
+
+.splash.is-exit {
+  opacity: 0;
+  transform: translateY(-4%) scale(1.02);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.splash-paper {
+  position: absolute;
+  inset: 0;
+  background-color: var(--paper);
+  background-image: var(--paper-grid);
+  background-size: var(--paper-grid-size);
+}
+
+.splash-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.24;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.splash-margin {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: max(1.1rem, 3.2vw);
+  width: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: linear-gradient(
+    180deg,
+    rgb(196 78 72 / 0.1),
+    rgb(196 78 72 / 0.42) 12%,
+    rgb(196 78 72 / 0.36) 88%,
+    rgb(196 78 72 / 0.1)
+  );
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.splash.is-ink .splash-margin,
+.splash.is-name .splash-margin,
+.splash.is-hold .splash-margin,
+.splash.is-exit .splash-margin {
+  transform: scaleY(1);
+}
+
+.splash-frame {
+  position: absolute;
+  inset: 2.5%;
+  width: 95%;
+  height: 95%;
+  color: rgb(13 92 99 / 0.4);
+}
+
+.splash-ink {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.splash.is-ink .splash-ink,
+.splash.is-name .splash-ink,
+.splash.is-hold .splash-ink,
+.splash.is-exit .splash-ink {
+  animation: ink-draw 1.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.splash-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  max-width: min(92vw, 40rem);
+}
+
+.splash-eyebrow {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  line-height: 1;
+  color: var(--color-teal-700);
+  opacity: 0;
+  transform: translateY(0.4rem) rotate(-2deg);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.splash.is-ink .splash-eyebrow,
+.splash.is-name .splash-eyebrow,
+.splash.is-hold .splash-eyebrow,
+.splash.is-exit .splash-eyebrow {
+  opacity: 1;
+  transform: translateY(0) rotate(-2deg);
+}
+
+.splash-pipeline {
+  margin-top: 1.6rem;
+  width: min(100%, 22rem);
+  height: auto;
+  color: var(--color-teal-900);
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 0.6s ease 0.15s,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.splash.is-ink .splash-pipeline,
+.splash.is-name .splash-pipeline,
+.splash.is-hold .splash-pipeline,
+.splash.is-exit .splash-pipeline {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.splash-name {
+  margin: 1.4rem 0 0;
+  font-size: clamp(3.6rem, 12vw, 7.5rem);
+  font-weight: 600;
+  line-height: 0.86;
+  color: var(--color-teal-900);
+}
+
+.splash-name-line {
+  display: block;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transform: translateY(0.35em);
+  filter: blur(3px);
+}
+
+.splash.is-name .splash-name-line,
+.splash.is-hold .splash-name-line,
+.splash.is-exit .splash-name-line {
+  animation: splash-write 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.splash.is-name .splash-name-line:nth-child(2),
+.splash.is-hold .splash-name-line:nth-child(2),
+.splash.is-exit .splash-name-line:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.splash-underline {
+  margin-top: 0.35rem;
+  width: min(100%, 18rem);
+  height: 0.9rem;
+  color: var(--color-teal-700);
+  opacity: 0;
+}
+
+.splash.is-name .splash-underline,
+.splash.is-hold .splash-underline,
+.splash.is-exit .splash-underline {
+  opacity: 1;
+}
+
+.splash.is-name .splash-underline .splash-ink,
+.splash.is-hold .splash-underline .splash-ink,
+.splash.is-exit .splash-underline .splash-ink {
+  animation-delay: 0.55s;
+  animation-duration: 0.9s;
+}
+
+.splash-tag {
+  margin: 1.1rem 0 0;
+  max-width: 22rem;
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  line-height: 1.15;
+  color: var(--color-teal-700);
+  opacity: 0;
+  transform: translateY(0.4rem) rotate(1deg);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.splash.is-hold .splash-tag,
+.splash.is-exit .splash-tag {
+  opacity: 1;
+  transform: translateY(0) rotate(1deg);
+  transition-delay: 0.08s;
+}
+
+.splash-progress {
+  position: relative;
+  margin-top: 2.2rem;
+  width: min(100%, 14rem);
+  height: 2px;
+  overflow: hidden;
+  background: rgb(13 92 99 / 0.12);
+  border-radius: 999px;
+}
+
+.splash-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: var(--color-teal-500);
+  border-radius: inherit;
+  transition: width 2.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.splash.is-ink .splash-progress-fill,
+.splash.is-name .splash-progress-fill,
+.splash.is-hold .splash-progress-fill {
+  width: 100%;
+}
+
+.splash-skip {
+  position: absolute;
+  right: max(1.25rem, 4vw);
+  bottom: max(1.25rem, 3.5vh);
+  z-index: 3;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.4rem 0.2rem;
+  cursor: pointer;
+  color: var(--color-teal-700);
+  font-size: 1.55rem;
+  line-height: 1;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.splash-skip:hover,
+.splash-skip:focus-visible {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.splash-skip:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+@keyframes splash-write {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(0.35em);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash,
+  .splash.is-exit,
+  .splash-margin,
+  .splash-eyebrow,
+  .splash-pipeline,
+  .splash-tag,
+  .splash-progress-fill,
+  .splash-skip {
+    transition: none;
+    animation: none;
+    transform: none;
+    filter: none;
+    opacity: 1;
+  }
+
+  .splash-ink,
+  .splash.is-ink .splash-ink,
+  .splash.is-name .splash-ink {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .splash-name-line {
+    opacity: 1;
+    clip-path: none;
+    filter: none;
+    transform: none;
+    animation: none;
+  }
+}
