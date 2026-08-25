@@ -28,11 +28,11 @@ export function SplashScreen() {
       window.setTimeout(() => setPhase("ink"), 180),
       window.setTimeout(() => setPhase("name"), 720),
       window.setTimeout(() => setPhase("hold"), 1680),
-      window.setTimeout(() => setPhase("exit"), 2480),
+      window.setTimeout(() => setPhase("exit"), 3800),
       window.setTimeout(() => {
         setPhase("done");
         document.documentElement.classList.remove("splash-locked");
-      }, 3400),
+      }, 4900),
     ];
 
     return () => {

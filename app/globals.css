@@ -1852,7 +1852,7 @@ html.splash-locked .cta-line {
   width: 0%;
   background: var(--color-teal-500);
   border-radius: inherit;
-  transition: width 2.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 3.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .splash.is-ink .splash-progress-fill,
