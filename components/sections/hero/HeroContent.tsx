@@ -50,7 +50,7 @@ export function HeroContent() {
         sr. full stack developer
       </p>
 
-      <p
+      <h1
         className="hero-reveal hero-name relative mt-3 w-fit max-w-[calc(100vw-3.5rem)] -rotate-1 font-display text-[clamp(3.15rem,13vw,9rem)] font-semibold leading-[0.82] text-teal-900 md:mt-4 md:max-w-none md:text-[clamp(4rem,12vw,9rem)]"
         style={{ animationDelay: "180ms" }}
       >
@@ -72,14 +72,14 @@ export function HeroContent() {
             strokeWidth="2.4"
           />
         </svg>
-      </p>
+      </h1>
 
-      <h1
+      <p
         className="hero-reveal mt-4 max-w-[18ch] rotate-[0.4deg] font-display text-[clamp(1.7rem,6.2vw,3.35rem)] leading-[1.08] text-teal-900 md:mt-6 md:text-[clamp(2rem,3.8vw,3.35rem)] md:leading-[1.05]"
         style={{ animationDelay: "380ms" }}
       >
         I build digital products that are designed to move.
-      </h1>
+      </p>
 
       <p
         className="hero-reveal mt-3 max-w-[30rem] text-[1.02rem] leading-snug text-teal-900/75 md:mt-4 md:text-[1.2rem]"
