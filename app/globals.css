@@ -135,7 +135,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ):not(.is-visible)
     .cred-write {
     opacity: 0;
@@ -146,7 +147,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-write {
     animation: sketch-write 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -157,7 +159,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ):not(.is-visible)
     .cred-ink {
     stroke-dasharray: 1;
@@ -169,7 +172,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-ink {
     stroke-dasharray: 1;
@@ -182,7 +186,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ):not(.is-visible)
     .cred-node {
     opacity: 0;
@@ -194,7 +199,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-node {
     animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -339,6 +345,221 @@ body {
   transform: translate3d(-40%, -40%, 0) scale(1);
 }
 
+/* Engineering approach — interactive principle system */
+.approach-tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  align-items: baseline;
+  gap: 0.65rem 0.85rem;
+  width: 100%;
+  padding: 0.85rem 0.75rem 0.85rem 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.42;
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-tab:hover,
+.approach-tab:focus-visible {
+  opacity: 0.78;
+  transform: translateX(3px);
+}
+
+.approach-tab.is-active {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+.approach-tab:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+.approach-tab-mark {
+  position: absolute;
+  left: -0.15rem;
+  top: 1.05rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border: 1px solid var(--color-teal-700);
+  border-radius: 999px;
+  opacity: 0.35;
+  transition:
+    opacity 0.35s ease,
+    background-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-tab.is-active .approach-tab-mark {
+  opacity: 1;
+  background: var(--color-teal-300);
+  transform: scale(1.2);
+}
+
+.approach-tab.is-active .approach-tab-title {
+  color: var(--color-teal-900);
+}
+
+.approach-detail {
+  min-height: 18rem;
+  animation: approach-detail-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes approach-detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.approach-progress {
+  position: relative;
+  height: 2px;
+  width: min(100%, 14rem);
+}
+
+.approach-progress-track,
+.approach-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.approach-progress-track {
+  width: 100%;
+  background: rgb(13 92 99 / 0.12);
+}
+
+.approach-progress-fill {
+  width: calc(var(--approach-progress, 0.16) * 100%);
+  background: var(--color-teal-500);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-path {
+  stroke: rgb(13 92 99 / 0.18);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition:
+    stroke 0.4s ease,
+    stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-path.is-drawn,
+.approach-path.is-active {
+  stroke-dashoffset: 0;
+}
+
+.approach-path.is-drawn {
+  stroke: rgb(13 92 99 / 0.35);
+}
+
+.approach-path.is-active {
+  stroke: var(--color-teal-700);
+}
+
+.approach-node {
+  color: rgb(13 92 99 / 0.35);
+  transition: color 0.35s ease;
+}
+
+.approach-node.is-passed {
+  color: rgb(13 92 99 / 0.55);
+}
+
+.approach-node.is-active {
+  color: var(--color-teal-900);
+}
+
+.approach-node-label {
+  font-family: var(--font-sans), "Outfit", sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  opacity: 0.55;
+}
+
+.approach-node.is-active .approach-node-label {
+  opacity: 1;
+}
+
+.approach-node-ring {
+  opacity: 0.35;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .approach-node.is-active .approach-node-ring {
+    animation: node-pulse 2.6s ease-in-out infinite;
+  }
+
+  .approach-ready.is-visible .approach-path.is-drawn,
+  .approach-ready.is-visible .approach-path.is-active {
+    animation: ink-draw 0.85s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
+
+.approach-card {
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgb(13 92 99 / 0.1);
+  opacity: 0.55;
+  transition: opacity 0.4s ease;
+}
+
+.approach-card.is-active {
+  opacity: 1;
+}
+
+.approach-card:last-child {
+  border-bottom: 0;
+}
+
+/* Pinned scroll-scrub: screen stays, scroll advances principles */
+.approach-scrubbing .approach-pin {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(120% 80% at 100% 18%, rgb(120 205 215 / 0.22), transparent 42%),
+    radial-gradient(90% 70% at 8% 88%, rgb(13 92 99 / 0.05), transparent 46%),
+    linear-gradient(rgb(13 92 99 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 92 99 / 0.045) 1px, transparent 1px),
+    linear-gradient(rgb(13 92 99 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 92 99 / 0.03) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    28px 28px,
+    28px 28px,
+    140px 140px,
+    140px 140px;
+}
+
+.approach-scrubbing .approach-tab {
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 
 /* Shared section parallax — driven by --py on each <section> via useSectionParallax.
    No CSS transition: transitions lag behind scroll and feel broken. */
@@ -471,7 +692,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-write,
   :is(
@@ -479,7 +701,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-ink,
   :is(
@@ -487,11 +710,16 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready).is-visible .work-visual,
-  .archive-ready.is-visible .archive-item {
+  .archive-ready.is-visible .archive-item,
+  .approach-node.is-active .approach-node-ring,
+  .approach-ready.is-visible .approach-path.is-drawn,
+  .approach-ready.is-visible .approach-path.is-active,
+  .approach-detail {
     animation: none;
   }
 
@@ -503,7 +731,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     )
     .cred-ink,
   :is(
@@ -511,11 +740,13 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-ink,
   .about-principle .principle-line,
-  .about-ready.is-visible .principle-line {
+  .about-ready.is-visible .principle-line,
+  .approach-path {
     stroke-dashoffset: 0;
   }
 
@@ -524,7 +755,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ):not(.is-visible)
     .cred-write,
   :is(
@@ -532,7 +764,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-write,
   :is(
@@ -540,7 +773,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ):not(.is-visible)
     .cred-node,
   :is(
@@ -548,7 +782,8 @@ body {
       .about-ready,
       .work-ready,
       .project-ready,
-      .archive-ready
+      .archive-ready,
+      .approach-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready):not(.is-visible) .work-visual,
@@ -585,6 +820,24 @@ body {
   .about-principle:hover {
     transition: none;
     transform: none;
+  }
+
+  .approach-tab,
+  .approach-tab:hover,
+  .approach-tab:focus-visible,
+  .approach-tab.is-active,
+  .approach-tab-mark,
+  .approach-progress-fill,
+  .approach-path,
+  .approach-node,
+  .approach-card {
+    transition: none;
+    transform: none;
+  }
+
+  .approach-tab,
+  .approach-card {
+    opacity: 1;
   }
 
   .cred-signal,
