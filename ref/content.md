@@ -1,41 +1,40 @@
-# ENGINEERING APPROACH SECTION
+# EXPERIENCE SECTION
 
 ## Objective
 
-Design and implement the **Engineering Approach** section after All Work.
+Design and implement the **Experience** section after Engineering Approach.
 
 This section should answer:
 
-> **"How does Kamlesh actually approach engineering problems?"**
+> **"Where has Kamlesh applied this engineering mindset professionally?"**
 
-The portfolio has already established:
+The previous sections establish:
 
 * Who I am
 * Why my experience is credible
 * How I think
 * What I have built
+* How I approach engineering
 
-Now this section should reveal the **engineering thinking behind the work**.
+Experience should now provide the professional context behind that work.
 
-This is an important differentiator.
+This is not a resume dump.
 
-Do not make it a generic "My Process" section.
-
-It should demonstrate how I approach ambiguity, architecture, implementation, quality, and delivery.
+It should feel like a **career narrative** that demonstrates progression, increasing responsibility, and the evolution of my engineering capabilities.
 
 ---
 
 # Core Message
 
-The central idea should be:
+The underlying message should be:
 
-> **Good engineering is not just about making things work. It's about making the right things work well.**
+> **Experience shaped by increasingly complex problems and increasing ownership.**
 
 Supporting idea:
 
-> I approach problems from the product outward, balancing user experience, technical constraints, maintainability, performance, and long-term reliability.
+> Every role added another layer to how I think about products, systems, teams, and engineering.
 
-Keep the copy concise.
+The section should communicate growth without exaggerating seniority or responsibilities.
 
 ---
 
@@ -45,375 +44,367 @@ Use a strong editorial heading.
 
 Preferred direction:
 
-**How I think about engineering.**
+**Experience, in context.**
+
+Alternative direction:
+
+**Where the work became deeper.**
 
 Supporting copy:
 
-> From the first question to the final deployment, I focus on understanding the problem before deciding how to solve it.
+> A progression through roles, responsibilities, and increasingly complex engineering challenges.
 
-Avoid generic headings such as:
-
-* My Process
-* How I Work
-* Development Process
-* My Workflow
-
-The section should feel like an engineering philosophy rather than a consulting workflow.
+Keep this concise.
 
 ---
 
-# Core Engineering Principles
+# Experience Data
 
-Build the section around a small number of meaningful engineering principles.
+Use the actual career information available in the resume/content files.
 
-Use approximately **5–6 principles**.
+Do not invent:
 
-The principles should communicate the following ideas.
+* Companies
+* Job titles
+* Dates
+* Responsibilities
+* Achievements
+* Technologies
+* Promotions
+* Team sizes
+* Business metrics
 
----
-
-## 01 — Understand Before Building
-
-The first step is understanding the actual problem.
-
-Focus on:
-
-* Requirements
-* User needs
-* Business context
-* Existing systems
-* Constraints
-* Edge cases
-
-Core idea:
-
-> I prefer understanding the problem deeply before deciding what to build.
-
-Avoid unnecessary technical implementation details here.
+Every career detail must come from the existing source material.
 
 ---
 
-## 02 — Design the System, Not Just the Feature
+# Career Narrative
 
-Think beyond the immediate ticket.
+Do not present experience as a conventional resume list.
 
-Consider:
+The section should communicate progression.
 
+Look for meaningful evolution such as:
+
+* Increasing technical ownership
+* Broader system responsibility
+* More complex products
+* Greater backend involvement
+* Architecture decisions
+* Product ownership
+* Mentoring or collaboration where actually supported
+* Increased responsibility for production systems
+
+The narrative should make growth visible without explicitly saying:
+
+> "I became better over time."
+
+Let the progression speak through the content.
+
+---
+
+# Experience Structure
+
+Each professional role should communicate:
+
+### Company
+
+Actual company name.
+
+### Role
+
+Actual title.
+
+### Duration
+
+Actual employment period.
+
+### Location
+
+Only if available and relevant.
+
+### Scope
+
+One concise sentence describing the nature of the role.
+
+### Responsibilities
+
+Only the most meaningful responsibilities.
+
+### Engineering Focus
+
+Relevant technologies, systems, or domains.
+
+### Impact
+
+Specific factual outcomes where available.
+
+Do not overwhelm each role with every responsibility from the resume.
+
+Prioritize the information that demonstrates engineering growth.
+
+---
+
+# Role Hierarchy
+
+The current/most recent role should receive the strongest visual treatment.
+
+Older roles should progressively become more compact.
+
+This creates a visual representation of career progression.
+
+The section should make the current level of responsibility immediately apparent.
+
+Do not make every role visually identical.
+
+---
+
+# Current Role
+
+Give the current SDE-2 role particular emphasis.
+
+Highlight relevant areas such as:
+
+* Full-stack ownership
+* Production systems
 * Architecture
-* Data flow
-* APIs
-* State management
-* Dependencies
-* Failure modes
-* Future changes
-
-Core idea:
-
-> A feature rarely exists in isolation. Good implementation considers the system around it.
-
-This should communicate senior engineering thinking.
-
----
-
-## 03 — Keep Complexity Intentional
-
-Avoid complexity that does not create value.
-
-Focus on:
-
-* Simple abstractions
-* Clear boundaries
-* Maintainable code
-* Appropriate architecture
-* Avoiding premature optimization
-
-Core idea:
-
-> Complexity should solve a real problem, not demonstrate technical ability.
-
-This should be one of the strongest principles.
-
----
-
-## 04 — Build for Real Users
-
-Engineering decisions should ultimately serve the product.
-
-Consider:
-
-* Usability
-* Accessibility
+* Backend/API engineering
+* Frontend systems
+* Integrations
 * Performance
-* Feedback
-* Error states
-* Loading states
-* Responsive behavior
-
-Core idea:
-
-> The implementation is successful when the user experience is successful.
-
-This connects engineering with product thinking.
-
----
-
-## 05 — Make It Reliable
-
-Production software must handle more than the happy path.
-
-Consider:
-
-* Validation
-* Error handling
-* Authentication
-* Security
-* Logging
-* Monitoring
-* Data integrity
-* Failure recovery
-
-Core idea:
-
-> Reliability is part of the feature, not something added afterward.
-
-Do not invent infrastructure metrics.
-
----
-
-## 06 — Ship, Learn, Improve
-
-Engineering does not end when the code is merged.
-
-Focus on:
-
 * Deployment
-* Feedback
-* Monitoring
-* Iteration
-* Refactoring
-* Continuous improvement
+* Technical decision-making
 
-Core idea:
+Only include areas supported by the actual resume.
 
-> Shipping creates feedback. Feedback creates better software.
-
-This provides a natural transition toward the Experience and Impact sections.
+The current role should communicate maturity without using exaggerated language.
 
 ---
 
-# Visual Concept
+# Career Progression
 
-Do not present the principles as six identical cards.
+Introduce a subtle visual progression system.
 
-The section should feel like an **interactive engineering system**.
+The experience section should visually communicate movement through time.
 
-Create a visual relationship between the principles.
+Use elements such as:
 
-The visitor should understand that the principles are connected rather than independent bullet points.
-
-Use the existing technical visual language:
-
+* Vertical timeline
+* Connecting path
+* Years
 * Nodes
-* Lines
-* SVG paths
-* Coordinates
-* Technical labels
-* Arrows
-* Minimal diagrams
+* Milestones
+* Technical annotations
+* Role transitions
+
+The visual should feel editorial and sophisticated.
+
+Do not create a generic resume timeline with circles and lines.
+
+The timeline should feel integrated into the portfolio's design language.
+
+---
+
+# Experience Timeline
+
+If a timeline is used, make it visually asymmetric.
+
+Allow:
+
+* Dates to act as anchors
+* Roles to occupy different visual positions
+* Supporting information to appear selectively
+* Current role to have stronger emphasis
+* Technical metadata to sit around the primary content
+
+The visitor should be able to understand chronology immediately.
+
+---
+
+# Role Storytelling
+
+Each role should answer:
+
+**What was I responsible for?**
+
+**What kind of problems was I solving?**
+
+**What changed in my engineering capabilities?**
+
+Keep each answer concise.
+
+Avoid reproducing the entire resume.
+
+---
+
+# Impact
+
+Where factual information exists, highlight meaningful outcomes.
+
+Examples of valid impact categories:
+
+* Improved performance
+* Reduced manual work
+* Built new product capabilities
+* Automated workflows
+* Integrated external systems
+* Improved reliability
+* Delivered production systems
+* Built reusable architecture
+
+Only use actual evidence.
+
+Never invent percentages or numerical improvements.
+
+If the resume contains verified metrics, use them selectively.
+
+---
+
+# Technical Evolution
+
+Show how my technical scope evolved naturally across roles.
+
+Potential evolution:
+
+**Frontend → Full Stack → Backend → Systems → Product Engineering**
+
+Only represent this if supported by the actual career history.
+
+Do not force a predetermined narrative.
+
+The technologies should appear as evidence of evolution rather than a technology checklist.
+
+---
+
+# Visual Language
+
+Continue the visual language from Engineering Approach.
+
+Reuse:
+
 * Editorial typography
+* Thin lines
+* SVG paths
+* Technical annotations
+* Small metadata
+* Grid
+* Whitespace
+* Subtle motion
 
-The visual should represent the progression of thought without becoming a literal flowchart.
-
----
-
-# Interactive Principle System
-
-Allow the visitor to explore the principles.
-
-A principle can become visually active when:
-
-* Scrolled into focus
-* Hovered
-* Selected
-* Reached through the section's progression
-
-When a principle becomes active:
-
-* Its title becomes prominent.
-* Supporting content reveals.
-* Associated SVG elements activate.
-* Other principles become visually quieter.
-* A subtle progress indicator updates.
-
-The interaction should feel intentional and calm.
-
-Do not make the user click through mandatory steps.
-
-Normal scrolling must remain possible.
+The Experience section should feel more chronological and grounded than the previous conceptual section.
 
 ---
 
-# Content Treatment
+# Experience Metadata
 
-Each principle should contain:
+Use small metadata elements for information such as:
 
-* Number
-* Short title
-* One-line philosophy
-* Short supporting explanation
-* Optional technical keywords
+* YEAR
+* ROLE
+* COMPANY
+* DOMAIN
+* STACK
 
-Keep each principle concise.
+Keep metadata visually secondary.
 
-Avoid long explanations.
+Avoid large badges.
 
-The section should be readable in seconds while still rewarding deeper exploration.
-
----
-
-# Engineering Keywords
-
-Use small technical annotations where relevant.
-
-Examples:
-
-**Architecture**
-
-**APIs**
-
-**Data**
-
-**Security**
-
-**Performance**
-
-**Accessibility**
-
-**Testing**
-
-**Deployment**
-
-**Observability**
-
-These should act as supporting metadata.
-
-Do not turn them into a skill list.
-
----
-
-# Engineering Decision Mindset
-
-Introduce the idea that engineering decisions are contextual.
-
-Communicate that I choose tools and architecture based on:
-
-* Problem requirements
-* Team context
-* Product stage
-* Complexity
-* Performance needs
-* Maintainability
-* Existing infrastructure
-
-Avoid positioning any technology as universally superior.
-
-This makes the section feel more senior and practical.
-
----
-
-# Visual Hierarchy
-
-Create one dominant statement that introduces the philosophy.
-
-The principles should then progressively become more detailed.
-
-The hierarchy should roughly be:
-
-**Engineering philosophy**
-
-↓
-
-**Principles**
-
-↓
-
-**Practical considerations**
-
-↓
-
-**Technical signals**
-
-Do not make every principle equally visually loud.
-
-Use typography and spacing to establish rhythm.
+Avoid excessive pills.
 
 ---
 
 # Motion Design
 
-Motion should communicate **progression and systems thinking**.
+Motion should communicate progression through time.
 
-As the section enters:
+On section entry:
 
-1. Main heading reveals.
-2. Central visual system appears.
-3. First principle activates.
-4. Supporting principles progressively reveal.
-5. Connection paths draw between related concepts.
-6. Technical annotations appear subtly.
-
-As the visitor scrolls:
-
-* Active principle changes.
-* Associated visual elements respond.
-* Supporting content transitions.
-* Progress indicator advances.
+1. Section heading reveals.
+2. Timeline/system appears.
+3. Current role becomes visible.
+4. Previous roles reveal progressively.
+5. Connecting path animates through the career timeline.
+6. Supporting technical metadata appears.
 
 Use:
 
-* SVG path animation
-* clip-path
+* SVG line drawing
 * opacity
 * transform
-* stagger
-* subtle parallax
+* clip-path
+* subtle stagger
 
-Do not make the section visually chaotic.
+Avoid excessive movement.
 
 ---
 
 # Scroll Interaction
 
-The section can use scroll-driven storytelling, but it must remain natural.
+Scrolling can progressively reveal the career journey.
 
-If implementing an active-principle progression:
+As the visitor moves:
 
-* The visitor should be able to experience each principle.
-* The transitions should be smooth.
-* The current principle should be obvious.
-* Previous principles should remain conceptually connected.
-* The section should eventually release naturally into the next section.
+* Current position becomes active.
+* Timeline indicator advances.
+* Role information reveals.
+* Older positions transition into view.
+* Technical annotations activate.
 
-Do not create aggressive scroll locking.
+If using an active timeline, keep it intuitive.
 
-Do not make the entire page feel like a slideshow.
+Do not lock the page into a complicated scroll experience.
+
+The visitor must always be able to scroll normally.
 
 ---
 
 # Hover Interaction
 
-Desktop interactions may include:
+Desktop hover may provide subtle enhancement.
 
-* Principle activation
-* SVG node highlighting
-* Technical annotation reveal
-* Arrow movement
-* Subtle typography transition
-* Supporting detail reveal
+Examples:
 
-Keep the interaction restrained.
+* Highlight role
+* Activate timeline node
+* Reveal technical metadata
+* Emphasize company
+* Show small directional indicator
 
-Essential information must not depend on hover.
+Hover must not hide essential information.
+
+---
+
+# Current Role Emphasis
+
+The current position should have a distinctive treatment.
+
+Possible visual cues:
+
+* Active node
+* Small status indicator
+* Stronger typography
+* More whitespace
+* Subtle animated signal
+
+Avoid using gimmicky labels such as:
+
+**CURRENTLY CRUSHING IT**
+
+Use professional language.
+
+---
+
+# Resume Access
+
+Provide an unobtrusive option to view/download the full resume if a valid resume asset is available.
+
+Possible CTA:
+
+**View full resume →**
+
+This should not dominate the section.
+
+The portfolio itself should remain the primary experience.
 
 ---
 
@@ -421,49 +412,93 @@ Essential information must not depend on hover.
 
 ## Desktop
 
-Use the full visual system.
+Use a sophisticated chronological composition with strong asymmetry.
 
-Allow principles and supporting visual elements to occupy different areas of the viewport.
-
-Create strong asymmetry and visual depth.
+Dates, roles, and supporting information should have clear visual relationships.
 
 ## Tablet
 
-Simplify the interactive relationships while preserving the hierarchy.
+Simplify the composition while preserving the timeline and hierarchy.
 
 ## Mobile
 
-Prioritize clarity over complexity.
+Use a clean vertical career progression.
 
-Principles should become a vertically progressive experience.
+Prioritize:
 
-Maintain:
+1. Date
+2. Company
+3. Role
+4. Scope
+5. Key responsibilities
+6. Impact
+7. Technologies
 
-* Number
-* Title
-* Philosophy
-* Supporting explanation
-* Technical metadata
-
-Do not force desktop-style interactive positioning onto mobile.
-
-If an interaction becomes difficult to understand on mobile, replace it with a simpler scroll-based reveal.
+Avoid forcing a complex horizontal timeline onto small screens.
 
 ---
 
 # Typography
 
-Use strong editorial typography for the primary philosophy.
+Use large typography for:
 
-Principle titles should be prominent but not overpowering.
+* Section heading
+* Current role
+* Important career milestone
 
-Supporting explanations should remain compact.
+Use smaller typography for:
 
-Numbers and technical labels should use small uppercase typography.
+* Dates
+* Company
+* Metadata
+* Supporting details
 
-Use whitespace heavily.
+The most recent experience should naturally attract the most attention.
 
-The section should feel calm despite containing technical information.
+---
+
+# Content Density
+
+Do not reproduce the resume verbatim.
+
+Each role should be distilled to the information most useful to a portfolio visitor.
+
+Aim for:
+
+* One concise role summary
+* A few meaningful responsibilities
+* Selected impact
+* Relevant technologies
+
+Remove repetitive bullet points.
+
+---
+
+# SEO
+
+Use semantic content for:
+
+* Company names
+* Job titles
+* Dates
+* Technologies
+* Engineering responsibilities
+
+Naturally reinforce professional terms such as:
+
+* Senior Full Stack Developer
+* Software Engineer
+* SDE-2
+* Full-stack development
+* React
+* Next.js
+* TypeScript
+* Python
+* FastAPI
+* Django
+* Frappe
+
+Do not keyword stuff.
 
 ---
 
@@ -471,62 +506,38 @@ The section should feel calm despite containing technical information.
 
 Ensure:
 
-* Semantic HTML
+* Semantic section structure
 * Proper heading hierarchy
-* Keyboard accessibility
+* Accessible links
+* Keyboard navigation
 * Visible focus states
-* Accessible active states
+* Readable contrast
+* Timeline information understandable without visual positioning
 * Reduced-motion support
-* No essential information hidden behind hover
-* No interaction dependent solely on pointer movement
 
-If the active-principle interaction uses buttons or tabs, implement proper keyboard behavior and appropriate ARIA semantics.
-
----
-
-# SEO
-
-Naturally reinforce relevant engineering concepts:
-
-* Software architecture
-* Full-stack development
-* Product engineering
-* API development
-* Backend engineering
-* Frontend engineering
-* Performance
-* Security
-* Scalability
-* Software development
-
-Do not keyword stuff.
-
-The content should primarily communicate engineering maturity to human readers.
+The chronological information must remain understandable if animation is disabled.
 
 ---
 
 # Performance
 
-Keep the visual system lightweight.
+Keep the timeline lightweight.
 
 Prefer:
 
-* SVG
 * CSS
+* SVG
 * transforms
 * opacity
 * Intersection Observer
-* existing animation utilities
+* Existing animation infrastructure
 
 Avoid:
 
 * Three.js
 * WebGL
-* canvas-heavy systems
-* continuous expensive JavaScript calculations
-* large visual assets
-
-If scroll-driven animation is required, ensure it is optimized and does not cause layout thrashing.
+* heavy animation loops
+* unnecessary dependencies
 
 ---
 
@@ -534,25 +545,26 @@ If scroll-driven animation is required, ensure it is optimized and does not caus
 
 Do NOT create:
 
-* Generic six-step process
-* "Discovery → Design → Development → Testing → Deployment" timeline
-* Standard agency workflow
-* Identical principle cards
+* Resume PDF pasted into the page
+* Generic vertical timeline template
+* Identical experience cards
+* Giant company logos
 * Skill bars
-* Technology logos
-* Fake engineering metrics
-* Generic motivational quotes
+* Years-as-progress-bars
+* Fake promotions
+* Fake achievements
+* Fake metrics
+* Excessive company descriptions
 * Corporate buzzword-heavy copy
-* Excessive diagrams
+* Huge text blocks
+* Generic LinkedIn-style layout
+* Excessive cards
 * Dashboard UI
 * Excessive glassmorphism
-* Generic SaaS components
-* Random 3D objects
-* Heavy WebGL
-* Excessive scroll-jacking
-* Complicated interactions without purpose
+* Decorative elements without meaning
+* Overly complex scroll interactions
 
-The section should feel like the thinking of a senior engineer, not a software agency brochure.
+The section should feel like a thoughtfully designed career story.
 
 ---
 
@@ -560,24 +572,24 @@ The section should feel like the thinking of a senior engineer, not a software a
 
 Before considering the section complete, verify:
 
-1. Does it clearly communicate how I approach engineering?
-2. Does it feel genuinely senior?
-3. Does it demonstrate systems thinking?
-4. Does it connect engineering decisions to product outcomes?
-5. Does it avoid generic development-process language?
-6. Does the visual system reinforce the ideas?
-7. Is the interaction meaningful rather than decorative?
-8. Does it remain understandable without animation?
-9. Does it work beautifully on mobile?
-10. Does it naturally lead into Experience?
-11. Does the copy feel authentic rather than corporate?
-12. Does the section strengthen my positioning as a full-stack engineer?
+1. Does the career progression feel immediately understandable?
+2. Is the current role clearly emphasized?
+3. Does the section demonstrate increasing responsibility?
+4. Does it avoid simply reproducing the resume?
+5. Are all career facts accurate?
+6. Does the visual treatment feel premium?
+7. Does the timeline feel custom-designed?
+8. Does it connect naturally with Engineering Approach?
+9. Does it prepare the visitor for Technical Expertise?
+10. Is the mobile experience strong?
+11. Does the section remain useful without animation?
+12. Does it strengthen my positioning as a senior full-stack engineer?
 
 ---
 
 # Implementation Rule
 
-Build **only the ENGINEERING APPROACH section** in this phase.
+Build **only the EXPERIENCE section** in this phase.
 
 Do not redesign or implement:
 
@@ -586,14 +598,16 @@ Do not redesign or implement:
 * About
 * Featured Work
 * All Work
-* Experience
+* Engineering Approach
 * Technical Expertise
 * Impact
 * Writing / Exploring
 * Contact
 * Footer
 
-Inspect all previously implemented sections before making changes.
+Inspect the existing project and all previous sections before implementation.
+
+Use the actual resume/content data available in the project.
 
 Reuse existing:
 
@@ -601,12 +615,12 @@ Reuse existing:
 * Typography
 * Spacing
 * Animation utilities
-* SVG system
-* Interaction patterns
+* SVG patterns
+* Timeline/interaction utilities if already available
 * Responsive utilities
 
-Do not duplicate existing infrastructure.
+Do not create duplicate systems.
 
 Do not modify unrelated sections.
 
-The finished section should feel like the point where the portfolio moves from **what I have built** to **how I think about building it**.
+The finished section should feel like a **visual career narrative**, showing how professional experience has progressively shaped the engineer behind the work.

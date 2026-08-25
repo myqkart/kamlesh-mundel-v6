@@ -136,7 +136,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ):not(.is-visible)
     .cred-write {
     opacity: 0;
@@ -148,7 +149,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-write {
     animation: sketch-write 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -160,7 +162,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ):not(.is-visible)
     .cred-ink {
     stroke-dasharray: 1;
@@ -173,7 +176,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-ink {
     stroke-dasharray: 1;
@@ -187,7 +191,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ):not(.is-visible)
     .cred-node {
     opacity: 0;
@@ -200,7 +205,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-node {
     animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -560,6 +566,209 @@ body {
   border: 0;
 }
 
+/* Experience — career narrative timeline */
+.experience-role {
+  position: relative;
+  transition: opacity 0.45s ease;
+}
+
+.experience-role.is-past:not(.is-active) {
+  opacity: 0.72;
+}
+
+.experience-role.is-current {
+  opacity: 1;
+}
+
+.experience-role-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.1rem;
+}
+
+.experience-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.experience-now::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--color-teal-500);
+  box-shadow: 0 0 0 0 rgb(68 161 160 / 0.45);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .experience-now::before {
+    animation: experience-pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes experience-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(68 161 160 / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(68 161 160 / 0);
+  }
+}
+
+.experience-point {
+  position: relative;
+  padding-left: 0.95rem;
+}
+
+.experience-point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.3rem;
+  height: 0.3rem;
+  border: 1px solid var(--color-teal-700);
+  border-radius: 999px;
+  opacity: 0.55;
+}
+
+.experience-role.is-current .experience-point::before {
+  background: var(--color-teal-300);
+  opacity: 0.9;
+}
+
+.experience-spine-node {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: -0.2rem;
+  border: 1.5px solid var(--color-teal-900);
+  border-radius: 999px;
+  background: var(--color-off-white);
+  opacity: 0.4;
+  transition:
+    opacity 0.35s ease,
+    background-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-spine-node.is-active,
+.experience-spine-node.is-current {
+  opacity: 1;
+  background: var(--color-teal-300);
+  transform: scale(1.15);
+}
+
+.experience-spine-node.is-current {
+  box-shadow: 0 0 0 5px rgb(120 205 215 / 0.28);
+}
+
+.experience-sketchbook-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  width: 100%;
+}
+
+.experience-sketchbook {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.experience-sketchbook-page {
+  opacity: 0.9;
+}
+
+.experience-sketchbook-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translate3d(12px, 8px, 0) scale(0.985);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.experience-sketchbook-layer.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.experience-sketch-ink {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.experience-sketch-node {
+  fill: var(--color-off-white);
+  stroke: currentColor;
+  stroke-width: 1.5;
+  opacity: 0.55;
+}
+
+.experience-sketch-node.is-hot {
+  opacity: 1;
+  fill: var(--color-teal-300);
+}
+
+.experience-sketch-label {
+  font-family: var(--font-sans), "Outfit", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  opacity: 0.55;
+}
+
+.experience-sketch-note {
+  font-family: var(--font-sketch), "Caveat", cursive;
+  font-size: 22px;
+  opacity: 0.72;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .experience-ready:not(.is-visible) .experience-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .experience-ready.is-visible .experience-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .experience-sketchbook-layer:not(.is-active) .experience-sketch-ink {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .experience-sketchbook-layer.is-active .experience-sketch-ink {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .experience-sketchbook-layer:not(.is-active) .experience-sketch-node {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  .experience-sketchbook-layer.is-active .experience-sketch-node {
+    animation: sketch-node 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-sketchbook-layer {
+    transition: none;
+    transform: none;
+  }
+}
+
 
 /* Shared section parallax — driven by --py on each <section> via useSectionParallax.
    No CSS transition: transitions lag behind scroll and feel broken. */
@@ -693,7 +902,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-write,
   :is(
@@ -702,7 +912,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-ink,
   :is(
@@ -711,7 +922,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready).is-visible .work-visual,
@@ -719,7 +931,11 @@ body {
   .approach-node.is-active .approach-node-ring,
   .approach-ready.is-visible .approach-path.is-drawn,
   .approach-ready.is-visible .approach-path.is-active,
-  .approach-detail {
+  .approach-detail,
+  .experience-ready.is-visible .experience-line,
+  .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-ink,
+  .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-node,
+  .experience-now::before {
     animation: none;
   }
 
@@ -732,7 +948,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     )
     .cred-ink,
   :is(
@@ -741,12 +958,15 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-ink,
   .about-principle .principle-line,
   .about-ready.is-visible .principle-line,
-  .approach-path {
+  .approach-path,
+  .experience-line,
+  .experience-sketch-ink {
     stroke-dashoffset: 0;
   }
 
@@ -756,7 +976,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ):not(.is-visible)
     .cred-write,
   :is(
@@ -765,7 +986,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-write,
   :is(
@@ -774,7 +996,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ):not(.is-visible)
     .cred-node,
   :is(
@@ -783,7 +1006,8 @@ body {
       .work-ready,
       .project-ready,
       .archive-ready,
-      .approach-ready
+      .approach-ready,
+      .experience-ready
     ).is-visible
     .cred-node,
   :is(.work-ready, .project-ready):not(.is-visible) .work-visual,
@@ -815,6 +1039,23 @@ body {
     display: none;
   }
 
+
+  .experience-spine-node,
+  .experience-spine-node.is-active,
+  .experience-spine-node.is-current,
+  .experience-role,
+  .experience-sketchbook-layer {
+    transition: none;
+    transform: none;
+  }
+
+  .experience-role.is-past:not(.is-active),
+  .experience-sketchbook-layer.is-active,
+  .experience-ready.is-visible .experience-sketchbook-layer.is-active .experience-sketch-node,
+  .experience-ready:not(.is-visible) .experience-sketchbook-layer.is-active .experience-sketch-node {
+    opacity: 1;
+    transform: none;
+  }
 
   .about-principle,
   .about-principle:hover {
