@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.kamlesh.tech" }],
+        destination: "https://kamlesh.tech/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
