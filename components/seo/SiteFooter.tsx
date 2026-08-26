@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 import { expertiseCategories } from "@/data/technical-expertise";
 import { contactInfo } from "@/data/contact";
 import { siteConfig } from "@/lib/site";
+import { ShareLinks } from "./ShareLinks";
 
 /** Server-rendered crawl paths + contact signals (footer). */
 export function SiteFooter() {
@@ -22,9 +23,12 @@ export function SiteFooter() {
           </p>
           <p className="mt-4 font-sketch text-[1.35rem] text-teal-700">
             <a href={`mailto:${contactInfo.email}`} className="hover:underline">
-              {contactInfo.emailLabel}
+              Email Kamlesh
             </a>
           </p>
+          <div className="mt-6">
+            <ShareLinks />
+          </div>
         </div>
 
         <nav

@@ -32,9 +32,9 @@ export function ApproachDetail({
         </p>
       </div>
 
-      <h3 className="mt-4 font-display text-[clamp(1.55rem,2.6vw,2.15rem)] leading-[1.05] tracking-[-0.03em] text-teal-900">
+      <p className="mt-4 font-display text-[clamp(1.55rem,2.6vw,2.15rem)] leading-[1.05] tracking-[-0.03em] text-teal-900">
         {principle.title}
-      </h3>
+      </p>
 
       <p className="mt-5 max-w-[28rem] font-sketch text-[1.75rem] leading-snug text-teal-700 md:text-[1.95rem]">
         {principle.philosophy}

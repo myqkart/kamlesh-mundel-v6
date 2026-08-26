@@ -240,56 +240,56 @@ export function EngineeringApproach() {
               </p>
             </header>
 
-            {/* Desktop pinned system */}
-            <div className="hidden gap-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-8">
-              <div
-                className="cred-write lg:col-span-4"
-                style={{ animationDelay: "400ms" }}
-              >
-                <ApproachList
-                  principles={approachPrinciples}
-                  activeId={activeId}
-                  visualId={displayPrinciple.id}
-                  onSelect={onSelectPrinciple}
-                  onHover={setHoverId}
-                />
-              </div>
+            {scrubbing ? (
+              <div className="gap-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-8">
+                <div
+                  className="cred-write lg:col-span-4"
+                  style={{ animationDelay: "400ms" }}
+                >
+                  <ApproachList
+                    principles={approachPrinciples}
+                    activeId={activeId}
+                    visualId={displayPrinciple.id}
+                    onSelect={onSelectPrinciple}
+                    onHover={setHoverId}
+                  />
+                </div>
 
-              <div
-                className="cred-write lg:col-span-4"
-                style={{ animationDelay: "520ms" }}
-              >
-                <ApproachDetail
-                  key={displayPrinciple.id}
-                  principle={displayPrinciple}
-                  index={displayIndex}
-                  total={approachPrinciples.length}
-                />
-              </div>
+                <div
+                  className="cred-write lg:col-span-4"
+                  style={{ animationDelay: "520ms" }}
+                >
+                  <ApproachDetail
+                    key={displayPrinciple.id}
+                    principle={displayPrinciple}
+                    index={displayIndex}
+                    total={approachPrinciples.length}
+                  />
+                </div>
 
-              <div
-                className="cred-write flex justify-end lg:col-span-4"
-                style={{ animationDelay: "640ms" }}
-              >
-                <ApproachVisual
-                  principles={approachPrinciples}
-                  activeIndex={displayIndex}
-                />
+                <div
+                  className="cred-write flex justify-end lg:col-span-4"
+                  style={{ animationDelay: "640ms" }}
+                >
+                  <ApproachVisual
+                    principles={approachPrinciples}
+                    activeIndex={displayIndex}
+                  />
+                </div>
               </div>
-            </div>
-
-            {/* Mobile / reduced-motion stack */}
-            <div className="flex flex-col gap-10 lg:hidden">
-              {approachPrinciples.map((principle, index) => (
-                <MobilePrincipleCard
-                  key={principle.id}
-                  principle={principle}
-                  index={index}
-                  total={approachPrinciples.length}
-                  active={principle.id === activeId}
-                />
-              ))}
-            </div>
+            ) : (
+              <div className="flex flex-col gap-10">
+                {approachPrinciples.map((principle, index) => (
+                  <MobilePrincipleCard
+                    key={principle.id}
+                    principle={principle}
+                    index={index}
+                    total={approachPrinciples.length}
+                    active={principle.id === activeId}
+                  />
+                ))}
+              </div>
+            )}
 
             {scrubbing ? (
               <p

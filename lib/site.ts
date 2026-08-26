@@ -10,7 +10,11 @@ export const siteConfig = {
   /** Canonical production origin (no trailing slash, no www). */
   url: "https://kamlesh.tech",
   domain: "kamlesh.tech",
+  /** Meta / Open Graph snippet — keep under ~160 chars / 1000px. */
   description:
+    "Kamlesh Mundel is a Sr. Full Stack Developer in Ahmedabad. He ships React, Next.js, Node.js, TypeScript, Python, Frappe, AWS, and AI products.",
+  /** Richer copy for JSON-LD, FAQs, and crawler-visible body text. */
+  descriptionLong:
     "Kamlesh Mundel is a Sr. Full Stack Developer in Ahmedabad, India. He builds production web products with React, Next.js, Node.js, TypeScript, Python, Frappe/ERPNext, AWS, and AI (LangChain, RAG, ChatGPT) — from ed-tech and real estate to medical training and enterprise systems.",
   locale: "en_IN",
   language: "en",

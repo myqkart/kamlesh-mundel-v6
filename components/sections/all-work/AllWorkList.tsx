@@ -38,7 +38,7 @@ export function AllWorkList({ projects }: AllWorkListProps) {
             className="archive-item"
             style={{ animationDelay: `${100 + index * 90}ms` }}
           >
-            <a href={project.href} className={`archive-stamp group ${tilt}`}>
+            <article className={`archive-stamp ${tilt}`}>
               <svg
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 size-full text-teal-900/35"
@@ -84,9 +84,9 @@ export function AllWorkList({ projects }: AllWorkListProps) {
                   ) : null}
                 </div>
 
-                <h3 className="archive-title mt-2 font-display text-[clamp(1.65rem,2.8vw,2.2rem)] leading-[0.95] text-teal-900">
+                <p className="archive-title mt-2 font-display text-[clamp(1.65rem,2.8vw,2.2rem)] leading-[0.95] text-teal-900">
                   {project.title}
-                </h3>
+                </p>
 
                 <p className="mt-3 flex-1 text-[0.98rem] leading-snug text-teal-900/75 md:text-[1.02rem]">
                   {project.emphasis}
@@ -103,8 +103,11 @@ export function AllWorkList({ projects }: AllWorkListProps) {
                   ))}
                 </div>
 
-                <span className="mt-5 inline-flex items-center gap-2 font-sketch text-[1.45rem] text-teal-900 md:text-[1.55rem]">
-                  let&apos;s talk
+                <a
+                  href={project.href}
+                  className="archive-stamp-link mt-5 inline-flex items-center gap-2 font-sketch text-[1.45rem] text-teal-900 md:text-[1.55rem]"
+                >
+                  {project.title} case study
                   <svg
                     aria-hidden="true"
                     className="archive-arrow size-5 shrink-0 text-teal-700"
@@ -119,9 +122,9 @@ export function AllWorkList({ projects }: AllWorkListProps) {
                       strokeWidth="1.5"
                     />
                   </svg>
-                </span>
+                </a>
               </div>
-            </a>
+            </article>
           </li>
         );
       })}
