@@ -82,3 +82,13 @@ export const homeSeoParagraph = [
   "His work covers React and Next.js frontends, Node.js and Python backends, MySQL and MongoDB data layers, Frappe/ERPNext enterprise systems, AWS infrastructure, and AI products built with LangChain, RAG, and ChatGPT.",
   "Featured products include Tutorac (ed-tech), PartsPractice (AI medical training), Eezily (real-estate on Frappe + React), GetLitt!, DivorceX, Insyd, Aloha-Bids, and Harrier Chatbot.",
 ].join(" ");
+
+export const notFoundTitle = "Page not found";
+
+export const notFoundDescription = `This URL is not a page on ${siteConfig.domain}. ${siteConfig.name} is a ${siteConfig.jobTitle} in ${siteConfig.location.city}, ${siteConfig.location.country}. Continue to the home page, selected work, technical expertise, or contact.`;
+
+export const notFoundSeoParagraph = [
+  `This address does not exist on ${siteConfig.domain}. It is not a project, expertise, or profile page.`,
+  homeSeoParagraph,
+  `Valid pages include the home page, /expertise, /work case studies, and the contact section.`,
+].join(" ");

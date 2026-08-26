@@ -1419,6 +1419,15 @@ body {
   .ink-draw-slow,
   .node-pulse,
   .sketch-cta .cta-line,
+  .missing-four--left,
+  .missing-four--right,
+  .missing-digit,
+  .missing-hole,
+  .missing-http,
+  .missing-pin,
+  .missing-peg,
+  .missing-tool,
+  .missing-wander,
   :is(
       .cred-ready,
       .about-ready,
@@ -1747,6 +1756,440 @@ body {
   }
 }
 
+/* ── Missing sheet / 404 ─────────────────────────────────── */
+.missing-sheet {
+  min-height: 100svh;
+}
+
+.missing-figure {
+  position: relative;
+  isolation: isolate;
+  min-height: 18rem;
+  overflow: hidden;
+}
+
+.missing-sketch {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--ink);
+  overflow: visible;
+  opacity: 0.9;
+}
+
+.missing-wander {
+  stroke-dasharray: 6 9;
+  animation: missing-dash 22s linear infinite;
+}
+
+.missing-404 {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.02em;
+  padding: 1.5rem 0 0.5rem;
+  color: var(--ink);
+  font-family: var(--font-display), "Caveat", cursive;
+  font-size: clamp(6.2rem, 18vw, 12.5rem);
+  font-weight: 600;
+  line-height: 0.72;
+  letter-spacing: -0.06em;
+}
+
+.missing-four--left {
+  display: inline-block;
+  transform: rotate(-7deg) translateY(0.04em);
+}
+
+.missing-four--right {
+  display: inline-block;
+  transform: rotate(5deg) translateY(0.02em);
+}
+
+.missing-digit {
+  display: block;
+  animation: hero-reveal 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.missing-four--left .missing-digit {
+  animation-delay: 0.22s;
+}
+
+.missing-four--right .missing-digit {
+  animation-delay: 0.48s;
+}
+
+.missing-hole {
+  display: block;
+  width: 0.78em;
+  height: 0.86em;
+  margin: 0 -0.04em;
+  color: var(--ink);
+  animation: missing-hole-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
+}
+
+.missing-http {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.35rem;
+  text-align: center;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.55rem;
+  color: var(--color-teal-700);
+  transform: rotate(-2deg);
+}
+
+.missing-atlas {
+  position: relative;
+  margin-top: 0.35rem;
+}
+
+.missing-atlas-head {
+  max-width: 36rem;
+}
+
+.missing-atlas-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem 1.75rem;
+  margin-top: 2.25rem;
+  padding: 0;
+}
+
+.missing-pin {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  color: inherit;
+  text-decoration: none;
+  animation: missing-toc-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.missing-pin--home { animation-delay: 80ms; }
+.missing-pin--work { animation-delay: 160ms; }
+.missing-pin--expertise { animation-delay: 240ms; }
+.missing-pin--contact { animation-delay: 320ms; }
+
+.missing-pin-draw {
+  display: block;
+  width: 100%;
+  max-width: 12.5rem;
+  color: var(--ink);
+}
+
+.missing-pin-draw svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.missing-pin-label {
+  margin-top: 0.45rem;
+  font-family: var(--font-display), "Caveat", cursive;
+  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  line-height: 0.9;
+}
+
+.missing-pin-note {
+  margin-top: 0.2rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--color-teal-700);
+}
+
+.missing-pin:hover .missing-pin-label,
+.missing-pin:focus-visible .missing-pin-label {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.missing-pin:focus-visible,
+.missing-ticket:focus-visible,
+.missing-tool:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 8px;
+}
+
+.missing-atlas-lower {
+  display: grid;
+  gap: 2.75rem;
+  margin-top: 3.25rem;
+}
+
+.missing-atlas-caption {
+  display: flex;
+  align-items: baseline;
+  gap: 1.15rem;
+  margin: 0;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-teal-700);
+}
+
+.missing-caption-rule {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 4rem;
+  height: 0.7rem;
+  color: var(--ink);
+  opacity: 0.32;
+}
+
+.missing-line {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.35rem 1.25rem;
+  margin-top: 1.65rem;
+  padding-top: 1.1rem;
+}
+
+.missing-line-wire {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  grid-column: 1 / -1;
+  color: var(--ink);
+  opacity: 0.38;
+}
+
+.missing-line-wire svg {
+  display: block;
+  width: 100%;
+  height: 1.05rem;
+  overflow: visible;
+}
+
+.missing-peg {
+  min-width: 0;
+  animation: missing-toc-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.missing-peg:nth-child(2) { animation-delay: 40ms; }
+.missing-peg:nth-child(3) { animation-delay: 80ms; }
+.missing-peg:nth-child(4) { animation-delay: 120ms; }
+.missing-peg:nth-child(5) { animation-delay: 160ms; }
+.missing-peg:nth-child(6) { animation-delay: 200ms; }
+.missing-peg:nth-child(7) { animation-delay: 240ms; }
+.missing-peg:nth-child(8) { animation-delay: 280ms; }
+.missing-peg:nth-child(9) { animation-delay: 320ms; }
+
+.missing-tool:nth-child(1) { animation-delay: 40ms; }
+.missing-tool:nth-child(2) { animation-delay: 90ms; }
+.missing-tool:nth-child(3) { animation-delay: 140ms; }
+.missing-tool:nth-child(4) { animation-delay: 190ms; }
+.missing-tool:nth-child(5) { animation-delay: 240ms; }
+.missing-tool:nth-child(6) { animation-delay: 290ms; }
+
+.missing-ticket {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  min-height: 5.1rem;
+  padding: 0.95rem 0.85rem 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  background: rgb(255 252 245 / 0.5);
+}
+
+.missing-ticket::before {
+  position: absolute;
+  inset: 0.18rem;
+  border: 1.35px solid rgb(13 92 99 / 0.36);
+  content: "";
+}
+
+.missing-ticket-pin {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  z-index: 2;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1.35px solid var(--ink);
+  border-radius: 999px;
+  background: var(--color-teal-300);
+  transform: translateX(-50%);
+}
+
+.missing-ticket-name {
+  position: relative;
+  font-family: var(--font-display), "Caveat", cursive;
+  font-size: 1.5rem;
+  line-height: 0.95;
+}
+
+.missing-ticket-type {
+  position: relative;
+  margin-top: 0.25rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.12rem;
+  line-height: 1.1;
+  color: var(--color-teal-700);
+}
+
+.missing-ticket:hover .missing-ticket-name,
+.missing-tool:hover .missing-tool-label {
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+}
+
+.missing-tools {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+  margin-top: 1.15rem;
+}
+
+.missing-tool {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: inherit;
+  text-decoration: none;
+  animation: missing-toc-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.missing-tool-draw {
+  display: block;
+  width: 3.4rem;
+  color: var(--ink);
+}
+
+.missing-tool-draw svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.missing-tool-label {
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.22rem;
+  line-height: 1.05;
+  text-align: center;
+  color: var(--color-teal-700);
+}
+
+@keyframes missing-toc-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .missing-atlas-board {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1.5rem;
+  }
+
+  .missing-line {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .missing-tools {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639.98px) {
+  .missing-atlas-board {
+    gap: 1.15rem 1rem;
+  }
+
+  .missing-pin-draw {
+    max-width: none;
+  }
+
+  .missing-line {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 0.85rem;
+  }
+
+  .missing-tools {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@keyframes missing-hole-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72) rotate(-8deg);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes missing-dash {
+  to {
+    stroke-dashoffset: -220;
+  }
+}
+
+@media (min-width: 1024px) {
+  .missing-figure {
+    min-height: 22rem;
+  }
+
+  .missing-404 {
+    padding-top: 2.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .missing-figure {
+    overflow: hidden;
+  }
+
+  .missing-sketch {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.84);
+    transform-origin: center center;
+  }
+
+  .missing-note-end {
+    display: none;
+  }
+
+  .missing-404 {
+    font-size: clamp(4.5rem, 22vw, 6.75rem);
+    padding-top: 1.75rem;
+    padding-inline: 0.85rem;
+  }
+
+  .missing-http {
+    font-size: 1.35rem;
+  }
+}
+
 /* ── Splash / sketchbook open ─────────────────────────────── */
 html.splash-locked,
 html.splash-locked body {
@@ -1755,11 +2198,25 @@ html.splash-locked body {
 }
 
 /* Hold page entrances until the sketchbook opens */
-html.splash-locked .hero-reveal {
+html.splash-locked .hero-reveal,
+html.splash-locked .missing-digit,
+html.splash-locked .missing-http,
+html.splash-locked .missing-pin,
+html.splash-locked .missing-peg,
+html.splash-locked .missing-tool {
   animation: none !important;
   opacity: 0;
   clip-path: inset(0 0 100% 0);
   transform: translateY(0.55em);
+}
+
+html.splash-locked .missing-hole {
+  animation: none !important;
+  opacity: 0;
+}
+
+html.splash-locked .missing-wander {
+  animation: none !important;
 }
 
 html.splash-locked .ink-draw,
