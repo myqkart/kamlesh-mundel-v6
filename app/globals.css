@@ -8,6 +8,7 @@
   --color-off-white: #faf7ef;
   --ink: #0d5c63;
   --paper: #faf7ef;
+  --highlighter: #ffd93b;
   --hero-mx: 0;
   --hero-my: 0;
   --py: 0;
@@ -46,6 +47,61 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   letter-spacing: 0.01em;
+}
+
+/* Marker on paper — native fallback, then the drawn overlay takes over */
+::selection {
+  background-color: rgb(255 217 59 / 0.5);
+  color: var(--ink);
+}
+
+::-moz-selection {
+  background-color: rgb(255 217 59 / 0.5);
+  color: var(--ink);
+}
+
+html.sketch-hl-on ::selection {
+  background-color: transparent;
+  color: var(--ink);
+}
+
+html.sketch-hl-on ::-moz-selection {
+  background-color: transparent;
+  color: var(--ink);
+}
+
+html.sketch-hl-on :is(input, textarea, select, [contenteditable="true"])::selection,
+html.sketch-hl-on :is(input, textarea, select, [contenteditable="true"])::-moz-selection {
+  background-color: rgb(255 217 59 / 0.5);
+  color: var(--ink);
+}
+
+.sketch-hl {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  color: var(--highlighter);
+  mix-blend-mode: multiply;
+}
+
+.sketch-hl-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@media (forced-colors: active) {
+  html.sketch-hl-on ::selection,
+  html.sketch-hl-on ::-moz-selection {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .sketch-hl {
+    display: none;
+  }
 }
 
 /* One continuous drawing sheet for the whole page */
