@@ -158,3 +158,51 @@ export function BreadcrumbJsonLd({
     })),
   });
 }
+
+/** Recovery graph for 404 responses — never indexed; helps parsers find live URLs. */
+export function NotFoundJsonLd() {
+  const destinations = [
+    { name: "Home", path: "/", description: "Portfolio overview for Kamlesh Mundel" },
+    { name: "Work", path: "/#work", description: "Selected products and case studies" },
+    { name: "Expertise", path: "/expertise", description: "Technical stack by category" },
+    { name: "Contact", path: "/#contact", description: "Start a conversation" },
+  ] as const;
+
+  return jsonLd({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Page not found",
+        description: `This URL is not a page on ${siteConfig.domain}. ${siteConfig.description}`,
+        inLanguage: siteConfig.language,
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": absoluteUrl("/#website"),
+          url: absoluteUrl("/"),
+          name: siteConfig.title,
+        },
+        about: {
+          "@type": "Person",
+          "@id": absoluteUrl("/#person"),
+          name: siteConfig.name,
+          url: absoluteUrl("/"),
+          jobTitle: siteConfig.jobTitle,
+        },
+        primaryImageOfPage: absoluteUrl("/og.png"),
+        significantLink: destinations.map((item) => absoluteUrl(item.path)),
+      },
+      {
+        "@type": "ItemList",
+        name: "Pages on kamlesh.tech",
+        itemListElement: destinations.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          url: absoluteUrl(item.path),
+          description: item.description,
+        })),
+      },
+    ],
+  });
+}
