@@ -31,7 +31,7 @@ export function ImpactBoard({ story, index }: ImpactBoardProps) {
           href={story.projectHref}
           className="sketch-cta font-sketch text-[1.45rem] text-teal-700 md:text-[1.6rem]"
         >
-          {story.projectTitle}
+          {story.projectTitle} impact
           <svg
             aria-hidden="true"
             className="cta-arrow h-3 w-5 overflow-visible"

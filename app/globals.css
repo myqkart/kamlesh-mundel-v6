@@ -416,12 +416,19 @@ body {
 }
 
 .archive-stamp:hover,
-.archive-stamp:focus-visible {
+.archive-stamp:focus-within {
   transform: translateY(-6px) rotate(0deg);
   z-index: 2;
 }
 
-.archive-stamp:focus-visible {
+.archive-stamp-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.archive-stamp-link:focus-visible {
   outline: 2px dashed var(--ink);
   outline-offset: 8px;
 }
@@ -437,7 +444,7 @@ body {
 }
 
 .archive-stamp:hover .archive-title,
-.archive-stamp:focus-visible .archive-title {
+.archive-stamp:focus-within .archive-title {
   transform: translateX(3px);
 }
 
@@ -446,7 +453,7 @@ body {
 }
 
 .archive-stamp:hover .archive-arrow,
-.archive-stamp:focus-visible .archive-arrow {
+.archive-stamp:focus-within .archive-arrow {
   transform: translateX(5px);
 }
 
@@ -1591,9 +1598,9 @@ body {
   }
 
   .archive-stamp:hover .archive-title,
-  .archive-stamp:focus-visible .archive-title,
+  .archive-stamp:focus-within .archive-title,
   .archive-stamp:hover .archive-arrow,
-  .archive-stamp:focus-visible .archive-arrow,
+  .archive-stamp:focus-within .archive-arrow,
   .archive-stamp,
   .archive-title,
   .archive-arrow,
@@ -2554,7 +2561,7 @@ html.splash-locked .cta-line {
   }
 
   .archive-stamp:hover,
-  .archive-stamp:focus-visible {
+  .archive-stamp:focus-within {
     transform: translateY(-3px) rotate(0deg);
   }
 

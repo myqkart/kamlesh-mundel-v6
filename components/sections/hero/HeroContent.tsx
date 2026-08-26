@@ -43,35 +43,36 @@ function CtaUnderline({ delay }: { delay: string }) {
 export function HeroContent() {
   return (
     <div className="max-w-[36rem]">
-      <p
-        className="hero-reveal font-sketch -rotate-2 text-[1.85rem] leading-none text-teal-700 md:text-[2.1rem]"
-        style={{ animationDelay: "80ms" }}
-      >
-        sr. full stack developer
-      </p>
-
-      <h1
-        className="hero-reveal hero-name relative mt-3 w-fit max-w-[calc(100vw-3.5rem)] -rotate-1 font-display text-[clamp(3.15rem,13vw,9rem)] font-semibold leading-[0.82] text-teal-900 md:mt-4 md:max-w-none md:text-[clamp(4rem,12vw,9rem)]"
-        style={{ animationDelay: "180ms" }}
-      >
-        Kamlesh
-        <span className="block rotate-[0.6deg]">Mundel</span>
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-[0.08em] left-[-2%] h-[0.2em] w-[104%] overflow-visible text-teal-700"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 400 18"
+      <h1 className="relative mt-0 w-fit max-w-[calc(100vw-3.5rem)] md:max-w-none">
+        <span
+          className="hero-reveal block font-sketch -rotate-2 text-[1.85rem] leading-none text-teal-700 md:text-[2.1rem]"
+          style={{ animationDelay: "80ms" }}
         >
-          <path
-            className="ink-draw"
-            d="M4 11c42-5 86 6 128 1 48-6 90 7 136 2 42-4 86 5 128 3"
-            pathLength={1}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="2.4"
-          />
-        </svg>
+          Sr. Full Stack Developer
+        </span>
+        <span
+          className="hero-reveal hero-name relative mt-3 block w-fit -rotate-1 font-display text-[clamp(3.15rem,13vw,9rem)] font-semibold leading-[0.82] text-teal-900 md:mt-4 md:text-[clamp(4rem,12vw,9rem)]"
+          style={{ animationDelay: "180ms" }}
+        >
+          Kamlesh{" "}
+          <span className="block rotate-[0.6deg]">Mundel</span>
+          <svg
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-[0.08em] left-[-2%] h-[0.2em] w-[104%] overflow-visible text-teal-700"
+            fill="none"
+            preserveAspectRatio="none"
+            viewBox="0 0 400 18"
+          >
+            <path
+              className="ink-draw"
+              d="M4 11c42-5 86 6 128 1 48-6 90 7 136 2 42-4 86 5 128 3"
+              pathLength={1}
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="2.4"
+            />
+          </svg>
+        </span>
       </h1>
 
       <p

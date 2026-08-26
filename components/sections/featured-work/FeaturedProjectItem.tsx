@@ -170,7 +170,7 @@ function ProjectCopy({
           href={project.href}
           className="sketch-cta font-display text-[1.65rem] leading-none md:text-[1.85rem]"
         >
-          <span className="relative pb-1">View case study</span>
+          <span className="relative pb-1">View {project.name} case study</span>
           <CtaArrow />
         </a>
       </div>

@@ -26,7 +26,7 @@ export function HomeJsonLd() {
     url: absoluteUrl("/"),
     image: absoluteUrl("/og.png"),
     jobTitle: siteConfig.jobTitle,
-    description: siteConfig.description,
+    description: siteConfig.descriptionLong,
     email: `mailto:${siteConfig.email}`,
     telephone: siteConfig.phone,
     address: {
@@ -48,7 +48,7 @@ export function HomeJsonLd() {
     "@id": websiteId,
     url: absoluteUrl("/"),
     name: siteConfig.title,
-    description: siteConfig.description,
+    description: siteConfig.descriptionLong,
     inLanguage: siteConfig.language,
     publisher: { "@id": personId },
   };
@@ -58,7 +58,7 @@ export function HomeJsonLd() {
     "@id": absoluteUrl("/"),
     url: absoluteUrl("/"),
     name: siteConfig.title,
-    description: siteConfig.description,
+    description: siteConfig.descriptionLong,
     isPartOf: { "@id": websiteId },
     mainEntity: { "@id": personId },
     about: { "@id": personId },
@@ -93,7 +93,7 @@ export function HomeJsonLd() {
     name: `${siteConfig.name} — Full Stack Development`,
     url: absoluteUrl("/"),
     image: absoluteUrl("/og.png"),
-    description: siteConfig.description,
+    description: siteConfig.descriptionLong,
     telephone: contactInfo.phoneHref.replace("tel:", ""),
     email: contactInfo.email,
     address: {
