@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { INK_CHANGE_EVENT, readStoredInk, type InkChoice } from "@/lib/sketch-kit";
 
 /** Felt-tip overlay that replaces the native selection on the sketch sheet. */
 
@@ -86,10 +87,12 @@ function collectStrokes(): Stroke[] {
 
 export function SketchHighlighter() {
   const [strokes, setStrokes] = useState<Stroke[]>([]);
+  const [ink, setInk] = useState("#FFD93B");
 
   useEffect(() => {
     const html = document.documentElement;
     html.classList.add("sketch-hl-on");
+    setInk(readStoredInk().hex);
 
     let frame = 0;
     const paint = () => {
@@ -99,6 +102,14 @@ export function SketchHighlighter() {
     const schedule = () => {
       if (frame) return;
       frame = window.requestAnimationFrame(paint);
+    };
+
+    const onInk = (event: Event) => {
+      if (event instanceof CustomEvent) {
+        const next = (event as CustomEvent<InkChoice>).detail?.hex;
+        if (next) setInk(next);
+      }
+      schedule();
     };
 
     let dragging = false;
@@ -119,6 +130,7 @@ export function SketchHighlighter() {
     document.addEventListener("touchmove", onDrag, { passive: true });
     document.addEventListener("mouseup", onDragEnd);
     document.addEventListener("touchend", onDragEnd);
+    window.addEventListener(INK_CHANGE_EVENT, onInk);
     window.addEventListener("scroll", schedule, true);
     window.addEventListener("resize", schedule);
     window.visualViewport?.addEventListener("scroll", schedule);
@@ -133,6 +145,7 @@ export function SketchHighlighter() {
       document.removeEventListener("touchmove", onDrag);
       document.removeEventListener("mouseup", onDragEnd);
       document.removeEventListener("touchend", onDragEnd);
+      window.removeEventListener(INK_CHANGE_EVENT, onInk);
       window.removeEventListener("scroll", schedule, true);
       window.removeEventListener("resize", schedule);
       window.visualViewport?.removeEventListener("scroll", schedule);
@@ -143,7 +156,7 @@ export function SketchHighlighter() {
   if (strokes.length === 0) return null;
 
   return (
-    <div aria-hidden="true" className="sketch-hl">
+    <div aria-hidden="true" className="sketch-hl" key={ink}>
       <svg className="sketch-hl-canvas">
         <defs>
           <linearGradient id="sketch-hl-ink" x1="0" x2="0" y1="0" y2="1">

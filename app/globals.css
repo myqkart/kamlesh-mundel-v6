@@ -51,12 +51,12 @@ body {
 
 /* Marker on paper — native fallback, then the drawn overlay takes over */
 ::selection {
-  background-color: rgb(255 217 59 / 0.5);
+  background-color: color-mix(in srgb, var(--highlighter) 50%, transparent);
   color: var(--ink);
 }
 
 ::-moz-selection {
-  background-color: rgb(255 217 59 / 0.5);
+  background-color: color-mix(in srgb, var(--highlighter) 50%, transparent);
   color: var(--ink);
 }
 
@@ -72,7 +72,7 @@ html.sketch-hl-on ::-moz-selection {
 
 html.sketch-hl-on :is(input, textarea, select, [contenteditable="true"])::selection,
 html.sketch-hl-on :is(input, textarea, select, [contenteditable="true"])::-moz-selection {
-  background-color: rgb(255 217 59 / 0.5);
+  background-color: color-mix(in srgb, var(--highlighter) 50%, transparent);
   color: var(--ink);
 }
 
@@ -92,6 +92,259 @@ html.sketch-hl-on :is(input, textarea, select, [contenteditable="true"])::-moz-s
   overflow: visible;
 }
 
+/* Highlighter tin — one paper case that grows from the tab */
+.ink-drawer {
+  --ink-tab-w: 3.1rem;
+  --ink-panel-w: min(17.75rem, calc(100vw - 5.5rem));
+  position: fixed;
+  right: max(0.9rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 90;
+}
+
+.ink-case {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: var(--paper);
+  border: 1.5px solid rgb(13 92 99 / 0.4);
+  border-radius: 1.15rem;
+  box-shadow: 0 12px 30px rgb(13 92 99 / 0.1);
+  overflow: hidden;
+}
+
+.ink-panel {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease;
+}
+
+.ink-drawer.is-open .ink-panel {
+  width: var(--ink-panel-w);
+  opacity: 1;
+}
+
+.ink-panel-body {
+  box-sizing: border-box;
+  width: var(--ink-panel-w);
+  padding: 0.95rem 1rem 1.05rem 1.15rem;
+}
+
+.ink-tab {
+  appearance: none;
+  box-sizing: border-box;
+  flex: 0 0 var(--ink-tab-w);
+  width: var(--ink-tab-w);
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.95rem 0.45rem 1.05rem;
+  cursor: pointer;
+}
+
+.ink-drawer.is-open .ink-tab {
+  border-left: 1.5px dashed rgb(13 92 99 / 0.22);
+  background: rgb(120 205 215 / 0.12);
+}
+
+.ink-tab-cap {
+  width: 0.9rem;
+  height: 1.65rem;
+  border: 1.4px solid rgb(13 92 99 / 0.5);
+  border-radius: 0.22rem 0.22rem 0.12rem 0.12rem;
+  background: var(--ink-now, var(--highlighter));
+  box-shadow: inset 0 -0.5rem 0 rgb(13 92 99 / 0.1);
+}
+
+.ink-tab-label {
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.35rem;
+  line-height: 1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.ink-tab:focus {
+  outline: none;
+}
+
+.ink-tab:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: -5px;
+}
+
+.ink-tray-title {
+  margin: 0;
+  font-family: var(--font-display), "Caveat", cursive;
+  font-size: 1.7rem;
+  line-height: 0.95;
+}
+
+.ink-tray-note {
+  margin: 0.2rem 0 0.85rem;
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: var(--color-teal-700);
+}
+
+.ink-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.65rem 0.45rem;
+}
+
+.ink-swatch {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  color: var(--color-teal-700);
+}
+
+.ink-swatch-body {
+  position: relative;
+  width: 1.45rem;
+  height: 2.7rem;
+  border: 1.4px solid rgb(13 92 99 / 0.5);
+  border-radius: 0.28rem 0.28rem 0.18rem 0.18rem;
+  background: var(--swatch);
+  box-shadow: inset 0 -0.85rem 0 rgb(13 92 99 / 0.1);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ink-swatch-chisel {
+  position: absolute;
+  left: 0.12rem;
+  right: 0.12rem;
+  bottom: -0.28rem;
+  height: 0.38rem;
+  background: var(--swatch);
+  border: 1.3px solid rgb(13 92 99 / 0.5);
+  border-top: 0;
+  clip-path: polygon(8% 0, 92% 0, 78% 100%, 22% 100%);
+}
+
+.ink-swatch-name {
+  font-family: var(--font-sketch), "Reenie Beanie", cursive;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.ink-swatch:hover .ink-swatch-body,
+.ink-swatch:focus-visible .ink-swatch-body,
+.ink-swatch.is-selected .ink-swatch-body {
+  transform: translateY(-0.35rem);
+}
+
+.ink-swatch.is-selected {
+  color: var(--ink);
+}
+
+.ink-swatch:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 4px;
+}
+
+.ink-mix-body {
+  background:
+    conic-gradient(
+      from 180deg,
+      #ffd93b,
+      #ff8fb1,
+      #7ec8e3,
+      #c5e86c,
+      #c9a0dc,
+      #ffd93b
+    );
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.ink-mix-input {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  width: 140%;
+  height: 140%;
+  position: absolute;
+  inset: -20%;
+  cursor: pointer;
+  background: transparent;
+}
+
+.ink-mix-input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.ink-mix-input::-webkit-color-swatch {
+  border: 0;
+  border-radius: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-panel,
+  .ink-swatch-body {
+    transition: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ink-drawer {
+    --ink-panel-w: min(17.5rem, calc(100vw - 4.5rem));
+    right: max(0.7rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .ink-tab {
+    min-height: 4.75rem;
+  }
+}
+
+@media (pointer: fine) and (hover: hover) {
+  html,
+  html * {
+    cursor: url("/cursors/pencil.svg") 2 2, auto !important;
+  }
+
+  html :is(
+    a,
+    button,
+    [href],
+    [role="button"],
+    summary,
+    label,
+    .ink-tab,
+    .ink-swatch,
+    .ink-mix
+  ) {
+    cursor: url("/cursors/pen.svg") 2 2, pointer !important;
+  }
+
+  html :is(
+    textarea,
+    select,
+    input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="color"])
+  ) {
+    cursor: text !important;
+  }
+}
+
 @media (forced-colors: active) {
   html.sketch-hl-on ::selection,
   html.sketch-hl-on ::-moz-selection {
@@ -101,6 +354,11 @@ html.sketch-hl-on :is(input, textarea, select, [contenteditable="true"])::-moz-s
 
   .sketch-hl {
     display: none;
+  }
+
+  html.sketch-cursors,
+  html.sketch-cursors * {
+    cursor: auto !important;
   }
 }
 
