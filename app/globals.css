@@ -1764,20 +1764,18 @@ body {
 .missing-figure {
   position: relative;
   isolation: isolate;
-  min-height: 18rem;
-  overflow: hidden;
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
 }
 
 .missing-sketch {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  color: var(--ink);
+  height: auto;
   overflow: visible;
-  opacity: 0.9;
+  color: var(--ink);
 }
 
 .missing-wander {
@@ -1786,62 +1784,22 @@ body {
 }
 
 .missing-404 {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.02em;
-  padding: 1.5rem 0 0.5rem;
   color: var(--ink);
-  font-family: var(--font-display), "Caveat", cursive;
-  font-size: clamp(6.2rem, 18vw, 12.5rem);
-  font-weight: 600;
-  line-height: 0.72;
-  letter-spacing: -0.06em;
-}
-
-.missing-four--left {
-  display: inline-block;
-  transform: rotate(-7deg) translateY(0.04em);
-}
-
-.missing-four--right {
-  display: inline-block;
-  transform: rotate(5deg) translateY(0.02em);
 }
 
 .missing-digit {
-  display: block;
   animation: hero-reveal 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.missing-four--left .missing-digit {
-  animation-delay: 0.22s;
-}
-
-.missing-four--right .missing-digit {
-  animation-delay: 0.48s;
-}
-
 .missing-hole {
-  display: block;
-  width: 0.78em;
-  height: 0.86em;
-  margin: 0 -0.04em;
   color: var(--ink);
+  transform-box: fill-box;
+  transform-origin: center;
   animation: missing-hole-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
 }
 
 .missing-http {
-  position: relative;
-  z-index: 1;
-  margin-top: 0.35rem;
-  text-align: center;
-  font-family: var(--font-sketch), "Reenie Beanie", cursive;
-  font-size: 1.55rem;
-  color: var(--color-teal-700);
-  transform: rotate(-2deg);
+  fill: var(--color-teal-700);
 }
 
 .missing-atlas {
@@ -2154,39 +2112,15 @@ body {
 
 @media (min-width: 1024px) {
   .missing-figure {
-    min-height: 22rem;
-  }
-
-  .missing-404 {
-    padding-top: 2.25rem;
+    max-width: 34rem;
+    margin-inline: 0 auto;
   }
 }
 
 @media (max-width: 767.98px) {
   .missing-figure {
-    overflow: hidden;
-  }
-
-  .missing-sketch {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(0.84);
-    transform-origin: center center;
-  }
-
-  .missing-note-end {
-    display: none;
-  }
-
-  .missing-404 {
-    font-size: clamp(4.5rem, 22vw, 6.75rem);
-    padding-top: 1.75rem;
-    padding-inline: 0.85rem;
-  }
-
-  .missing-http {
-    font-size: 1.35rem;
+    max-width: 22.5rem;
+    margin-top: 0.35rem;
   }
 }
 

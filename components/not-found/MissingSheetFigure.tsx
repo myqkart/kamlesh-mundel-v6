@@ -1,7 +1,6 @@
 /**
- * Decorative 404 mark — a punched hole where the 0 should be,
- * with a wandering ink path that dead-ends on the sheet.
- * Server-rendered; motion is CSS-only.
+ * Decorative 404 mark — a punched hole where the 0 should be.
+ * One SVG so the path, notes, and numerals stay composed as a unit.
  */
 export function MissingSheetFigure() {
   return (
@@ -9,7 +8,9 @@ export function MissingSheetFigure() {
       <svg
         className="missing-sketch"
         fill="none"
-        viewBox="0 0 640 420"
+        overflow="visible"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 520 290"
       >
         <defs>
           <filter id="missing-wobble" x="-8%" y="-8%" width="116%" height="116%">
@@ -23,7 +24,23 @@ export function MissingSheetFigure() {
             <feDisplacementMap
               in="SourceGraphic"
               in2="noise"
-              scale="1.6"
+              scale="1.3"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+          <filter id="hole-wobble" x="-12%" y="-12%" width="124%" height="124%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.06"
+              numOctaves="2"
+              seed="11"
+              result="n"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="n"
+              scale="2.2"
               xChannelSelector="R"
               yChannelSelector="G"
             />
@@ -36,199 +53,199 @@ export function MissingSheetFigure() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          {/* Notebook corner ticks */}
-          <g className="text-teal-900/35">
-            <path d="M28 22 H82 M28 22 V76" strokeWidth="1.2" />
-            <path d="M592 22 H538 M592 22 V76" strokeWidth="1.2" />
-            <path d="M28 392 H82 M28 392 V338" strokeWidth="1.2" />
-            <path d="M592 392 H538 M592 392 V338" strokeWidth="1.2" />
+          <g className="text-teal-900/30">
+            <path d="M58 36 H88 M58 36 V66" strokeWidth="1.15" />
+            <path d="M442 36 H412 M442 36 V66" strokeWidth="1.15" />
+            <path d="M58 254 H88 M58 254 V224" strokeWidth="1.15" />
+            <path d="M442 254 H412 M442 254 V224" strokeWidth="1.15" />
           </g>
 
-          {/* Torn edge — a sheet ripped from the binder */}
-          <path
-            className="ink-draw-slow"
-            d="M18 20 C 24 44, 16 68, 26 92 C 14 116, 28 140, 20 164 C 30 188, 16 212, 24 236 C 14 260, 28 284, 19 308 C 29 332, 15 356, 25 380"
-            pathLength={1}
-            strokeWidth="1.45"
-            strokeOpacity="0.45"
-          />
-
-          {/* Wandering route that never arrives */}
           <path
             className="missing-wander"
-            d="M 64 62 C 104 46, 136 96, 116 132 C 94 168, 62 154, 76 198 C 94 244, 150 228, 176 264 C 210 304, 258 286, 296 312 C 338 340, 390 322, 430 344 C 462 360, 492 340, 516 354"
-            strokeWidth="1.7"
+            d="M 116 64 C 148 40, 162 168, 258 196 C 328 220, 372 182, 408 190"
+            strokeWidth="1.65"
           />
           <path
-            d="M 64 62 m -5 -5 l 10 10 m 0 -10 l -10 10"
+            d="M 116 64 m -5 -5 l 10 10 m 0 -10 l -10 10"
             strokeWidth="1.5"
-            strokeOpacity="0.7"
+            strokeOpacity="0.75"
           />
 
-          {/* Dead-end X */}
           <g className="missing-x">
             <path
               className="ink-draw"
-              d="M 504 340 l 24 24 m 0 -24 l -24 24"
+              d="M 397 179 l 22 22 m 0 -22 l -22 22"
               pathLength={1}
-              strokeWidth="2.2"
-              style={{ animationDelay: "1.4s" }}
+              strokeWidth="2.05"
+              style={{ animationDelay: "1.2s" }}
             />
             <circle
               className="node-pulse"
-              cx="516"
-              cy="352"
-              r="16"
+              cx="408"
+              cy="190"
+              r="13"
               strokeWidth="1.1"
               strokeOpacity="0.4"
             />
           </g>
 
-          {/* Coffee ring — someone looked for this page a while */}
           <ellipse
-            className="ink-draw-slow"
             cx="96"
-            cy="300"
-            rx="38"
-            ry="24"
-            pathLength={1}
-            strokeWidth="1.15"
-            strokeOpacity="0.28"
-            style={{ animationDelay: "0.9s" }}
-          />
-          <ellipse
-            cx="98"
-            cy="302"
-            rx="30"
-            ry="18"
-            strokeWidth="0.9"
+            cy="168"
+            rx="22"
+            ry="13"
+            strokeWidth="1"
             strokeOpacity="0.16"
           />
 
-          {/* Red-pen teacher mark */}
           <path
-            className="missing-note-end ink-draw"
-            d="M 418 56 C 448 48, 488 60, 518 52"
+            className="ink-draw"
+            d="M 358 50 C 386 42, 412 52, 434 44"
             pathLength={1}
             stroke="#c44e48"
-            strokeWidth="1.5"
-            strokeOpacity="0.7"
-            style={{ animationDelay: "1.1s" }}
+            strokeWidth="1.4"
+            strokeOpacity="0.72"
+            style={{ animationDelay: "1s" }}
           />
         </g>
 
         <text
-          x="48"
-          y="52"
+          x="130"
+          y="56"
           fill="currentColor"
-          opacity="0.7"
-          style={{ fontFamily: "var(--font-reenie)", fontSize: "24px" }}
+          opacity="0.72"
+          style={{ fontFamily: "var(--font-reenie)", fontSize: "20px" }}
         >
           you started here
         </text>
         <text
-          className="missing-note-end"
-          x="560"
-          y="50"
+          x="436"
+          y="42"
           fill="#c44e48"
-          opacity="0.8"
+          opacity="0.82"
           textAnchor="end"
-          transform="rotate(-5 560 50)"
-          style={{ fontFamily: "var(--font-reenie)", fontSize: "24px" }}
+          transform="rotate(-4 436 42)"
+          style={{ fontFamily: "var(--font-reenie)", fontSize: "20px" }}
         >
           not in this notebook
         </text>
+
+        <g className="missing-404">
+          <g transform="rotate(-3.2 138 150)">
+            <text
+              className="missing-digit"
+              x="72"
+              y="208"
+              fill="currentColor"
+              style={{
+                animationDelay: "0.22s",
+                fontFamily: "var(--font-display), Caveat, cursive",
+                fontSize: "176px",
+                fontWeight: 600,
+              }}
+            >
+              4
+            </text>
+          </g>
+
+          <g transform="translate(198 46) scale(0.9)">
+            <g className="missing-hole">
+              <g
+                filter="url(#hole-wobble)"
+                stroke="currentColor"
+                strokeLinecap="round"
+              >
+                <path
+                  d="M80 18 C 118 14, 144 42, 150 78 C 158 120, 140 150, 108 160 C 74 170, 36 156, 22 122 C 8 86, 18 44, 48 26 C 60 20, 70 18, 80 18 Z"
+                  fill="currentColor"
+                  fillOpacity="0.16"
+                  strokeWidth="1.8"
+                />
+                <path
+                  className="ink-draw"
+                  d="M78 38 C 108 34, 126 56, 130 84 C 136 116, 118 140, 92 146 C 64 152, 40 136, 34 108 C 28 78, 42 50, 66 42 C 70 40, 74 38, 78 38 Z"
+                  fill="currentColor"
+                  fillOpacity="0.1"
+                  pathLength={1}
+                  strokeWidth="1.35"
+                  strokeOpacity="0.7"
+                />
+                <path d="M42 46 l -8 -6" strokeWidth="1.1" strokeOpacity="0.45" />
+                <path d="M128 52 l 9 -5" strokeWidth="1.1" strokeOpacity="0.4" />
+                <path d="M136 110 l 9 3" strokeWidth="1" strokeOpacity="0.35" />
+              </g>
+              <text
+                x="80"
+                y="96"
+                fill="currentColor"
+                opacity="0.55"
+                textAnchor="middle"
+                style={{ fontFamily: "var(--font-reenie)", fontSize: "42px" }}
+              >
+                ?
+              </text>
+              <g stroke="currentColor" transform="rotate(16 118 146)">
+                <path
+                  d="M106 132 H130 V154 H106 Z"
+                  fill="var(--paper)"
+                  strokeWidth="1.15"
+                  strokeOpacity="0.55"
+                />
+                <path
+                  d="M110 140 H126 M110 146 H120"
+                  strokeWidth="0.9"
+                  strokeOpacity="0.35"
+                />
+              </g>
+            </g>
+          </g>
+
+          <g transform="rotate(2.6 378 150)">
+            <text
+              className="missing-digit"
+              x="322"
+              y="206"
+              fill="currentColor"
+              style={{
+                animationDelay: "0.48s",
+                fontFamily: "var(--font-display), Caveat, cursive",
+                fontSize: "176px",
+                fontWeight: 600,
+              }}
+            >
+              4
+            </text>
+          </g>
+        </g>
+
+        <g transform="rotate(-1 270 226)">
+          <text
+            className="missing-http hero-reveal"
+            x="270"
+            y="226"
+            fill="currentColor"
+            opacity="0.82"
+            textAnchor="middle"
+            style={{
+              animationDelay: "700ms",
+              fontFamily: "var(--font-reenie)",
+              fontSize: "21px",
+            }}
+          >
+            HTTP · 404 · sheet missing
+          </text>
+        </g>
         <text
-          className="missing-note-end"
-          x="560"
-          y="390"
+          x="430"
+          y="244"
           fill="currentColor"
-          opacity="0.7"
+          opacity="0.72"
           textAnchor="end"
-          style={{ fontFamily: "var(--font-reenie)", fontSize: "20px" }}
+          style={{ fontFamily: "var(--font-reenie)", fontSize: "18px" }}
         >
           dead end — try the index
         </text>
       </svg>
-
-      <div className="missing-404">
-        <span className="missing-four missing-four--left">
-          <span className="missing-digit">4</span>
-        </span>
-        <span className="missing-hole">
-          <svg fill="none" viewBox="0 0 160 170">
-            <defs>
-              <filter id="hole-wobble" x="-12%" y="-12%" width="124%" height="124%">
-                <feTurbulence
-                  type="fractalNoise"
-                  baseFrequency="0.06"
-                  numOctaves="2"
-                  seed="11"
-                  result="n"
-                />
-                <feDisplacementMap
-                  in="SourceGraphic"
-                  in2="n"
-                  scale="2.2"
-                  xChannelSelector="R"
-                  yChannelSelector="G"
-                />
-              </filter>
-            </defs>
-            <g filter="url(#hole-wobble)" stroke="currentColor" strokeLinecap="round">
-              {/* Void — the missing 0 */}
-              <path
-                d="M80 18 C 118 14, 144 42, 150 78 C 158 120, 140 150, 108 160 C 74 170, 36 156, 22 122 C 8 86, 18 44, 48 26 C 60 20, 70 18, 80 18 Z"
-                fill="rgb(13 92 99 / 0.16)"
-                strokeWidth="1.8"
-              />
-              <path
-                className="ink-draw"
-                d="M78 38 C 108 34, 126 56, 130 84 C 136 116, 118 140, 92 146 C 64 152, 40 136, 34 108 C 28 78, 42 50, 66 42 C 70 40, 74 38, 78 38 Z"
-                fill="rgb(13 92 99 / 0.1)"
-                pathLength={1}
-                strokeWidth="1.35"
-                strokeOpacity="0.7"
-              />
-              {/* Paper fibers on the tear */}
-              <path d="M42 46 l -10 -8" strokeWidth="1.1" strokeOpacity="0.45" />
-              <path d="M128 52 l 11 -7" strokeWidth="1.1" strokeOpacity="0.4" />
-              <path d="M138 110 l 12 4" strokeWidth="1" strokeOpacity="0.35" />
-              <path d="M36 128 l -9 8" strokeWidth="1" strokeOpacity="0.4" />
-              <path d="M70 164 l 2 10" strokeWidth="1" strokeOpacity="0.35" />
-            </g>
-            <text
-              x="80"
-              y="96"
-              textAnchor="middle"
-              fill="currentColor"
-              opacity="0.55"
-              style={{ fontFamily: "var(--font-reenie)", fontSize: "42px" }}
-            >
-              ?
-            </text>
-            {/* Scrap that fell through the hole */}
-            <g stroke="currentColor" transform="rotate(18 118 148)">
-              <path
-                d="M104 132 H132 V158 H104 Z"
-                fill="var(--paper)"
-                strokeWidth="1.15"
-                strokeOpacity="0.55"
-              />
-              <path d="M108 140 H128 M108 146 H122" strokeWidth="0.9" strokeOpacity="0.35" />
-            </g>
-          </svg>
-        </span>
-        <span className="missing-four missing-four--right">
-          <span className="missing-digit">4</span>
-        </span>
-      </div>
-
-      <p className="missing-http">
-        <span className="hero-reveal" style={{ animationDelay: "700ms" }}>
-          HTTP · 404 · sheet missing
-        </span>
-      </p>
     </div>
   );
 }

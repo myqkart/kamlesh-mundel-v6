@@ -111,7 +111,7 @@ export default function NotFound() {
             <span>missing sheet</span>
           </p>
 
-          <div className="mt-8 grid items-center gap-10 lg:grid-cols-12 lg:gap-6 lg:mt-10">
+          <div className="mt-8 grid items-start gap-8 lg:grid-cols-12 lg:gap-x-5 lg:gap-y-4 lg:mt-8">
             <header className="max-w-[36rem] lg:col-span-5">
               <p
                 className="hero-reveal font-sketch -rotate-2 text-[1.75rem] leading-none text-teal-700 md:text-[1.95rem]"
@@ -160,7 +160,7 @@ export default function NotFound() {
               </div>
             </header>
 
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 lg:pt-1">
               <MissingSheetFigure />
             </div>
           </div>
