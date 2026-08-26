@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Caveat, Kalam, Reenie_Beanie } from "next/font/google";
+import { HighlighterDrawer } from "@/components/sketch/HighlighterDrawer";
+import { SketchCursor } from "@/components/sketch/SketchCursor";
+import { SketchHighlighter } from "@/components/sketch/SketchHighlighter";
 import { SplashScreen } from "@/components/splash/SplashScreen";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -92,6 +95,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-off-white text-teal-900">
         <SplashScreen />
         {children}
+        <HighlighterDrawer />
+        <SketchHighlighter />
+        <SketchCursor />
       </body>
     </html>
   );
