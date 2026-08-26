@@ -209,6 +209,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ):not(.is-visible)
     .cred-write {
@@ -225,6 +226,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-write {
@@ -241,6 +243,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ):not(.is-visible)
     .cred-ink {
@@ -258,6 +261,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-ink {
@@ -276,6 +280,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ):not(.is-visible)
     .cred-node {
@@ -293,6 +298,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-node {
@@ -1423,6 +1429,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-write,
@@ -1436,6 +1443,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-ink,
@@ -1449,6 +1457,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-node,
@@ -1479,6 +1488,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     )
     .cred-ink,
@@ -1492,6 +1502,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-ink,
@@ -1515,6 +1526,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ):not(.is-visible)
     .cred-write,
@@ -1528,6 +1540,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-write,
@@ -1541,6 +1554,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ):not(.is-visible)
     .cred-node,
@@ -1554,6 +1568,7 @@ body {
       .experience-ready,
       .expertise-ready,
       .impact-ready,
+      .faq-ready,
       .contact-ready
     ).is-visible
     .cred-node,
@@ -1639,6 +1654,96 @@ body {
   .hero-sketch-scroll {
     transition: none;
     transform: none;
+  }
+}
+
+/* ── FAQ — sketch interview dialogue ── */
+.faq-dialogue {
+  position: relative;
+  transition: opacity 0.4s ease;
+}
+
+.faq-dialogue:not(.is-active) {
+  opacity: 0.78;
+}
+
+.faq-dialogue.is-active {
+  opacity: 1;
+}
+
+.faq-q-plate,
+.faq-a-plate {
+  position: relative;
+  display: block;
+  padding: 1.25rem 1.35rem 1.35rem;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease;
+}
+
+.faq-a-plate {
+  cursor: default;
+  opacity: 0.88;
+  background: rgb(120 205 215 / 0.08);
+}
+
+.faq-a-plate.is-active {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.faq-q-plate:hover,
+.faq-q-plate:focus-visible {
+  transform: translateY(-3px) rotate(0deg);
+}
+
+.faq-q-plate:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 8px;
+}
+
+.faq-tape {
+  border-radius: 1px;
+  box-shadow: 0 1px 0 rgb(13 92 99 / 0.1);
+}
+
+.faq-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .faq-ready:not(.is-visible) .faq-line,
+  .faq-ready:not(.is-visible) .cred-ink {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .faq-ready.is-visible .faq-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-dialogue,
+  .faq-dialogue:not(.is-active),
+  .faq-dialogue.is-active,
+  .faq-q-plate,
+  .faq-a-plate {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .faq-line {
+    stroke-dashoffset: 0;
+    animation: none;
   }
 }
 
@@ -2102,6 +2207,16 @@ html.splash-locked .cta-line {
   /* Impact panes breathe on narrow screens */
   .impact-pane {
     padding: 1rem 1.05rem;
+  }
+
+  /* FAQ dialogue notes */
+  .faq-q-plate,
+  .faq-a-plate {
+    padding: 1.1rem 1.15rem 1.2rem;
+  }
+
+  .faq-dialogue {
+    max-width: 100%;
   }
 
   /* Contact — 16px inputs prevent iOS zoom; safe tap area */
