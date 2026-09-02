@@ -2,6 +2,7 @@ import { projects } from "@/data/projects";
 import { expertiseTechnologies } from "@/data/technical-expertise";
 import { experienceRoles } from "@/data/experience";
 import { siteFaqs, homeSeoParagraph } from "@/data/seo";
+import { getPublishedPosts } from "@/lib/blog";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 /**
@@ -39,12 +40,23 @@ export function buildLlmsTxt(): string {
         `- [${p.title}](${absoluteUrl(`/work/${p.slug}`)}): ${p.description} Stack: ${p.technologies.join(", ")}.`,
     ),
     "",
+    "## Blog",
+    "",
+    ...getPublishedPosts().map(
+      (post) =>
+        `- [${post.title}](${absoluteUrl(`/blog/${post.slug}`)}): ${post.description}`,
+    ),
+    "",
     "## Pages",
     "",
     `- [Home](${absoluteUrl("/")}): portfolio overview, work, experience, impact, contact`,
     `- [Expertise](${absoluteUrl("/expertise")}): technical stack by category`,
+    `- [Blog](${absoluteUrl("/blog")}): technical articles and production notes`,
     ...projects.map(
       (p) => `- [${p.title} case study](${absoluteUrl(`/work/${p.slug}`)})`,
+    ),
+    ...getPublishedPosts().map(
+      (post) => `- [${post.title}](${absoluteUrl(`/blog/${post.slug}`)})`,
     ),
     "",
     "## FAQ",

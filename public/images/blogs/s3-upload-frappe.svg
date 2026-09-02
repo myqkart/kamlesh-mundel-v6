@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="S3 upload with Frappe">
+  <rect width="1200" height="630" fill="#faf7ef"/>
+  <rect x="80" y="80" width="1040" height="470" rx="12" fill="none" stroke="#0d5c63" stroke-width="3"/>
+  <text x="120" y="160" fill="#0d5c63" font-family="Georgia, serif" font-size="48">S3 Upload with Frappe</text>
+  <rect x="200" y="260" width="280" height="160" rx="8" fill="#78cdd7" opacity="0.4"/>
+  <rect x="520" y="260" width="280" height="160" rx="8" fill="#44a1a0" opacity="0.4"/>
+  <rect x="840" y="260" width="120" height="160" rx="8" fill="#247b7b" opacity="0.4"/>
+  <text x="260" y="350" fill="#0d5c63" font-family="Georgia, serif" font-size="24">Frappe</text>
+  <text x="580" y="350" fill="#0d5c63" font-family="Georgia, serif" font-size="24">boto3</text>
+  <text x="860" y="350" fill="#0d5c63" font-family="Georgia, serif" font-size="24">S3</text>
+</svg>

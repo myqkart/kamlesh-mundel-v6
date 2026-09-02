@@ -2,6 +2,7 @@ import { contactInfo } from "@/data/contact";
 import { projects } from "@/data/projects";
 import { siteFaqs } from "@/data/seo";
 import { expertiseTechnologies } from "@/data/technical-expertise";
+import type { BlogPost } from "@/lib/blog";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 function jsonLd(data: Record<string, unknown> | Record<string, unknown>[]) {
@@ -156,6 +157,38 @@ export function BreadcrumbJsonLd({
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  });
+}
+
+export function BlogPostingJsonLd({ post }: { post: BlogPost }) {
+  const url = absoluteUrl(`/blog/${post.slug}`);
+
+  return jsonLd({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    image: absoluteUrl(post.cover),
+    author: {
+      "@type": "Person",
+      name: post.author,
+      url: absoluteUrl("/"),
+    },
+    datePublished: post.date,
+    dateModified: post.updated,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    publisher: {
+      "@type": "Person",
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
+    },
+    url,
+    inLanguage: siteConfig.language,
+    keywords: post.tags.join(", "),
+    articleSection: post.category,
   });
 }
 
