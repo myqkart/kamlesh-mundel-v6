@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { expertiseCategories } from "@/data/technical-expertise";
+import { getCategories, getPublishedPosts, getTags } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -17,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteUrl("/expertise"),
       lastModified: now,
       changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: absoluteUrl("/blog"),
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
   ];
@@ -37,5 +44,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...workRoutes, ...expertiseRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
+    url: absoluteUrl(`/blog/${post.slug}`),
+    lastModified: new Date(`${post.updated}T00:00:00.000Z`),
+    changeFrequency: "monthly",
+    priority: post.featured ? 0.85 : 0.8,
+  }));
+
+  const categoryRoutes: MetadataRoute.Sitemap = getCategories().map((category) => ({
+    url: absoluteUrl(`/category/${category.slug}`),
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.65,
+  }));
+
+  const tagRoutes: MetadataRoute.Sitemap = getTags().map((tag) => ({
+    url: absoluteUrl(`/tag/${tag.slug}`),
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...workRoutes,
+    ...expertiseRoutes,
+    ...blogRoutes,
+    ...categoryRoutes,
+    ...tagRoutes,
+  ];
 }

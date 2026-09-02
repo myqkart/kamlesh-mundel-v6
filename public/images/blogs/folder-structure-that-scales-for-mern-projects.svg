@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Scalable MERN folder structure">
+  <rect width="1200" height="630" fill="#faf7ef"/>
+  <rect x="80" y="80" width="1040" height="470" rx="12" fill="none" stroke="#0d5c63" stroke-width="3"/>
+  <text x="120" y="155" fill="#0d5c63" font-family="Georgia, serif" font-size="42">MERN Folder Structure</text>
+  <g stroke="#0d5c63" stroke-linecap="round" fill="none">
+    <rect x="140" y="200" width="140" height="90" rx="6" stroke-width="1.8" opacity="0.7"/>
+    <rect x="310" y="200" width="140" height="90" rx="6" stroke-width="1.8" opacity="0.7"/>
+    <rect x="480" y="200" width="140" height="90" rx="6" stroke-width="1.8" opacity="0.7"/>
+    <rect x="650" y="200" width="140" height="90" rx="6" stroke-width="1.8" opacity="0.7"/>
+    <text x="175" y="252" fill="#0d5c63" font-family="Georgia, serif" font-size="20">client</text>
+    <text x="345" y="252" fill="#0d5c63" font-family="Georgia, serif" font-size="20">server</text>
+    <text x="515" y="252" fill="#0d5c63" font-family="Georgia, serif" font-size="20">shared</text>
+    <text x="690" y="252" fill="#0d5c63" font-family="Georgia, serif" font-size="20">docs</text>
+    <path d="M210 290 V340 M380 290 V340 M550 290 V340 M720 290 V340" stroke-width="1.4" opacity="0.5"/>
+    <rect x="200" y="350" width="520" height="120" rx="8" stroke-width="1.6" fill="#78cdd7" opacity="0.25"/>
+    <text x="230" y="395" fill="#0d5c63" font-family="Georgia, serif" font-size="22">modules / features / services</text>
+    <text x="230" y="430" fill="#247b7b" font-family="Georgia, serif" font-size="18">feature-driven architecture</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Pull request review workflow">
+  <rect width="1200" height="630" fill="#faf7ef"/>
+  <rect x="80" y="80" width="1040" height="470" rx="12" fill="none" stroke="#0d5c63" stroke-width="3"/>
+  <text x="120" y="160" fill="#0d5c63" font-family="Georgia, serif" font-size="48">PR Review Workflow</text>
+  <line x1="120" y1="280" x2="1080" y2="280" stroke="#247b7b" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="200" cy="380" r="50" fill="#78cdd7" opacity="0.6"/>
+  <circle cx="500" cy="380" r="50" fill="#44a1a0" opacity="0.6"/>
+  <circle cx="800" cy="380" r="50" fill="#247b7b" opacity="0.6"/>
+  <text x="165" y="390" fill="#0d5c63" font-family="Georgia, serif" font-size="20">Open</text>
+  <text x="455" y="390" fill="#0d5c63" font-family="Georgia, serif" font-size="20">Review</text>
+  <text x="745" y="390" fill="#0d5c63" font-family="Georgia, serif" font-size="20">Merge</text>
+</svg>

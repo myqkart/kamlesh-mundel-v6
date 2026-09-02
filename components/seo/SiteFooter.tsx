@@ -40,6 +40,7 @@ export function SiteFooter() {
             {[
               ["About", "/#about"],
               ["Work", "/#work"],
+              ["Blog", "/blog"],
               ["Experience", "/#experience"],
               ["Expertise", "/expertise"],
               ["Impact", "/#impact"],
